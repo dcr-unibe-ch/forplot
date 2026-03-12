@@ -10,14 +10,14 @@ A package to generate forest plots.
 `forplot` can be installed via the R universe:
 
 ``` r
-install.packages('forplot', repos = c('https://ctu-bern.r-universe.dev', 'https://cloud.r-project.org'))
+install.packages('forplot', repos = c('https://dcr-unibe-ch.r-universe.dev', 'https://cloud.r-project.org'))
 ```
 
 or from github:
 
 ``` r
 # install.packages("remotes")
-remotes::install_github("CTU-Bern/forplot")
+remotes::install_github("dcr-unibe-ch/forplot")
 ```
 
 ## Usage
