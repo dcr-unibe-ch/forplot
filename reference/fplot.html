@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">forplot</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.0.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.1</span>
       </span>
     </div>
 
@@ -74,6 +74,9 @@
 <span>  xlab <span class="op">=</span> <span class="cn">NA</span>,</span>
 <span>  xlab_text <span class="op">=</span> <span class="cn">NA</span>,</span>
 <span>  xlim <span class="op">=</span> <span class="cn">NA</span>,</span>
+<span>  plab <span class="op">=</span> <span class="cn">NA</span>,</span>
+<span>  plab_text <span class="op">=</span> <span class="cn">NA</span>,</span>
+<span>  plim <span class="op">=</span> <span class="cn">NA</span>,</span>
 <span>  xlab_cex <span class="op">=</span> <span class="fl">0.6</span>,</span>
 <span>  xlab_line <span class="op">=</span> <span class="fl">0</span>,</span>
 <span>  tck <span class="op">=</span> <span class="op">-</span><span class="fl">0.04</span>,</span>
@@ -83,16 +86,19 @@
 <span>  pcol <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/grDevices/rgb.html" class="external-link">rgb</a></span><span class="op">(</span><span class="fl">0.1</span>, <span class="fl">0.1</span>, <span class="fl">0.1</span>, <span class="fl">0.2</span><span class="op">)</span>,</span>
 <span>  lscale <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  ps <span class="op">=</span> <span class="cn">NA</span>,</span>
+<span>  prps <span class="op">=</span> <span class="cn">NA</span>,</span>
 <span>  header <span class="op">=</span> <span class="cn">NA</span>,</span>
 <span>  ref <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>x <span class="op">=</span> <span class="cn">NA</span>, extend <span class="op">=</span> <span class="fl">0</span>, lty <span class="op">=</span> <span class="fl">2</span>, col <span class="op">=</span> <span class="st">"grey50"</span>, lwd <span class="op">=</span> <span class="va">lwd</span><span class="op">)</span>,</span>
 <span>  bottomline <span class="op">=</span> <span class="cn">NA</span>,</span>
 <span>  headline <span class="op">=</span> <span class="cn">NA</span>,</span>
 <span>  headline_pos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span>,</span>
+<span>  sideline <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  beta2 <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  xlab2 <span class="op">=</span> <span class="cn">NA</span>,</span>
 <span>  xlab_text2 <span class="op">=</span> <span class="cn">NA</span>,</span>
 <span>  xlim2 <span class="op">=</span> <span class="cn">NA</span>,</span>
 <span>  xtitle2 <span class="op">=</span> <span class="cn">NA</span>,</span>
+<span>  sorder <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  <span class="va">...</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
@@ -106,7 +112,8 @@
 vlabel (labels), nx with x=1,2,... (num or chr columns with strings, e.g. number of observations or descriptives),
 beta, beta_lci, beta_uci (num columns with point estimates and confidence interval)
 optionally beta_format (num or chr column with formatted text to be printed along forest, generated from beta if not given)
-px with x=1,2,.. (num or chr columns with p-value(s))</p></dd>
+px with x=1,2,.. (num or chr columns with p-value(s))
+propx with x=1,2,.. (num columns with proportion in the groups, generates simple scatter plot)</p></dd>
 
 
 <dt id="arg-nrows">nrows<a class="anchor" aria-label="anchor" href="#arg-nrows"></a></dt>
@@ -185,6 +192,18 @@ px with x=1,2,.. (num or chr columns with p-value(s))</p></dd>
 <dd><p>limits for x-axis in forest plots, derived from beta by default</p></dd>
 
 
+<dt id="arg-plab">plab<a class="anchor" aria-label="anchor" href="#arg-plab"></a></dt>
+<dd><p>position of labels for x-axis of the proportion scatterplot (if any), pretty(plim) by default</p></dd>
+
+
+<dt id="arg-plab-text">plab_text<a class="anchor" aria-label="anchor" href="#arg-plab-text"></a></dt>
+<dd><p>text at the labels, 100*plab by default (percentages from proportion)</p></dd>
+
+
+<dt id="arg-plim">plim<a class="anchor" aria-label="anchor" href="#arg-plim"></a></dt>
+<dd><p>limits for x-axis of the proportion scatterplot (if any), c(0,1) by default</p></dd>
+
+
 <dt id="arg-xlab-cex">xlab_cex<a class="anchor" aria-label="anchor" href="#arg-xlab-cex"></a></dt>
 <dd><p>size of x-axis labels (not title)</p></dd>
 
@@ -222,9 +241,13 @@ list with x (xpos), y (ypos), textr and textl (text at the right/left side), cex
 <dd><p>points for plot, list with pch, cex, and col</p></dd>
 
 
+<dt id="arg-prps">prps<a class="anchor" aria-label="anchor" href="#arg-prps"></a></dt>
+<dd><p>points for proportion scatterplot, list with pch, cex, and col</p></dd>
+
+
 <dt id="arg-header">header<a class="anchor" aria-label="anchor" href="#arg-header"></a></dt>
 <dd><p>for table, either a character vector or a list with any of
-x (vector with xpos), y (single y-position), text (character vector with labels), cex (text size),
+x (vector with xpos), y (single y-position), text (character vector with labels), cex (text size), col (text colour),
 the list can be &gt;1 to define more than one header line</p></dd>
 
 
@@ -242,6 +265,10 @@ the list can be &gt;1 to define more than one header line</p></dd>
 
 <dt id="arg-headline-pos">headline_pos<a class="anchor" aria-label="anchor" href="#arg-headline-pos"></a></dt>
 <dd><p>vector with position of lower and upper headline (if applicable), default c(0,1)</p></dd>
+
+
+<dt id="arg-sideline">sideline<a class="anchor" aria-label="anchor" href="#arg-sideline"></a></dt>
+<dd><p>logical, whether to show lines at the side of the proportion scatterplot</p></dd>
 
 
 <dt id="arg-beta-">beta2<a class="anchor" aria-label="anchor" href="#arg-beta-"></a></dt>
@@ -262,6 +289,10 @@ the list can be &gt;1 to define more than one header line</p></dd>
 
 <dt id="arg-xtitle-">xtitle2<a class="anchor" aria-label="anchor" href="#arg-xtitle-"></a></dt>
 <dd><p>see xtitle for 2nd forest</p></dd>
+
+
+<dt id="arg-sorder">sorder<a class="anchor" aria-label="anchor" href="#arg-sorder"></a></dt>
+<dd><p>logical, whether standard ordering of columns  should  be used</p></dd>
 
 
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
@@ -295,7 +326,7 @@ the list can be &gt;1 to define more than one header line</p></dd>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Include header:</span></span></span>
-<span class="r-in"><span><span class="va">header</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">""</span>,<span class="st">"Group1\nN"</span>,<span class="st">"Group0\nmean (sd)"</span>,<span class="st">"Group2\nN"</span>,<span class="st">"Group2\nmean (sd)"</span>,</span></span>
+<span class="r-in"><span><span class="va">header</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">""</span>,<span class="st">"Group1\nN"</span>,<span class="st">"Group1\nmean (sd)"</span>,<span class="st">"Group2\nN"</span>,<span class="st">"Group2\nmean (sd)"</span>,</span></span>
 <span class="r-in"><span><span class="st">"Mean difference\n95% CI"</span>,<span class="st">""</span>,<span class="st">"P-value"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">fplot</span><span class="op">(</span>dat<span class="op">=</span><span class="va">forplotdata</span>,lwidths<span class="op">=</span><span class="va">lwidths</span>,lheights<span class="op">=</span><span class="va">lheights</span>,header<span class="op">=</span><span class="va">header</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="fplot-3.png" alt="" width="700" height="433"></span>
@@ -328,8 +359,30 @@ the list can be &gt;1 to define more than one header line</p></dd>
 <span class="r-in"><span>  headline<span class="op">=</span><span class="fl">2</span>,bottomline<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="fplot-7.png" alt="" width="700" height="433"></span>
 <span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">#Add a scatterplot for proportions </span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">forplotdata</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">lwidths</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.05</span>,<span class="fl">0.5</span>,<span class="fl">0.2</span>,<span class="fl">0.6</span>,<span class="fl">0.2</span>,<span class="fl">0.6</span>,<span class="fl">1.0</span>,<span class="fl">1.2</span>,<span class="fl">1.0</span>,<span class="fl">0.5</span>,<span class="fl">0.05</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">lheights</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.08</span>,<span class="fl">1</span>,<span class="fl">0.04</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">header</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>y<span class="op">=</span><span class="fl">0.7</span>,</span></span>
+<span class="r-in"><span>  text<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Group1"</span>,<span class="st">"Group2"</span>,<span class="st">"Proportions (%)"</span>,<span class="st">"Risk difference in %"</span>,<span class="st">"P-value"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  x<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.10</span>,<span class="fl">0.25</span>,<span class="fl">0.45</span>,<span class="fl">0.7</span>,<span class="fl">0.98</span><span class="op">)</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>y<span class="op">=</span><span class="fl">0.3</span>,text<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"N"</span>,<span class="st">"n (%)"</span>,<span class="st">"N"</span>,<span class="st">"n (%)"</span>,<span class="st">"(1: red, 2: blue)"</span>, <span class="st">"(95% CI)"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  x<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.07</span>,<span class="fl">0.15</span>,<span class="fl">0.22</span>,<span class="fl">0.30</span>,<span class="fl">0.45</span>,<span class="fl">0.7</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span> <span class="va">xtitle</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>x<span class="op">=</span><span class="fl">0.83</span>,y<span class="op">=</span><span class="fl">0.4</span>,textl<span class="op">=</span><span class="st">"Group 1 better  "</span>,textr<span class="op">=</span><span class="st">"  Group 2 better"</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">prps</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>pch<span class="op">=</span><span class="fl">16</span>,cex<span class="op">=</span><span class="fl">1.5</span>,col<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/grDevices/rgb.html" class="external-link">rgb</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">0.5</span><span class="op">)</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>            <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>pch<span class="op">=</span><span class="fl">16</span>,cex<span class="op">=</span><span class="fl">1.5</span>,col<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/grDevices/rgb.html" class="external-link">rgb</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">1</span>,<span class="fl">0.5</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span>    </span></span>
+<span class="r-in"><span><span class="fu">fplot</span><span class="op">(</span>dat<span class="op">=</span><span class="va">forplotdata_prop</span>,lwidths<span class="op">=</span><span class="va">lwidths</span>,lheights<span class="op">=</span><span class="va">lheights</span>,</span></span>
+<span class="r-in"><span>  header<span class="op">=</span><span class="va">header</span>,</span></span>
+<span class="r-in"><span>  prps<span class="op">=</span><span class="va">prps</span>,</span></span>
+<span class="r-in"><span>  xtitle<span class="op">=</span><span class="va">xtitle</span>,ref<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>x<span class="op">=</span><span class="fl">0</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  xlab_line<span class="op">=</span><span class="op">-</span><span class="fl">1.0</span>,xlab<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">0.2</span>,<span class="fl">0</span>,<span class="fl">0.2</span>,<span class="fl">0.4</span><span class="op">)</span>, xlab_text<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">20</span>,<span class="fl">0</span>,<span class="fl">20</span>,<span class="fl">40</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  headline<span class="op">=</span><span class="fl">2</span>,bottomline<span class="op">=</span><span class="fl">1</span>,sideline<span class="op">=</span><span class="cn">TRUE</span>,</span></span>
+<span class="r-in"><span>  shift_ymin<span class="op">=</span><span class="fl">0.5</span>, shift_xaxis<span class="op">=</span><span class="fl">0.5</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="fplot-8.png" alt="" width="700" height="433"></span>
+<span class="r-in"><span></span></span>
+<span class="r-plt img"><img src="fplot-9.png" alt="" width="700" height="433"></span>
 </code></pre></div>
     </div>
   </div>
