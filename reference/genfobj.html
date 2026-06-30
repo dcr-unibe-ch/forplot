@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">forplot</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.1</span>
       </span>
     </div>
 
@@ -56,9 +56,9 @@
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">genfobj</span><span class="op">(</span></span>
 <span>  <span class="va">layout</span>,</span>
 <span>  <span class="va">dat</span>,</span>
-<span>  bpdat <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  obs <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  lwidths <span class="op">=</span> <span class="cn">NA</span>,</span>
-<span>  lheights <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.1</span>, <span class="fl">1</span>, <span class="fl">0.1</span><span class="op">)</span>,</span>
+<span>  lheights <span class="op">=</span> <span class="cn">NA</span>,</span>
 <span>  y.at <span class="op">=</span> <span class="cn">NA</span>,</span>
 <span>  ylim <span class="op">=</span> <span class="cn">NA</span></span>
 <span><span class="op">)</span></span></code></pre></div>
@@ -76,8 +76,9 @@
 <dd><p>data frame that should be plotted</p></dd>
 
 
-<dt id="arg-bpdat">bpdat<a class="anchor" aria-label="anchor" href="#arg-bpdat"></a></dt>
-<dd><p>Optional raw data for the boxplot. Required of layout includes 'b'.</p></dd>
+<dt id="arg-obs">obs<a class="anchor" aria-label="anchor" href="#arg-obs"></a></dt>
+<dd><p>Optional data frame with the observations for the boxplot.
+Required of layout includes 'b'.</p></dd>
 
 
 <dt id="arg-lwidths">lwidths<a class="anchor" aria-label="anchor" href="#arg-lwidths"></a></dt>
