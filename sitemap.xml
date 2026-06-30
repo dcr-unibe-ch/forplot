@@ -5,10 +5,27 @@
 <url><loc>/authors.html</loc></url>
 <url><loc>/index.html</loc></url>
 <url><loc>/news/index.html</loc></url>
+<url><loc>/reference/b_axis.html</loc></url>
+<url><loc>/reference/b_boxplot.html</loc></url>
+<url><loc>/reference/f_arrows.html</loc></url>
+<url><loc>/reference/f_axis.html</loc></url>
+<url><loc>/reference/f_direction.html</loc></url>
+<url><loc>/reference/f_points.html</loc></url>
+<url><loc>/reference/f_refline.html</loc></url>
 <url><loc>/reference/forplotdata.html</loc></url>
 <url><loc>/reference/forplotdata_bp.html</loc></url>
 <url><loc>/reference/forplotdata_prop.html</loc></url>
 <url><loc>/reference/fplot.html</loc></url>
+<url><loc>/reference/genfobj.html</loc></url>
+<url><loc>/reference/gridlines.html</loc></url>
+<url><loc>/reference/header.html</loc></url>
 <url><loc>/reference/index.html</loc></url>
+<url><loc>/reference/plotfobj.html</loc></url>
+<url><loc>/reference/s_axis.html</loc></url>
+<url><loc>/reference/s_borders.html</loc></url>
+<url><loc>/reference/s_hline.html</loc></url>
+<url><loc>/reference/s_points.html</loc></url>
+<url><loc>/reference/stripes.html</loc></url>
+<url><loc>/reference/t_options.html</loc></url>
 </urlset>
 
