@@ -18,7 +18,7 @@ Passed to lines."><!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">forplot</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.3.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.4.0</span>
       </span>
     </div>
 
@@ -55,7 +55,7 @@ Passed to <code><a href="https://rdrr.io/r/graphics/lines.html" class="external-
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">f_refline</span><span class="op">(</span><span class="va">fobj</span>, item <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">f_refline</span><span class="op">(</span><span class="va">fobj</span>, item <span class="op">=</span> <span class="cn">NULL</span>, linenr <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -69,6 +69,11 @@ Passed to <code><a href="https://rdrr.io/r/graphics/lines.html" class="external-
 <dt id="arg-item">item<a class="anchor" aria-label="anchor" href="#arg-item"></a></dt>
 <dd><p>item to be modified, either a number or the name of the column in fobj$dat.
 If NULL (the default), all items of type 'f' are affected</p></dd>
+
+
+<dt id="arg-linenr">linenr<a class="anchor" aria-label="anchor" href="#arg-linenr"></a></dt>
+<dd><p>line to be modified if there is more than 1.
+If NULL (the default), all lines are affected.</p></dd>
 
 
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
