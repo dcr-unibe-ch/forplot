@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">forplot</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">3.0.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">3.0.1</span>
       </span>
     </div>
 
@@ -680,13 +680,13 @@
 <span><span class="co">#&gt; [1] 0.200 0.200 1.000 0.200 0.200 1.000 0.200 0.028</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $iheadfoot</span></span>
-<span><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
+<span><span class="co">#&gt; [1] TRUE TRUE</span></span></code></pre></div>
 <p>The <strong>cfobj</strong> can be plotted using the same plot function:</p>
 <div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">#plot list:</span></span>
 <span><span class="fu"><a href="reference/plotfobj.html">plotfobj</a></span><span class="op">(</span>fobj <span class="op">=</span> <span class="va">cfobj</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-33-1.png"><!-- --></p>
-<p>Combining plots can also be used to get different scaling for the plots of the individual variables. Assume we would like to present a number of differently scaled continuous variables with boxplots and densities:</p>
+<p>Combining plots can also be used to get different scaling for the plots of the individual variables. Assume we would like to present a number of differently scaled continuous variables with boxplots and densities. Note that we removed the headers of the indiviual fobj but kept the footer (to have space for the axes) by setting <em>ikeepheadfoot</em> to c(FALSE, TRUE).</p>
 <div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span></span>
 <span></span>
@@ -715,8 +715,9 @@
 <span>    <span class="va">fobji</span><span class="op">&lt;-</span><span class="fu"><a href="reference/d_axis.html">d_axis</a></span><span class="op">(</span><span class="va">fobji</span>, cex.axis<span class="op">=</span><span class="fl">0.8</span>, mgp<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0.3</span>,<span class="fl">0</span><span class="op">)</span>, tck<span class="op">=</span><span class="op">-</span><span class="fl">0.1</span><span class="op">)</span></span>
 <span>    </span>
 <span>    <span class="co">#remove individual headers</span></span>
-<span>    <span class="va">fobji</span><span class="op">$</span><span class="va">header</span><span class="op">&lt;-</span><span class="cn">NULL</span></span>
-<span>        </span>
+<span>    <span class="co">#fobji$header&lt;-NULL</span></span>
+<span>    </span>
+<span>    <span class="co">#gridlines on first and last fobj</span></span>
 <span>    <span class="kw">if</span> <span class="op">(</span><span class="va">i</span><span class="op">==</span><span class="fl">1</span><span class="op">)</span> <span class="op">{</span></span>
 <span>        <span class="va">fobji</span><span class="op">&lt;-</span><span class="fu"><a href="reference/gridlines.html">gridlines</a></span><span class="op">(</span><span class="va">fobji</span>, h<span class="op">=</span><span class="va">fobji</span><span class="op">$</span><span class="va">setup</span><span class="op">$</span><span class="va">ylim</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span><span class="op">)</span></span>
 <span>    <span class="op">}</span></span>
@@ -731,7 +732,7 @@
 <span><span class="va">cfobj</span><span class="op">&lt;-</span><span class="fu"><a href="reference/combinefobj.html">combinefobj</a></span><span class="op">(</span><span class="va">fobj</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co">#combine and add overall header</span></span>
-<span><span class="va">cfobj</span><span class="op">&lt;-</span><span class="fu"><a href="reference/combinefobj.html">combinefobj</a></span><span class="op">(</span><span class="va">fobj</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span><span class="va">cfobj</span><span class="op">&lt;-</span><span class="fu"><a href="reference/combinefobj.html">combinefobj</a></span><span class="op">(</span><span class="va">fobj</span>, keepiheadfoot <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="cn">FALSE</span>, <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="reference/header.html">header</a></span><span class="op">(</span>hlayout <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">2</span>,<span class="fl">3</span>,<span class="fl">3</span>,<span class="fl">4</span>,<span class="fl">5</span>,<span class="fl">6</span><span class="op">)</span>, headernr <span class="op">=</span> <span class="fl">1</span>,</span>
 <span>        labels<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">""</span>,<span class="st">"Arm A"</span>,<span class="st">"Arm B"</span>,<span class="st">"Boxplot"</span>,<span class="st">""</span>,<span class="st">"Density"</span><span class="op">)</span>,</span>
 <span>        col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="st">"red"</span>,<span class="st">"blue"</span>,<span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span>, y <span class="op">=</span> <span class="fl">0.9</span><span class="op">)</span> <span class="op">|&gt;</span></span>
@@ -739,7 +740,7 @@
 <span>            labels<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">""</span>,<span class="st">"N"</span>,<span class="st">"mean (sd)"</span>,<span class="st">"N"</span>,<span class="st">"mean (sd)"</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span><span class="op">)</span>,</span>
 <span>            col <span class="op">=</span> <span class="fl">1</span>, y <span class="op">=</span> <span class="fl">0.35</span><span class="op">)</span></span>
 <span>        </span>
-<span><span class="co">#adapt top header and bottom footer</span></span>
+<span><span class="co">#adapt overall header and footer</span></span>
 <span><span class="va">cfobj</span><span class="op">$</span><span class="va">setup</span><span class="op">$</span><span class="va">lheights</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">&lt;-</span><span class="fl">1</span></span>
 <span><span class="va">cfobj</span><span class="op">$</span><span class="va">setup</span><span class="op">$</span><span class="va">lheights</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">cfobj</span><span class="op">$</span><span class="va">setup</span><span class="op">$</span><span class="va">lheights</span><span class="op">)</span><span class="op">]</span><span class="op">&lt;-</span><span class="fl">0.5</span></span>
 <span></span>
@@ -766,7 +767,7 @@
 <span><span class="fu"><a href="reference/plotfobj.html">plotfobj</a></span><span class="op">(</span><span class="va">cfobj</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-35-1.png"><!-- --></p>
 <p>The resulting <strong>cfobj</strong> contains 6 individual <strong>fobj</strong> (for each subtitle and the parts in between), which can be modified individually. We can e.g. modify subtitles or remove the axes in the first and second part of the plot.</p>
-<p>Note that there are no individual headers and footers for this 6 <strong>fobj</strong>, which is the case if they are combined directly via <code>combinefobj</code>.</p>
+<p>Note that there are no individual headers and footers for this 6 <strong>fobj</strong>, which is the case if they are combined directly via <code>combinefobj</code> (unless option <em>keepiheadfoot</em> is set to FALSE).</p>
 <p>The overall header can be accessed via the <code>header</code> function in the same way as for an individual <code>fobj</code>.</p>
 <div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">#change text and background color, add gridlines</span></span>
