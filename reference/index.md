@@ -8,8 +8,6 @@
   : Combine multiple fobjs
 - [`plotfobj()`](https://dcr-unibe-ch.github.io/forplot/reference/plotfobj.md)
   : Plot a forest plot (fobj) object
-- [`plotfobj1()`](https://dcr-unibe-ch.github.io/forplot/reference/plotfobj1.md)
-  : plotfobj1
 
 ### Modify overarching appearance
 
