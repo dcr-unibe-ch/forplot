@@ -4,86 +4,67 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Forest plots • forplot</title>
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="bootstrap-toc.css">
-<script src="bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
-<script src="pkgdown.js"></script><meta property="og:title" content="Forest plots">
+<script src="lightswitch.js"></script><script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet">
+<script src="deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
+<link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
+<script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Forest plots">
+<meta name="description" content="The package generates forest plots.">
 <meta property="og:description" content="The package generates forest plots.">
-<!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]-->
 </head>
-<body data-spy="scroll" data-target="#toc">
+<body>
+    <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
-    <div class="container template-home">
-      <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <span class="navbar-brand">
-        <a class="navbar-link" href="index.html">forplot</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">3.1.0</span>
-      </span>
-    </div>
+    <nav class="navbar navbar-expand-lg fixed-top " aria-label="Site navigation"><div class="container">
 
-    <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-<li>
-  <a href="reference/index.html">Reference</a>
-</li>
-<li>
-  <a href="news/index.html">Changelog</a>
-</li>
+    <a class="navbar-brand me-2" href="index.html">forplot</a>
+
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">3.1.0</small>
+
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar" class="collapse navbar-collapse ms-3">
+      <ul class="navbar-nav me-auto">
+<li class="nav-item"><a class="nav-link" href="articles/forplot.html">Get started</a></li>
+<li class="nav-item"><a class="nav-link" href="reference/index.html">Reference</a></li>
+<li class="nav-item"><a class="nav-link" href="news/index.html">Changelog</a></li>
       </ul>
-<ul class="nav navbar-nav navbar-right">
-<li>
-  <a href="https://github.com/dcr-unibe-ch/forplot/" class="external-link">
-    <span class="fab fa-github fa-lg"></span>
-
-  </a>
-</li>
+<ul class="navbar-nav">
+<li class="nav-item"><form class="form-inline" role="search">
+ <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="search.json">
+</form></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/dcr-unibe-ch/forplot/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
       </ul>
 </div>
-<!--/.nav-collapse -->
+
+
   </div>
-<!--/.container -->
-</div>
-<!--/.navbar -->
-
-
-
-      </header><div class="row">
-  <div class="contents col-md-9">
-<div class="section level1">
+</nav><div class="container template-home">
+<div class="row">
+  <main id="main" class="col-md-9"><div class="section level1">
 <div class="page-header"><h1 id="forplot">
 <code>forplot</code><a class="anchor" aria-label="anchor" href="#forplot"></a>
 </h1></div>
-<p>An R package to generate highly customizable forest plots.</p>
-<p>It relies on the <a href="https://r-project.org" class="external-link">R</a> <a href="http://127.0.0.1:28323/library/graphics/html/graphics-package.html" class="external-link">graphics package</a> and generates an overall layout that is then populated with the desired elements (e.g. a text column or a specific plot).</p>
+<p><code>forplot</code> allows the generation of highly customizable forest plots. It relies on the <a href="https://r-project.org" class="external-link">R</a> <a href="http://127.0.0.1:28323/library/graphics/html/graphics-package.html" class="external-link">graphics package</a> and generates an overall layout that is then populated with the desired elements (e.g. a text column or a specific plot).</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
 <p><code>forplot</code> can be installed from github:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">#install package using remotes</span></span>
-<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"dcr-unibe-ch/forplot"</span><span class="op">)</span></span>
+<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"dcr-unibe-ch/forplot"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># load package</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/dcr-unibe-ch/forplot" class="external-link">forplot</a></span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
-<h2 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
+<h2 id="basic-usage">Basic usage<a class="anchor" aria-label="anchor" href="#basic-usage"></a>
 </h2>
 <p><code>forplot</code> contains two main functions:</p>
 <ul>
@@ -91,681 +72,27 @@
 <li><p><code>plotfobj</code> produces the plot from the <strong>fobj</strong></p></li>
 </ul>
 <p>The <strong>fobj</strong> can be modified using a set of helper functions or by directly changing the list. The individual elements are from the <a href="https://r-project.org" class="external-link">R</a> <a href="http://127.0.0.1:28323/library/graphics/html/graphics-package.html" class="external-link">graphics package</a> and all options available there can be used.</p>
-</div>
-<div class="section level2">
-<h2 id="example-data">Example data<a class="anchor" aria-label="anchor" href="#example-data"></a>
-</h2>
-<p>The <code>forplot</code> package includes three data sets:</p>
-<ul>
-<li>
-<em>forplotdata</em>: summary data with a 10 continuous variables</li>
-<li>
-<em>forplotdata_prop</em>: summary data with 10 binary variables</li>
-<li>
-<em>forplotdata_bp</em>: data with actual observation of <em>forplotdata</em> in a long format</li>
-</ul>
+<p>Publication quality forest plots can be created with only a small amount of code.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">forplotdata</span><span class="op">)</span></span>
-<span><span class="va">forplotdata</span></span>
-<span><span class="co">#&gt;    vlabel  n1        n2  n3        n4            beta_format        beta</span></span>
-<span><span class="co">#&gt; 1    out1 100 5.1 (0.9) 100 5.5 (1.0) -0.35 (-0.61 to -0.09) -0.35330456</span></span>
-<span><span class="co">#&gt; 2    out2 100 5.0 (1.0) 100 5.6 (1.0) -0.52 (-0.80 to -0.24) -0.52192832</span></span>
-<span><span class="co">#&gt; 3    out3 100 5.0 (1.2) 100 5.5 (1.0) -0.49 (-0.79 to -0.20) -0.49461488</span></span>
-<span><span class="co">#&gt; 4    out4 100 4.8 (1.1) 100 5.5 (1.1) -0.70 (-1.00 to -0.40) -0.69983471</span></span>
-<span><span class="co">#&gt; 5    out5 100 5.0 (1.1) 100 5.5 (1.1) -0.49 (-0.79 to -0.20) -0.49398774</span></span>
-<span><span class="co">#&gt; 6    out6 100 5.0 (1.0) 100 5.3 (1.0) -0.36 (-0.64 to -0.08) -0.35838850</span></span>
-<span><span class="co">#&gt; 7    out7 100 5.2 (1.1) 100 5.3 (0.9)  -0.08 (-0.36 to 0.19) -0.08429217</span></span>
-<span><span class="co">#&gt; 8    out8 100 5.1 (1.0) 100 5.5 (1.1) -0.40 (-0.70 to -0.11) -0.40311974</span></span>
-<span><span class="co">#&gt; 9    out9 100 4.9 (1.0) 100 5.4 (1.2) -0.51 (-0.81 to -0.20) -0.50709366</span></span>
-<span><span class="co">#&gt; 10  out10 100 5.1 (1.1) 100 5.4 (1.1)  -0.29 (-0.58 to 0.01) -0.28700316</span></span>
-<span><span class="co">#&gt;      beta_lci     beta_uci    p1</span></span>
-<span><span class="co">#&gt; 1  -0.6122615 -0.094347655 0.008</span></span>
-<span><span class="co">#&gt; 2  -0.8044964 -0.239360217 0.000</span></span>
-<span><span class="co">#&gt; 3  -0.7938491 -0.195380711 0.001</span></span>
-<span><span class="co">#&gt; 4  -1.0035691 -0.396100319 0.000</span></span>
-<span><span class="co">#&gt; 5  -0.7928756 -0.195099871 0.001</span></span>
-<span><span class="co">#&gt; 6  -0.6395674 -0.077209590 0.013</span></span>
-<span><span class="co">#&gt; 7  -0.3567376  0.188153237 0.542</span></span>
-<span><span class="co">#&gt; 8  -0.6955442 -0.110695309 0.007</span></span>
-<span><span class="co">#&gt; 9  -0.8110643 -0.203123036 0.001</span></span>
-<span><span class="co">#&gt; 10 -0.5822050  0.008198722 0.057</span></span></code></pre></div>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">forplotdata_prop</span><span class="op">)</span></span>
-<span><span class="va">forplotdata_prop</span></span>
-<span><span class="co">#&gt;    vlabel  n1       n2  n3       n4 prop1 prop2            beta_format  beta</span></span>
-<span><span class="co">#&gt; 1    out1 100 48 (48%) 100 40 (40%)  0.48  0.40   8.0% (-6.7 to 22.7%)  0.08</span></span>
-<span><span class="co">#&gt; 2    out2 100 38 (38%) 100 37 (37%)  0.38  0.37  1.0% (-13.4 to 15.4%)  0.01</span></span>
-<span><span class="co">#&gt; 3    out3 100 47 (47%) 100 47 (47%)  0.47  0.47  0.0% (-13.8 to 13.8%)  0.00</span></span>
-<span><span class="co">#&gt; 4    out4 100 54 (54%) 100 41 (41%)  0.54  0.41  13.0% (-1.7 to 27.7%)  0.13</span></span>
-<span><span class="co">#&gt; 5    out5 100 45 (45%) 100 40 (40%)  0.45  0.40   5.0% (-9.7 to 19.7%)  0.05</span></span>
-<span><span class="co">#&gt; 6    out6 100 51 (51%) 100 38 (38%)  0.51  0.38  13.0% (-1.7 to 27.7%)  0.13</span></span>
-<span><span class="co">#&gt; 7    out7 100 47 (47%) 100 36 (36%)  0.47  0.36  11.0% (-3.6 to 25.6%)  0.11</span></span>
-<span><span class="co">#&gt; 8    out8 100 44 (44%) 100 46 (46%)  0.44  0.46 -2.0% (-16.8 to 12.8%) -0.02</span></span>
-<span><span class="co">#&gt; 9    out9 100 53 (53%) 100 33 (33%)  0.53  0.33   20.0% (5.6 to 34.4%)  0.20</span></span>
-<span><span class="co">#&gt; 10  out10 100 54 (54%) 100 38 (38%)  0.54  0.38   16.0% (1.4 to 30.6%)  0.16</span></span>
-<span><span class="co">#&gt;       beta_lci  beta_uci    p1</span></span>
-<span><span class="co">#&gt; 1  -0.06714147 0.2271415 0.319</span></span>
-<span><span class="co">#&gt; 2  -0.13418240 0.1541824 1.000</span></span>
-<span><span class="co">#&gt; 3  -0.13834069 0.1383407 1.000</span></span>
-<span><span class="co">#&gt; 4  -0.01723947 0.2772395 0.089</span></span>
-<span><span class="co">#&gt; 5  -0.09684704 0.1968470 0.567</span></span>
-<span><span class="co">#&gt; 6  -0.01656604 0.2765660 0.088</span></span>
-<span><span class="co">#&gt; 7  -0.03571955 0.2557195 0.151</span></span>
-<span><span class="co">#&gt; 8  -0.16786783 0.1278678 0.887</span></span>
-<span><span class="co">#&gt; 9   0.05560305 0.3443969 0.007</span></span>
-<span><span class="co">#&gt; 10  0.01364509 0.3063549 0.033</span></span></code></pre></div>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">forplotdata_bp</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">forplotdata_bp</span><span class="op">)</span></span>
-<span><span class="co">#&gt;      value variable arm</span></span>
-<span><span class="co">#&gt; 1 4.373546     var1   1</span></span>
-<span><span class="co">#&gt; 2 5.183643     var1   1</span></span>
-<span><span class="co">#&gt; 3 4.164371     var1   1</span></span>
-<span><span class="co">#&gt; 4 6.595281     var1   1</span></span>
-<span><span class="co">#&gt; 5 5.329508     var1   1</span></span>
-<span><span class="co">#&gt; 6 4.179532     var1   1</span></span></code></pre></div>
-<p><em>forplotdata</em> and <em>forplotdata_prop</em> have a character variable with the variable names (<em>vlabel</em>), further character variables <em>n[1-4]</em> with the number of observations and descriptives for each arm (either mean (sd) or n(%)), the formatted treatment effect (<em>beta_format</em>) and the p-value (<em>p1</em>), and three numeric variables to draw the forest (<em>beta</em>, <em>beta_lci</em> and <em>beta_uci</em>).</p>
-<p>In <em>forplotdata_prop</em> there are two further numeric variables with the proportion in each arm (<em>prop1</em>, <em>prop2</em>) to draw a strip plot.</p>
-<p><em>forplotdata_bp</em> has three variables with the actual observations of <em>forplotdata</em> with</p>
-<ul>
-<li>
-<em>value</em>: the variable value (numerical),</li>
-<li>
-<em>variable</em>: the variable name (factor), and</li>
-<li>
-<em>arm</em>: the treatment arm (factor).</li>
-</ul>
-</div>
-<div class="section level2">
-<h2 id="generating-the-fobj-with-genfobj">Generating the <strong>fobj</strong> with <code>genfobj</code>
-<a class="anchor" aria-label="anchor" href="#generating-the-fobj-with-genfobj"></a>
-</h2>
-<p>The required input for <code>genfobj</code> are a <em>layout</em> and a data frame (<em>dat</em>).</p>
-<p><em>layout</em> must be a character vector with elements <em>t</em> (text), <em>f</em> (forest), <em>s[1-9]</em> (strip), or <em>b</em> (boxplot).</p>
-<p>For each <em>t</em> element, <em>dat</em> must contain a single variable, for each <em>f</em> element three variables (point estimate, lower confidence limit, upper confidence limit, in that order), and for each <em>s[1-9]</em> the number of variables indicated in [].</p>
-<p>The order of the variables in <em>dat</em> must correspond to the layout.</p>
-<p>A <em>b</em> element does not need a column in <em>dat</em> but the specifcation of <em>obs</em>, a data frame in a long format with columns <em>value</em> (the outcome value), <em>variable</em> (the outcome variable), and <em>arm</em> (the treatment arm)</p>
-<p>Let’s generate a forest plot with the <em>forplotdata</em> including the label, the descriptives, the formatted effect, the p-value, and a forest for the beta:</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">fobj</span><span class="op">&lt;-</span><span class="fu"><a href="reference/genfobj.html">genfobj</a></span><span class="op">(</span>dat <span class="op">=</span> <span class="va">forplotdata</span>, layout <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"t"</span>,<span class="st">"t"</span>,<span class="st">"t"</span>,<span class="st">"t"</span>,<span class="st">"t"</span>,<span class="st">"t"</span>,<span class="st">"f"</span>,<span class="st">"t"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<p>The produced <strong>fobj</strong> is a list of length 5 with class <em>fobj</em>. It includes those elements:</p>
-<ul>
-<li>
-<em>dat</em> and <em>obs</em>: the data (with obs = NULL in this example)</li>
-<li>
-<em>setup</em>: overall composition of the plot, <em>layout</em>, <em>lheights</em>, <em>lwidths</em>, <em>y.at</em>, and <em>ylim</em>
-</li>
-<li>
-<em>items</em>: a list of length from <em>layout</em> with the options for each item</li>
-<li>
-<em>header</em>: a list with the options for the header</li>
-</ul>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/class.html" class="external-link">class</a></span><span class="op">(</span><span class="va">fobj</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "fobj" "list"</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">fobj</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "dat"    "obs"    "setup"  "items"  "header"</span></span>
-<span><span class="va">fobj</span><span class="op">$</span><span class="va">setup</span></span>
-<span><span class="co">#&gt; $layout</span></span>
-<span><span class="co">#&gt; [1] "t" "t" "t" "t" "t" "t" "f" "t"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $lwidths</span></span>
-<span><span class="co">#&gt; [1] 1 1 1 1 1 1 1 1</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $lheights</span></span>
-<span><span class="co">#&gt; [1] 0.1 1.0 0.1</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $y.at</span></span>
-<span><span class="co">#&gt;  [1] 10  9  8  7  6  5  4  3  2  1</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $ylim</span></span>
-<span><span class="co">#&gt; [1]  0.5 10.5</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">fobj</span><span class="op">$</span><span class="va">items</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] 8</span></span></code></pre></div>
-<p>By default, text items include these options:</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">fobj</span><span class="op">$</span><span class="va">item</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "type"  "vname" "plot"  "text"</span></span>
-<span></span>
-<span><span class="va">fobj</span><span class="op">$</span><span class="va">item</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span></span>
-<span><span class="co">#&gt; $type</span></span>
-<span><span class="co">#&gt; [1] "t"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $vname</span></span>
-<span><span class="co">#&gt; [1] "vlabel"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $plot</span></span>
-<span><span class="co">#&gt; $plot$x</span></span>
-<span><span class="co">#&gt; [1] 0</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $plot$type</span></span>
-<span><span class="co">#&gt; [1] "n"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $plot$xlim</span></span>
-<span><span class="co">#&gt; [1] 0 1</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $plot$ylim</span></span>
-<span><span class="co">#&gt; [1]  0.5 10.5</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $plot$yaxt</span></span>
-<span><span class="co">#&gt; [1] "n"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $plot$ylab</span></span>
-<span><span class="co">#&gt; [1] ""</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $plot$xlab</span></span>
-<span><span class="co">#&gt; [1] ""</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $plot$axes</span></span>
-<span><span class="co">#&gt; [1] FALSE</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $plot$xaxs</span></span>
-<span><span class="co">#&gt; [1] "i"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $plot$yaxs</span></span>
-<span><span class="co">#&gt; [1] "i"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $text</span></span>
-<span><span class="co">#&gt; $text$x</span></span>
-<span><span class="co">#&gt; [1] 0.5</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $text$y</span></span>
-<span><span class="co">#&gt;  [1] 10  9  8  7  6  5  4  3  2  1</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $text$labels</span></span>
-<span><span class="co">#&gt;  [1] "out1"  "out2"  "out3"  "out4"  "out5"  "out6"  "out7"  "out8"  "out9" </span></span>
-<span><span class="co">#&gt; [10] "out10"</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $text$adj</span></span>
-<span><span class="co">#&gt; [1] 0.5 0.5</span></span></code></pre></div>
-<p><em>type</em> is the item type, <em>vname</em> is the variable in <em>dat</em> the item corresponds to, <em>plot</em> and <em>text</em> are used for plotting with the <a href="https://r-project.org" class="external-link">R</a> <a href="http://127.0.0.1:28323/library/graphics/html/graphics-package.html" class="external-link">graphics package</a>.</p>
-<p>The <em>f</em> items are more complex, including options for <em>axis</em>, <em>points</em> and <em>arrows</em> of the fores plots.</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">fobj</span><span class="op">$</span><span class="va">items</span><span class="op">[[</span><span class="fu"><a href="https://rdrr.io/r/base/which.html" class="external-link">which</a></span><span class="op">(</span><span class="va">fobj</span><span class="op">$</span><span class="va">setup</span><span class="op">$</span><span class="va">layout</span><span class="op">==</span><span class="st">"f"</span><span class="op">)</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "type"   "vname"  "plot"   "axis"   "points" "arrows"</span></span>
-<span></span>
-<span><span class="va">fobj</span><span class="op">$</span><span class="va">items</span><span class="op">[[</span><span class="fu"><a href="https://rdrr.io/r/base/which.html" class="external-link">which</a></span><span class="op">(</span><span class="va">fobj</span><span class="op">$</span><span class="va">setup</span><span class="op">$</span><span class="va">layout</span><span class="op">==</span><span class="st">"f"</span><span class="op">)</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">type</span></span>
-<span><span class="co">#&gt; [1] "f"</span></span>
-<span></span>
-<span><span class="va">fobj</span><span class="op">$</span><span class="va">items</span><span class="op">[[</span><span class="fu"><a href="https://rdrr.io/r/base/which.html" class="external-link">which</a></span><span class="op">(</span><span class="va">fobj</span><span class="op">$</span><span class="va">setup</span><span class="op">$</span><span class="va">layout</span><span class="op">==</span><span class="st">"f"</span><span class="op">)</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">vname</span></span>
-<span><span class="co">#&gt; [1] "beta"</span></span></code></pre></div>
-<p>For the variable name, the first of the three variables used to specify the forest is used. Options for axis, point and arrows can be changed using helper functions (or directly in the list). Examples or shown below.</p>
-</div>
-<div class="section level2">
-<h2 id="plot-the-fobj">Plot the <strong>fobj</strong>
-<a class="anchor" aria-label="anchor" href="#plot-the-fobj"></a>
-</h2>
-<p>The <strong>fobj</strong> can be plotted using <code>plotfobj</code></p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/plotfobj.html">plotfobj</a></span><span class="op">(</span><span class="va">fobj</span><span class="op">)</span></span></code></pre></div>
-<p><img src="reference/figures/README-unnamed-chunk-10-1.png"><!-- --></p>
-<p>Column widths can be given as options in <code>genfobj</code> or directly changed in the <strong>fobj</strong>:</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">fobj</span><span class="op">$</span><span class="va">setup</span><span class="op">$</span><span class="va">lwidths</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.3</span>,<span class="fl">0.4</span>,<span class="fl">0.6</span>,<span class="fl">0.4</span>,<span class="fl">0.6</span>,<span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">0.5</span><span class="op">)</span></span>
-<span></span>
+<span><span class="va">fobj</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/genfobj.html">genfobj</a></span><span class="op">(</span>dat <span class="op">=</span> <span class="va">forplotdata</span>, </span>
+<span>                layout <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"t"</span>,<span class="st">"t"</span>,<span class="st">"t"</span>,<span class="st">"t"</span>,<span class="st">"t"</span>,<span class="st">"t"</span>,<span class="st">"f"</span>,<span class="st">"t"</span><span class="op">)</span>, </span>
+<span>                lwidths <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">3</span>,<span class="fl">3</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="reference/stripes.html">stripes</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="reference/gridlines.html">gridlines</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="reference/header.html">header</a></span><span class="op">(</span>headernr <span class="op">=</span> <span class="fl">1</span>, </span>
+<span>         hlayout <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">2</span>,<span class="fl">3</span>,<span class="fl">3</span>,<span class="fl">4</span>,<span class="fl">4</span>,<span class="fl">4</span><span class="op">)</span>,</span>
+<span>         labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">""</span>, <span class="st">"Group 1"</span>, <span class="st">"Group 2"</span>, <span class="st">""</span><span class="op">)</span>, y <span class="op">=</span> <span class="fl">.9</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="reference/header.html">header</a></span><span class="op">(</span>headernr <span class="op">=</span> <span class="fl">2</span>, </span>
+<span>         hlayout <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">3</span>,<span class="fl">4</span>,<span class="fl">5</span>,<span class="fl">6</span>,<span class="fl">6</span>,<span class="fl">7</span><span class="op">)</span>,</span>
+<span>         labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">""</span>, <span class="st">"N"</span>, <span class="st">"Mean (SD)"</span>, <span class="st">"N"</span>, <span class="st">"Mean (SD)"</span>, </span>
+<span>                    <span class="st">"Mean difference (95% CI)"</span>, <span class="st">"P value"</span><span class="op">)</span>, y <span class="op">=</span> <span class="fl">.4</span><span class="op">)</span></span>
 <span><span class="fu"><a href="reference/plotfobj.html">plotfobj</a></span><span class="op">(</span><span class="va">fobj</span><span class="op">)</span></span></code></pre></div>
-<p><img src="reference/figures/README-unnamed-chunk-11-1.png"><!-- --></p>
-<p>Horizontal gridlines and stripes can be added with helper functions <em>gridlines</em> and <em>stripes</em>, which generate further elements in the fobj:</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">fobj</span><span class="op">&lt;-</span><span class="fu"><a href="reference/gridlines.html">gridlines</a></span><span class="op">(</span><span class="va">fobj</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">fobj</span><span class="op">&lt;-</span><span class="fu"><a href="reference/stripes.html">stripes</a></span><span class="op">(</span><span class="va">fobj</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">fobj</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "dat"       "obs"       "setup"     "items"     "header"    "gridlines"</span></span>
-<span><span class="co">#&gt; [7] "stripes"</span></span></code></pre></div>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/plotfobj.html">plotfobj</a></span><span class="op">(</span><span class="va">fobj</span><span class="op">)</span></span></code></pre></div>
-<p><img src="reference/figures/README-unnamed-chunk-13-1.png"><!-- --></p>
-</div>
-<div class="section level2">
-<h2 id="modify-the-items">Modify the items<a class="anchor" aria-label="anchor" href="#modify-the-items"></a>
-</h2>
-<p>All items, gridlines and stripes can be modified using helper functions or by changing the <strong>fobj</strong> directly.</p>
-<p>With helper function <em>t_options</em>, <em>t</em> items can be modified using all options from R <a href="https://stat.ethz.ch/R-manual/R-devel/library/graphics/html/text.html" class="external-link">graphics::text()</a>. That can be done for a specific <em>t</em> item by using the number or column name of the item, or for all <em>t</em> items (by keeping item=NULL):</p>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">fobj</span><span class="op">&lt;-</span><span class="fu"><a href="reference/t_options.html">t_options</a></span><span class="op">(</span>fobj <span class="op">=</span> <span class="va">fobj</span>, item <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"vlabel"</span><span class="op">)</span>, cex <span class="op">=</span> <span class="fl">1.1</span>, font <span class="op">=</span> <span class="fl">2</span>, col <span class="op">=</span> <span class="st">"red"</span>, x<span class="op">=</span><span class="fl">0.2</span>, adj<span class="op">=</span><span class="fl">0</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="reference/plotfobj.html">plotfobj</a></span><span class="op">(</span><span class="va">fobj</span><span class="op">)</span></span></code></pre></div>
-<p><img src="reference/figures/README-unnamed-chunk-14-1.png"><!-- --></p>
-<p>For <em>f</em> items there are several helper function to modify the options for the different elements: <em>f_axis</em>, <em>f_points</em>, <em>f_arrows</em>. Also here, all options from <a href="https://stat.ethz.ch/R-manual/R-devel/library/graphics/html/axis.html" class="external-link">graphics::axis()</a>, <a href="https://stat.ethz.ch/R-manual/R-devel/library/graphics/html/points.html" class="external-link">graphics::points()</a> and <a href="https://stat.ethz.ch/R-manual/R-devel/library/graphics/html/arrows.html" class="external-link">graphics::arrows()</a> can be used. As we do only have one forest item, we do not have to specify the <em>item</em>.</p>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">fobj</span><span class="op">&lt;-</span><span class="fu"><a href="reference/f_axis.html">f_axis</a></span><span class="op">(</span>fobj <span class="op">=</span> <span class="va">fobj</span>, xlim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1.1</span>,<span class="fl">0.2</span><span class="op">)</span>, at <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>,<span class="op">-</span><span class="fl">0.6</span>,<span class="op">-</span><span class="fl">0.2</span>,<span class="fl">0.2</span><span class="op">)</span>, </span>
-<span>  tck <span class="op">=</span> <span class="op">-</span><span class="fl">0.03</span>, mgp <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">0.5</span>,<span class="fl">0</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">fobj</span><span class="op">&lt;-</span><span class="fu"><a href="reference/f_points.html">f_points</a></span><span class="op">(</span>fobj <span class="op">=</span> <span class="va">fobj</span>, pch <span class="op">=</span> <span class="fl">16</span>, cex <span class="op">=</span> <span class="fl">1.5</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="reference/plotfobj.html">plotfobj</a></span><span class="op">(</span><span class="va">fobj</span><span class="op">)</span></span></code></pre></div>
-<p><img src="reference/figures/README-unnamed-chunk-15-1.png"><!-- --></p>
-<p>With <em>f_refline</em>, reference line(s) can be added and with <em>f_direction</em> a label for the direction below the axis. Note that the footer height has to be increased to fit the direction label.</p>
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">fobj</span><span class="op">&lt;-</span><span class="fu"><a href="reference/f_refline.html">f_refline</a></span><span class="op">(</span><span class="va">fobj</span>, v <span class="op">=</span> <span class="fl">0</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">fobj</span><span class="op">&lt;-</span><span class="fu"><a href="reference/f_direction.html">f_direction</a></span><span class="op">(</span><span class="va">fobj</span>, text <span class="op">=</span> <span class="st">"A better    B better"</span>, line <span class="op">=</span> <span class="fl">1.6</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">fobj</span><span class="op">$</span><span class="va">setup</span><span class="op">$</span><span class="va">lheights</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span><span class="op">&lt;-</span><span class="fl">0.15</span></span>
-<span></span>
-<span><span class="fu"><a href="reference/plotfobj.html">plotfobj</a></span><span class="op">(</span><span class="va">fobj</span><span class="op">)</span></span></code></pre></div>
-<p><img src="reference/figures/README-unnamed-chunk-16-1.png"><!-- --></p>
-<p>To remove an added item, it can be set to NULL (or a new <strong>fobj</strong> could be generated):</p>
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">fobj</span><span class="op">$</span><span class="va">items</span><span class="op">[[</span><span class="fu"><a href="https://rdrr.io/r/base/which.html" class="external-link">which</a></span><span class="op">(</span><span class="va">fobj</span><span class="op">$</span><span class="va">setup</span><span class="op">$</span><span class="va">layout</span><span class="op">==</span><span class="st">"f"</span><span class="op">)</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">refline</span><span class="op">&lt;-</span><span class="cn">NULL</span></span>
-<span></span>
-<span><span class="fu"><a href="reference/plotfobj.html">plotfobj</a></span><span class="op">(</span><span class="va">fobj</span><span class="op">)</span></span></code></pre></div>
-<p><img src="reference/figures/README-unnamed-chunk-17-1.png"><!-- --></p>
-<div class="section level3">
-<h3 id="piping">Piping<a class="anchor" aria-label="anchor" href="#piping"></a>
-</h3>
-<p>The modifying elements can be piped. For example to reproduce the <strong>fobj</strong> from above:</p>
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span></span>
-<span><span class="fu"><a href="reference/genfobj.html">genfobj</a></span><span class="op">(</span>dat <span class="op">=</span> <span class="va">forplotdata</span>,</span>
-<span>  layout <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"t"</span>,<span class="st">"t"</span>,<span class="st">"t"</span>,<span class="st">"t"</span>,<span class="st">"t"</span>,<span class="st">"t"</span>,<span class="st">"f"</span>,<span class="st">"t"</span><span class="op">)</span>,</span>
-<span>  lwidth <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.3</span>,<span class="fl">0.4</span>,<span class="fl">0.6</span>,<span class="fl">0.4</span>,<span class="fl">0.6</span>,<span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">0.5</span><span class="op">)</span>,</span>
-<span>  lheight <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.1</span>,<span class="fl">1</span>,<span class="fl">0.15</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="reference/gridlines.html">gridlines</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="reference/stripes.html">stripes</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="reference/t_options.html">t_options</a></span><span class="op">(</span>item <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"vlabel"</span><span class="op">)</span>, cex <span class="op">=</span> <span class="fl">1.1</span>, font <span class="op">=</span> <span class="fl">2</span>, col <span class="op">=</span> <span class="st">"red"</span>, x<span class="op">=</span><span class="fl">0.2</span>, adj<span class="op">=</span><span class="fl">0</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="reference/f_axis.html">f_axis</a></span><span class="op">(</span>xlim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1.1</span>,<span class="fl">0.2</span><span class="op">)</span>, at <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>,<span class="op">-</span><span class="fl">0.6</span>,<span class="op">-</span><span class="fl">0.2</span>,<span class="fl">0.2</span><span class="op">)</span>, tck <span class="op">=</span> <span class="op">-</span><span class="fl">0.03</span>, mgp <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">0.5</span>,<span class="fl">0</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="reference/f_points.html">f_points</a></span><span class="op">(</span>pch <span class="op">=</span> <span class="fl">16</span>, cex <span class="op">=</span> <span class="fl">1.5</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="reference/f_refline.html">f_refline</a></span><span class="op">(</span>v <span class="op">=</span> <span class="fl">0</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="reference/f_direction.html">f_direction</a></span><span class="op">(</span>text <span class="op">=</span> <span class="st">"A better    B better"</span>, line <span class="op">=</span> <span class="fl">1.6</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="reference/plotfobj.html">plotfobj</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p><img src="reference/figures/README-unnamed-chunk-18-1.png"><!-- --></p>
-</div>
-<div class="section level3">
-<h3 id="arrowheads">Arrowheads<a class="anchor" aria-label="anchor" href="#arrowheads"></a>
-</h3>
-<p>When using <em>xlim</em> via <em>f_axis</em>, x-axis limits that are narrower then the confidence limits can be set (even though that is usually not recommended). The cap at the end of the confidence interval is then not plotted (as it is outside of the plotting region). However, directional arrowheads can help to make the distinction more prominent. Arrowheads can be modified via function <em>f_arrows</em> but it is not completely straightforward because arrows have to be drawn twice to have different heads on both sides (e.g. with code 1 and 2 and angles 30 and 90). The helper function <em>f_cutarrows</em> does that automatically:</p>
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Modify data to generate some very wide limits:</span></span>
-<span><span class="va">dat</span><span class="op">&lt;-</span><span class="va">forplotdata</span></span>
-<span><span class="va">dat</span><span class="op">$</span><span class="va">beta_lci</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">3</span><span class="op">)</span></span>
-<span><span class="va">dat</span><span class="op">$</span><span class="va">beta_uci</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3</span><span class="op">)</span></span>
-<span><span class="va">dat</span><span class="op">[</span><span class="fl">3</span>,<span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"beta_lci"</span>,<span class="st">"beta_uci"</span><span class="op">)</span><span class="op">]</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">3</span>,<span class="fl">3</span><span class="op">)</span></span>
-<span><span class="va">dat</span><span class="op">[</span><span class="fl">4</span>,<span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"beta"</span>,<span class="st">"beta_lci"</span><span class="op">)</span><span class="op">]</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">2</span>,<span class="op">-</span><span class="fl">3</span><span class="op">)</span></span>
-<span><span class="va">dat</span><span class="op">$</span><span class="va">beta_format</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sprintf.html" class="external-link">sprintf</a></span><span class="op">(</span><span class="st">"%2.2f"</span>,<span class="va">dat</span><span class="op">$</span><span class="va">beta</span><span class="op">)</span>,</span>
-<span>  <span class="st">" ("</span>,<span class="fu"><a href="https://rdrr.io/r/base/sprintf.html" class="external-link">sprintf</a></span><span class="op">(</span><span class="st">"%2.2f"</span>,<span class="va">dat</span><span class="op">$</span><span class="va">beta_lci</span><span class="op">)</span>,<span class="st">" to "</span>,</span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/base/sprintf.html" class="external-link">sprintf</a></span><span class="op">(</span><span class="st">"%2.2f"</span>,<span class="va">dat</span><span class="op">$</span><span class="va">beta_uci</span><span class="op">)</span>,<span class="st">")"</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Generate and plot fobj:</span></span>
-<span><span class="fu"><a href="reference/genfobj.html">genfobj</a></span><span class="op">(</span>layout <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"t"</span>,<span class="st">"t"</span>,<span class="st">"t"</span>,<span class="st">"t"</span>,<span class="st">"t"</span>,<span class="st">"t"</span>,<span class="st">"f"</span>,<span class="st">"t"</span><span class="op">)</span>,</span>
-<span>    dat <span class="op">=</span> <span class="va">dat</span>, lwidths <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.8</span>,<span class="fl">0.4</span>,<span class="fl">0.6</span>,<span class="fl">0.4</span>,<span class="fl">0.6</span>,<span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">0.5</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="reference/f_axis.html">f_axis</a></span><span class="op">(</span>xlim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1.5</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="reference/f_cutarrows.html">f_cutarrows</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="reference/plotfobj.html">plotfobj</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p><img src="reference/figures/README-unnamed-chunk-19-1.png"><!-- --></p>
+<p><img src="reference/figures/README-unnamed-chunk-3-1.png"><!-- --></p>
+<p>The above example only scratches the surface of what <code>forplot</code> can do. Check the vignette for further examples.</p>
 </div>
 </div>
-<div class="section level2">
-<h2 id="the-header">The header<a class="anchor" aria-label="anchor" href="#the-header"></a>
-</h2>
-<p>By default a header with the columns names is used and stored in the <em>header</em> element of <strong>fobj</strong>, which is a list of length 1 with these elements.</p>
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">fobj</span><span class="op">$</span><span class="va">header</span></span>
-<span><span class="co">#&gt; [[1]]</span></span>
-<span><span class="co">#&gt; [[1]]$hlayout</span></span>
-<span><span class="co">#&gt; [1] 1 2 3 4 5 6 7 8</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; [[1]]$text</span></span>
-<span><span class="co">#&gt; [[1]]$text$x</span></span>
-<span><span class="co">#&gt; NULL</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; [[1]]$text$y</span></span>
-<span><span class="co">#&gt; [1] 0.5</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; [[1]]$text$labels</span></span>
-<span><span class="co">#&gt; [1] "vlabel"      "n1"          "n2"          "n3"          "n4"         </span></span>
-<span><span class="co">#&gt; [6] "beta_format" "beta"        "p1"         </span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; [[1]]$text$adj</span></span>
-<span><span class="co">#&gt; [1] 0.5 0.5</span></span></code></pre></div>
-<p>The <em>header</em> helper function can be used with all options from <a href="https://stat.ethz.ch/R-manual/R-devel/library/graphics/html/text.html" class="external-link">graphics::text()</a> As an extra element, the <em>hlayout</em> can be used to merge columns, i.e. to print a label over more than one column. And more than one header row can be specified using <em>headernr</em>, leading to a list of length &gt; 1.</p>
-<p>Let’s first use different names, also including a line separator. Note that an empty character has to be included to leave column 1 and 8 empty. And the y is also modified to place the label higher.</p>
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">fobj</span><span class="op">&lt;-</span><span class="fu"><a href="reference/header.html">header</a></span><span class="op">(</span>fobj <span class="op">=</span> <span class="va">fobj</span>,</span>
-<span>  labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">""</span>,<span class="st">"Arm A\nN"</span>,<span class="st">"Arm A\nmean (sd)"</span>,<span class="st">"Arm B\nN"</span>,<span class="st">"Arm B\nmean (sd)"</span>,</span>
-<span>    <span class="st">"Mean difference\n(95% CI)"</span>,<span class="st">""</span>,<span class="st">"P-value"</span><span class="op">)</span>,</span>
-<span>  y <span class="op">=</span> <span class="fl">0.6</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="reference/plotfobj.html">plotfobj</a></span><span class="op">(</span><span class="va">fobj</span><span class="op">)</span></span></code></pre></div>
-<p><img src="reference/figures/README-unnamed-chunk-21-1.png"><!-- --></p>
-<p>We can merge the label for the effect over the format and forest columns using the layout option where 6 is included twice.</p>
-<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">fobj</span><span class="op">&lt;-</span><span class="fu"><a href="reference/header.html">header</a></span><span class="op">(</span>fobj <span class="op">=</span> <span class="va">fobj</span>, hlayout <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">3</span>,<span class="fl">4</span>,<span class="fl">5</span>,<span class="fl">6</span>,<span class="fl">6</span>,<span class="fl">7</span><span class="op">)</span>,</span>
-<span>  labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">""</span>,<span class="st">"Arm A\nN"</span>,<span class="st">"Arm A\nmean (sd)"</span>,<span class="st">"Arm B\nN"</span>,<span class="st">"Arm B\nmean (sd)"</span>,</span>
-<span>    <span class="st">"Mean difference (95% CI)"</span>,<span class="st">"P-value"</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="reference/plotfobj.html">plotfobj</a></span><span class="op">(</span><span class="va">fobj</span><span class="op">)</span></span></code></pre></div>
-<p><img src="reference/figures/README-unnamed-chunk-22-1.png"><!-- --></p>
-<p>In order to merge two arm labels, we would need two header rows using option <em>headernr</em>, leading to a header list with length 2. As before we can use further <a href="https://stat.ethz.ch/R-manual/R-devel/library/graphics/html/text.html" class="external-link">graphics::text()</a> options.</p>
-<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">fobj</span><span class="op">&lt;-</span><span class="fu"><a href="reference/header.html">header</a></span><span class="op">(</span>fobj<span class="op">=</span><span class="va">fobj</span>, hlayout <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">2</span>,<span class="fl">3</span>,<span class="fl">3</span>,<span class="fl">4</span>,<span class="fl">4</span>,<span class="fl">5</span><span class="op">)</span>,  headernr <span class="op">=</span> <span class="fl">1</span>,</span>
-<span>    labels<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">""</span>,<span class="st">"Arm A"</span>,<span class="st">"Arm B"</span>,<span class="st">"Mean difference (95% CI)"</span>,<span class="st">"P-value"</span><span class="op">)</span>,</span>
-<span>    y<span class="op">=</span><span class="fl">0.9</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">fobj</span><span class="op">&lt;-</span><span class="fu"><a href="reference/header.html">header</a></span><span class="op">(</span>fobj<span class="op">=</span><span class="va">fobj</span>, hlayout <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">3</span>,<span class="fl">4</span>,<span class="fl">5</span>,<span class="fl">6</span>,<span class="fl">7</span>,<span class="fl">8</span><span class="op">)</span>, headernr <span class="op">=</span> <span class="fl">2</span>,</span>
-<span>    labels<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">""</span>,<span class="st">"N"</span>,<span class="st">"Mean (sd)"</span>,<span class="st">"N"</span>,<span class="st">"Mean (sd)"</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span><span class="op">)</span>,y<span class="op">=</span><span class="fl">0.3</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="reference/plotfobj.html">plotfobj</a></span><span class="op">(</span><span class="va">fobj</span><span class="op">)</span></span></code></pre></div>
-<p><img src="reference/figures/README-unnamed-chunk-23-1.png"><!-- --></p>
-</div>
-<div class="section level2">
-<h2 id="boxplots">Boxplots<a class="anchor" aria-label="anchor" href="#boxplots"></a>
-</h2>
-<p>For a more in-depth presentation of the data in each group, a boxplot can be added. However, it depends on the input of the actual observations as a data frame <em>obs</em> in a long format with the numerical outcome value (<em>value</em>), the variable name (<em>variable</em>, as a factor) and the treatment arm (<em>arm</em>, as a factor).</p>
-<p>Note that the names of <em>variable</em> do not have to be the same as in the summary data (<em>dat</em>) but the order has to be kept (i.e. the first level of <em>variable</em> must correspond the first row in <em>dat</em>).</p>
-<p>Boxplot layout can be controlled via helper functions <em>b_boxplot</em> and <em>b_axis</em> using all options available for <a href="https://stat.ethz.ch/R-manual/R-devel/library/graphics/html/boxplot.html" class="external-link">graphics::boxplot()</a> and <a href="https://stat.ethz.ch/R-manual/R-devel/library/graphics/html/axis.html" class="external-link">graphics::axis()</a>.</p>
-<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">fobj</span><span class="op">&lt;-</span><span class="fu"><a href="reference/genfobj.html">genfobj</a></span><span class="op">(</span>dat <span class="op">=</span> <span class="va">forplotdata</span>, obs <span class="op">=</span> <span class="va">forplotdata_bp</span>,</span>
-<span>  layout <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"t"</span>,<span class="st">"t"</span>,<span class="st">"t"</span>,<span class="st">"t"</span>,<span class="st">"t"</span>,<span class="st">"b"</span>,<span class="st">"t"</span>,<span class="st">"f"</span>,<span class="st">"t"</span><span class="op">)</span>,</span>
-<span>  lwidths <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.6</span>,<span class="fl">0.4</span>,<span class="fl">0.6</span>,<span class="fl">0.4</span>,<span class="fl">0.6</span>,<span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">0.5</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="reference/plotfobj.html">plotfobj</a></span><span class="op">(</span><span class="va">fobj</span><span class="op">)</span></span></code></pre></div>
-<p><img src="reference/figures/README-unnamed-chunk-24-1.png"><!-- --></p>
-<p>Adding header gridlines and stripes:</p>
-<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">fobj</span><span class="op">&lt;-</span><span class="fu"><a href="reference/gridlines.html">gridlines</a></span><span class="op">(</span><span class="va">fobj</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">fobj</span><span class="op">&lt;-</span><span class="fu"><a href="reference/stripes.html">stripes</a></span><span class="op">(</span><span class="va">fobj</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">fobj</span><span class="op">&lt;-</span><span class="fu"><a href="reference/header.html">header</a></span><span class="op">(</span><span class="va">fobj</span>, hlayout <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">2</span>,<span class="fl">3</span>,<span class="fl">3</span>,<span class="fl">4</span>,<span class="fl">5</span>,<span class="fl">5</span>,<span class="fl">6</span><span class="op">)</span>,  headernr <span class="op">=</span> <span class="fl">1</span>,</span>
-<span>    labels<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">""</span>,<span class="st">"Arm A"</span>,<span class="st">"Arm B"</span>,<span class="st">""</span>,<span class="st">"Mean difference (95% CI)"</span>,<span class="st">"P-value"</span><span class="op">)</span>,</span>
-<span>    col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="st">"red"</span>,<span class="st">"blue"</span>,<span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span>,</span>
-<span>    y<span class="op">=</span><span class="fl">0.9</span><span class="op">)</span></span>
-<span><span class="va">fobj</span><span class="op">&lt;-</span><span class="fu"><a href="reference/header.html">header</a></span><span class="op">(</span><span class="va">fobj</span>, hlayout <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">3</span>,<span class="fl">4</span>,<span class="fl">5</span>,<span class="fl">6</span>,<span class="fl">7</span>,<span class="fl">8</span>,<span class="fl">9</span><span class="op">)</span>, headernr <span class="op">=</span> <span class="fl">2</span>,</span>
-<span>    labels<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">""</span>,<span class="st">"N"</span>,<span class="st">"Mean (sd)"</span>,<span class="st">"N"</span>,<span class="st">"Mean (sd)"</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span><span class="op">)</span>,</span>
-<span>    col<span class="op">=</span><span class="fl">1</span>, y<span class="op">=</span><span class="fl">0.3</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="reference/plotfobj.html">plotfobj</a></span><span class="op">(</span><span class="va">fobj</span><span class="op">)</span></span></code></pre></div>
-<p><img src="reference/figures/README-unnamed-chunk-25-1.png"><!-- --></p>
-</div>
-<div class="section level2">
-<h2 id="density-plots">Density plots<a class="anchor" aria-label="anchor" href="#density-plots"></a>
-</h2>
-<p>Density plots can be specified using layout item <em>d</em> and depend on the same data with the observations as the boxplots.</p>
-<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">fobj</span><span class="op">&lt;-</span><span class="fu"><a href="reference/genfobj.html">genfobj</a></span><span class="op">(</span>dat <span class="op">=</span> <span class="va">forplotdata</span>, obs <span class="op">=</span> <span class="va">forplotdata_bp</span>,</span>
-<span>  layout <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"t"</span>,<span class="st">"t"</span>,<span class="st">"t"</span>,<span class="st">"t"</span>,<span class="st">"t"</span>,<span class="st">"b"</span>,<span class="st">"d"</span>,<span class="st">"t"</span>,<span class="st">"f"</span>,<span class="st">"t"</span><span class="op">)</span>,</span>
-<span>  lwidths <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.3</span>,<span class="fl">0.4</span>,<span class="fl">0.6</span>,<span class="fl">0.4</span>,<span class="fl">0.6</span>,<span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">0.5</span><span class="op">)</span><span class="op">)</span></span>
-<span> </span>
-<span><span class="va">fobj</span><span class="op">&lt;-</span><span class="fu"><a href="reference/b_axis.html">b_axis</a></span><span class="op">(</span><span class="va">fobj</span>, xlim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">9.5</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">fobj</span><span class="op">&lt;-</span><span class="fu"><a href="reference/gridlines.html">gridlines</a></span><span class="op">(</span><span class="va">fobj</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">fobj</span><span class="op">&lt;-</span><span class="fu"><a href="reference/stripes.html">stripes</a></span><span class="op">(</span><span class="va">fobj</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">fobj</span><span class="op">&lt;-</span><span class="fu"><a href="reference/header.html">header</a></span><span class="op">(</span><span class="va">fobj</span>, hlayout <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">2</span>,<span class="fl">3</span>,<span class="fl">3</span>,<span class="fl">4</span>,<span class="fl">5</span>,<span class="fl">6</span>,<span class="fl">6</span>,<span class="fl">7</span><span class="op">)</span>,  headernr <span class="op">=</span> <span class="fl">1</span>,</span>
-<span>    labels<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">""</span>,<span class="st">"Arm A"</span>,<span class="st">"Arm B"</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">"Mean difference (95% CI)"</span>,<span class="st">"P-value"</span><span class="op">)</span>,</span>
-<span>    col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="st">"red"</span>,<span class="st">"blue"</span>,<span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span>,</span>
-<span>    y<span class="op">=</span><span class="fl">0.9</span><span class="op">)</span></span>
-<span><span class="va">fobj</span><span class="op">&lt;-</span><span class="fu"><a href="reference/header.html">header</a></span><span class="op">(</span><span class="va">fobj</span>, hlayout <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">3</span>,<span class="fl">4</span>,<span class="fl">5</span>,<span class="fl">6</span>,<span class="fl">7</span>,<span class="fl">8</span>,<span class="fl">9</span>,<span class="fl">10</span><span class="op">)</span>, headernr <span class="op">=</span> <span class="fl">2</span>,</span>
-<span>    labels<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">""</span>,<span class="st">"N"</span>,<span class="st">"Mean (sd)"</span>,<span class="st">"N"</span>,<span class="st">"Mean (sd)"</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span><span class="op">)</span>,</span>
-<span>    col<span class="op">=</span><span class="fl">1</span>, y<span class="op">=</span><span class="fl">0.3</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="reference/plotfobj.html">plotfobj</a></span><span class="op">(</span><span class="va">fobj</span><span class="op">)</span></span></code></pre></div>
-<p><img src="reference/figures/README-unnamed-chunk-26-1.png"><!-- --></p>
-<p>Options can be change via <em>d_axis</em> and <em>d_lines</em> using all options available for <a href="https://stat.ethz.ch/R-manual/R-devel/library/graphics/html/axis.html" class="external-link">graphics::axis()</a> and <a href="https://stat.ethz.ch/R-manual/R-devel/library/graphics/html/lines.html" class="external-link">graphics::lines()</a>.</p>
-<p>Note that the <em>lines</em> element of the <em>d</em> items is a nested list with <em>variable</em> and <em>arm</em>. Using <em>d_lines</em>, line options can be accessed all at once, over all variables for one arm, for all arms and one variable, or for a specific variable-arm combination via <em>linenr</em>. <em>linenr</em> is a vector of length two where the first element specifies the variable and the second the arm.</p>
-<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">fobj</span><span class="op">&lt;-</span><span class="fu"><a href="reference/genfobj.html">genfobj</a></span><span class="op">(</span>dat <span class="op">=</span> <span class="va">forplotdata</span>, obs <span class="op">=</span> <span class="va">forplotdata_bp</span>,</span>
-<span>  layout <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"t"</span>,<span class="st">"t"</span>,<span class="st">"t"</span>,<span class="st">"t"</span>,<span class="st">"t"</span>,<span class="st">"d"</span>,<span class="st">"t"</span>,<span class="st">"f"</span>,<span class="st">"t"</span><span class="op">)</span>,</span>
-<span>  lwidths <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.3</span>,<span class="fl">0.4</span>,<span class="fl">0.6</span>,<span class="fl">0.4</span>,<span class="fl">0.6</span>,<span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">0.5</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co">#all lines:</span></span>
-<span></span>
-<span><span class="va">fobj</span><span class="op">&lt;-</span><span class="fu"><a href="reference/d_lines.html">d_lines</a></span><span class="op">(</span>fobj<span class="op">=</span><span class="va">fobj</span>, lw<span class="op">=</span><span class="fl">1.5</span><span class="op">)</span></span>
-<span><span class="fu"><a href="reference/plotfobj.html">plotfobj</a></span><span class="op">(</span><span class="va">fobj</span><span class="op">)</span></span></code></pre></div>
-<p><img src="reference/figures/README-unnamed-chunk-27-1.png"><!-- --></p>
-<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co">#only one arm:</span></span>
-<span></span>
-<span><span class="va">fobj</span><span class="op">&lt;-</span><span class="fu"><a href="reference/d_lines.html">d_lines</a></span><span class="op">(</span>fobj<span class="op">=</span><span class="va">fobj</span>, linenr<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="cn">NA</span>,<span class="fl">2</span><span class="op">)</span>, col<span class="op">=</span><span class="fl">1</span><span class="op">)</span></span>
-<span><span class="fu"><a href="reference/plotfobj.html">plotfobj</a></span><span class="op">(</span><span class="va">fobj</span><span class="op">)</span></span></code></pre></div>
-<p><img src="reference/figures/README-unnamed-chunk-28-1.png"><!-- --></p>
-<p>Different density curves could be added by using <em>x</em> and <em>y</em> options in <em>d_lines</em> (or the <em>lines</em> list in the <strong>fobj</strong>). Note that the y-position has to be shifted by <em>y.at</em> for each variable.</p>
-</div>
-<div class="section level2">
-<h2 id="strip-plot-for-proportions">Strip plot for proportions<a class="anchor" aria-label="anchor" href="#strip-plot-for-proportions"></a>
-</h2>
-<p>For binary outcomes and in particular for serious adverse event reporting a graphical representation of the proportion in both arms has been recommended.</p>
-<p>A strip plot for the proportions can be added via <em>s[1-9]</em>, where the number would indicate the number of points in the strip plot and the number of columns in the <em>dat</em> (usually two if there are two treatment arms). The “s” items then contains several <em>points</em> elements.</p>
-<p>For example:</p>
-<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">fobj</span><span class="op">&lt;-</span><span class="fu"><a href="reference/genfobj.html">genfobj</a></span><span class="op">(</span>dat <span class="op">=</span> <span class="va">forplotdata_prop</span>,</span>
-<span>  layout <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"t"</span>,<span class="st">"t"</span>,<span class="st">"t"</span>,<span class="st">"t"</span>,<span class="st">"t"</span>,<span class="st">"s2"</span>,<span class="st">"t"</span>,<span class="st">"f"</span>,<span class="st">"t"</span><span class="op">)</span>,</span>
-<span>  lwidths <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.3</span>,<span class="fl">0.4</span>,<span class="fl">0.6</span>,<span class="fl">0.4</span>,<span class="fl">0.6</span>,<span class="fl">1.0</span>,<span class="fl">1.2</span>,<span class="fl">1</span>,<span class="fl">0.5</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="reference/plotfobj.html">plotfobj</a></span><span class="op">(</span><span class="va">fobj</span><span class="op">)</span></span></code></pre></div>
-<p><img src="reference/figures/README-unnamed-chunk-29-1.png"><!-- --></p>
-<p>Options can be modified via <em>s_axis</em>, <em>s_hline</em> and <em>s_points</em> using all options available for using all options available for <a href="https://stat.ethz.ch/R-manual/R-devel/library/graphics/html/axis.html" class="external-link">graphics::axis()</a>, <a href="https://stat.ethz.ch/R-manual/R-devel/library/graphics/html/abline.html" class="external-link">graphics::abline()</a> and <a href="https://stat.ethz.ch/R-manual/R-devel/library/graphics/html/points.html" class="external-link">graphics::points()</a>.</p>
-<p>Note that for points, each sub-item has can be specified separately using <em>pointnr</em> (e.g. to specify colors).</p>
-<p>Left and right borders can be added via <em>s_borders</em>.</p>
-<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">fobj</span><span class="op">&lt;-</span><span class="fu"><a href="reference/s_axis.html">s_axis</a></span><span class="op">(</span>fobj<span class="op">=</span><span class="va">fobj</span>, xlim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">1</span><span class="op">)</span>, </span>
-<span>  at <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">1</span>,by<span class="op">=</span><span class="fl">0.25</span><span class="op">)</span>, labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">100</span>,by<span class="op">=</span><span class="fl">25</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">fobj</span><span class="op">&lt;-</span><span class="fu"><a href="reference/s_points.html">s_points</a></span><span class="op">(</span>fobj<span class="op">=</span><span class="va">fobj</span>, pch <span class="op">=</span> <span class="fl">16</span>, cex<span class="op">=</span><span class="fl">1.5</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">fobj</span><span class="op">&lt;-</span><span class="fu"><a href="reference/s_points.html">s_points</a></span><span class="op">(</span>fobj<span class="op">=</span><span class="va">fobj</span>, pointnr <span class="op">=</span> <span class="fl">1</span>, col <span class="op">=</span> <span class="st">"red"</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">fobj</span><span class="op">&lt;-</span><span class="fu"><a href="reference/s_points.html">s_points</a></span><span class="op">(</span>fobj<span class="op">=</span><span class="va">fobj</span>, pointnr <span class="op">=</span> <span class="fl">2</span>, col <span class="op">=</span> <span class="st">"blue"</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">fobj</span><span class="op">&lt;-</span><span class="fu"><a href="reference/s_borders.html">s_borders</a></span><span class="op">(</span><span class="va">fobj</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">fobj</span><span class="op">&lt;-</span><span class="fu"><a href="reference/gridlines.html">gridlines</a></span><span class="op">(</span><span class="va">fobj</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="reference/plotfobj.html">plotfobj</a></span><span class="op">(</span><span class="va">fobj</span><span class="op">)</span></span></code></pre></div>
-<p><img src="reference/figures/README-unnamed-chunk-30-1.png"><!-- --></p>
-</div>
-<div class="section level2">
-<h2 id="combine-fobjs">Combine fobjs<a class="anchor" aria-label="anchor" href="#combine-fobjs"></a>
-</h2>
-<p>A list of <strong>fobj</strong> can be combined using <code>combinefobj</code> resulting in an object of class <strong>cfobj</strong>, which includes an overall <em>setup</em>, an overall <em>header</em> and the list of the individual <strong>fobj</strong>.</p>
-<p>The layout is adapted automatically. If there are different number of columns, they are distributed using a grid with the least common multiple. If the <em>lwdiths</em> vary, the average is taken.</p>
-<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co">#prepare first fobj</span></span>
-<span><span class="va">fobj1</span><span class="op">&lt;-</span><span class="fu"><a href="reference/genfobj.html">genfobj</a></span><span class="op">(</span>dat <span class="op">=</span> <span class="va">forplotdata</span>, obs <span class="op">=</span> <span class="va">forplotdata_bp</span>,</span>
-<span>  layout <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"t"</span>,<span class="st">"t"</span>,<span class="st">"t"</span>,<span class="st">"t"</span>,<span class="st">"t"</span>,<span class="st">"b"</span>,<span class="st">"t"</span>,<span class="st">"f"</span>,<span class="st">"t"</span><span class="op">)</span>,</span>
-<span>  lwidths <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.3</span>,<span class="fl">0.4</span>,<span class="fl">0.6</span>,<span class="fl">0.4</span>,<span class="fl">0.6</span>,<span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">0.5</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">fobj1</span><span class="op">$</span><span class="va">setup</span><span class="op">$</span><span class="va">lheights</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">&lt;-</span><span class="fl">0.2</span></span>
-<span><span class="va">fobj1</span><span class="op">$</span><span class="va">setup</span><span class="op">$</span><span class="va">lheights</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span><span class="op">&lt;-</span><span class="fl">0.2</span></span>
-<span></span>
-<span><span class="va">fobj1</span><span class="op">&lt;-</span><span class="fu"><a href="reference/gridlines.html">gridlines</a></span><span class="op">(</span>fobj <span class="op">=</span> <span class="va">fobj1</span><span class="op">)</span></span>
-<span><span class="va">fobj1</span><span class="op">&lt;-</span><span class="fu"><a href="reference/stripes.html">stripes</a></span><span class="op">(</span>fobj <span class="op">=</span> <span class="va">fobj1</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">fobj1</span><span class="op">&lt;-</span><span class="fu"><a href="reference/header.html">header</a></span><span class="op">(</span>fobj <span class="op">=</span> <span class="va">fobj1</span>, hlayout <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span>, headernr <span class="op">=</span> <span class="fl">1</span>,</span>
-<span>    labels<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Continuous variables"</span><span class="op">)</span>,</span>
-<span>    col <span class="op">=</span> <span class="fl">1</span>, y <span class="op">=</span> <span class="fl">0.9</span>, font <span class="op">=</span> <span class="fl">2</span>, cex<span class="op">=</span><span class="fl">1.2</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">fobj1</span><span class="op">&lt;-</span><span class="fu"><a href="reference/header.html">header</a></span><span class="op">(</span>fobj <span class="op">=</span> <span class="va">fobj1</span>, hlayout <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">2</span>,<span class="fl">3</span>,<span class="fl">3</span>,<span class="fl">4</span>,<span class="fl">5</span>,<span class="fl">5</span>,<span class="fl">6</span><span class="op">)</span>,  headernr <span class="op">=</span> <span class="fl">2</span>,</span>
-<span>    labels<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">""</span>,<span class="st">"Arm A"</span>,<span class="st">"Arm B"</span>,<span class="st">""</span>,<span class="st">"Mean difference (95% CI)"</span>,<span class="st">"P-value"</span><span class="op">)</span>,</span>
-<span>    col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="st">"red"</span>,<span class="st">"blue"</span>,<span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span>, y <span class="op">=</span> <span class="fl">0.45</span>, font <span class="op">=</span> <span class="fl">1</span>, cex <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">fobj1</span><span class="op">&lt;-</span><span class="fu"><a href="reference/header.html">header</a></span><span class="op">(</span>fobj <span class="op">=</span> <span class="va">fobj1</span>, hlayout <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">3</span>,<span class="fl">4</span>,<span class="fl">5</span>,<span class="fl">6</span>,<span class="fl">7</span>,<span class="fl">8</span>,<span class="fl">9</span><span class="op">)</span>, headernr <span class="op">=</span> <span class="fl">3</span>,</span>
-<span>    labels<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">""</span>,<span class="st">"N"</span>,<span class="st">"Mean (sd)"</span>,<span class="st">"N"</span>,<span class="st">"Mean (sd)"</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span><span class="op">)</span>,</span>
-<span>    col <span class="op">=</span> <span class="fl">1</span>, y <span class="op">=</span> <span class="fl">0.15</span>, font <span class="op">=</span> <span class="fl">1</span>, cex <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
-<span></span>
-<span></span>
-<span><span class="co">#prepare second fobj</span></span>
-<span><span class="va">fobj2</span><span class="op">&lt;-</span><span class="fu"><a href="reference/genfobj.html">genfobj</a></span><span class="op">(</span>dat <span class="op">=</span> <span class="va">forplotdata_prop</span>,</span>
-<span>  layout <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"t"</span>,<span class="st">"t"</span>,<span class="st">"t"</span>,<span class="st">"t"</span>,<span class="st">"t"</span>,<span class="st">"s2"</span>,<span class="st">"t"</span>,<span class="st">"f"</span>,<span class="st">"t"</span><span class="op">)</span>,</span>
-<span>  lwidths <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.3</span>,<span class="fl">0.4</span>,<span class="fl">0.6</span>,<span class="fl">0.4</span>,<span class="fl">0.6</span>,<span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">0.5</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">fobj2</span><span class="op">$</span><span class="va">setup</span><span class="op">$</span><span class="va">lheights</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">&lt;-</span><span class="fl">0.2</span></span>
-<span><span class="va">fobj2</span><span class="op">$</span><span class="va">setup</span><span class="op">$</span><span class="va">lheights</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span><span class="op">&lt;-</span><span class="fl">0.2</span></span>
-<span></span>
-<span><span class="va">fobj2</span><span class="op">&lt;-</span><span class="fu"><a href="reference/s_axis.html">s_axis</a></span><span class="op">(</span>fobj <span class="op">=</span> <span class="va">fobj2</span>, xlim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">1</span><span class="op">)</span>, </span>
-<span>  at <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">1</span>,by<span class="op">=</span><span class="fl">0.25</span><span class="op">)</span>, labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html" class="external-link">seq</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">100</span>,by<span class="op">=</span><span class="fl">25</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">fobj2</span><span class="op">&lt;-</span><span class="fu"><a href="reference/s_borders.html">s_borders</a></span><span class="op">(</span>fobj <span class="op">=</span> <span class="va">fobj2</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">fobj2</span><span class="op">&lt;-</span><span class="fu"><a href="reference/gridlines.html">gridlines</a></span><span class="op">(</span>fobj <span class="op">=</span> <span class="va">fobj2</span><span class="op">)</span></span>
-<span><span class="va">fobj2</span><span class="op">&lt;-</span><span class="fu"><a href="reference/stripes.html">stripes</a></span><span class="op">(</span>fobj <span class="op">=</span> <span class="va">fobj2</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">fobj2</span><span class="op">&lt;-</span><span class="fu"><a href="reference/header.html">header</a></span><span class="op">(</span>fobj <span class="op">=</span> <span class="va">fobj2</span>, hlayout <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span>, headernr <span class="op">=</span> <span class="fl">1</span>,</span>
-<span>    labels<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Binary variables"</span><span class="op">)</span>,</span>
-<span>    col <span class="op">=</span> <span class="fl">1</span>, y <span class="op">=</span> <span class="fl">0.9</span>, font <span class="op">=</span> <span class="fl">2</span>, cex<span class="op">=</span><span class="fl">1.2</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">fobj2</span><span class="op">&lt;-</span><span class="fu"><a href="reference/header.html">header</a></span><span class="op">(</span>fobj <span class="op">=</span> <span class="va">fobj2</span>, hlayout <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">2</span>,<span class="fl">3</span>,<span class="fl">3</span>,<span class="fl">4</span>,<span class="fl">5</span>,<span class="fl">5</span>,<span class="fl">6</span><span class="op">)</span>,  headernr <span class="op">=</span> <span class="fl">2</span>,</span>
-<span>    labels<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">""</span>,<span class="st">"Arm A"</span>,<span class="st">"Arm B"</span>,<span class="st">"Proportion (%)"</span>,<span class="st">"Odds ratio (95% CI)"</span>,<span class="st">"P-value"</span><span class="op">)</span>,</span>
-<span>    col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="st">"red"</span>,<span class="st">"blue"</span>,<span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span>, y <span class="op">=</span> <span class="fl">0.45</span>, font <span class="op">=</span> <span class="fl">1</span>, cex <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">fobj2</span><span class="op">&lt;-</span><span class="fu"><a href="reference/header.html">header</a></span><span class="op">(</span>fobj <span class="op">=</span> <span class="va">fobj2</span>, hlayout <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">3</span>,<span class="fl">4</span>,<span class="fl">5</span>,<span class="fl">6</span>,<span class="fl">7</span>,<span class="fl">8</span>,<span class="fl">9</span><span class="op">)</span>, headernr <span class="op">=</span> <span class="fl">3</span>,</span>
-<span>    labels<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">""</span>,<span class="st">"N"</span>,<span class="st">"n (%)"</span>,<span class="st">"N"</span>,<span class="st">"n (%)"</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span><span class="op">)</span>,</span>
-<span>    col <span class="op">=</span> <span class="fl">1</span>, y <span class="op">=</span> <span class="fl">0.15</span>, font <span class="op">=</span> <span class="fl">1</span>, cex <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co">#combine:</span></span>
-<span><span class="va">cfobj</span><span class="op">&lt;-</span><span class="fu"><a href="reference/combinefobj.html">combinefobj</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">fobj1</span>, <span class="va">fobj2</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">cfobj</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "setup"  "header" "fobjs"</span></span>
-<span><span class="va">cfobj</span><span class="op">$</span><span class="va">setup</span></span>
-<span><span class="co">#&gt; $lmatrix</span></span>
-<span><span class="co">#&gt;      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11]</span></span>
-<span><span class="co">#&gt; [1,]   25    1    1    1    1    1    1    1    1     1    26</span></span>
-<span><span class="co">#&gt; [2,]   25   12   12   12   12   12   12   12   12    12    26</span></span>
-<span><span class="co">#&gt; [3,]   25    2    3    4    5    6    7    8    9    10    26</span></span>
-<span><span class="co">#&gt; [4,]   25   11   11   11   11   11   11   11   11    11    26</span></span>
-<span><span class="co">#&gt; [5,]   25   23   23   23   23   23   23   23   23    23    26</span></span>
-<span><span class="co">#&gt; [6,]   25   13   14   15   16   17   18   19   20    21    26</span></span>
-<span><span class="co">#&gt; [7,]   25   22   22   22   22   22   22   22   22    22    26</span></span>
-<span><span class="co">#&gt; [8,]   25   24   24   24   24   24   24   24   24    24    26</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $lwidths</span></span>
-<span><span class="co">#&gt; [1] 0.05172414 0.06896552 0.10344828 0.06896552 0.10344828 0.17241379 0.17241379</span></span>
-<span><span class="co">#&gt; [8] 0.17241379 0.08620690</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $lheights</span></span>
-<span><span class="co">#&gt; [1] 0.200 0.200 1.000 0.200 0.200 1.000 0.200 0.028</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; $iheadfoot</span></span>
-<span><span class="co">#&gt; [1] TRUE TRUE</span></span></code></pre></div>
-<p>The <strong>cfobj</strong> can be plotted using the same plot function:</p>
-<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co">#plot list:</span></span>
-<span><span class="fu"><a href="reference/plotfobj.html">plotfobj</a></span><span class="op">(</span>fobj <span class="op">=</span> <span class="va">cfobj</span><span class="op">)</span></span></code></pre></div>
-<p><img src="reference/figures/README-unnamed-chunk-32-1.png"><!-- --></p>
-<p>Combining plots can also be used to get different scaling for the plots of the individual variables. Assume we would like to present a number of differently scaled continuous variables with boxplots and densities. Note that we removed the headers of the indiviual fobj but kept the footer (to have space for the axes) by setting <em>ikeepheadfoot</em> to c(FALSE, TRUE).</p>
-<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">fobj</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/vector.html" class="external-link">vector</a></span><span class="op">(</span><span class="fl">10</span>,mode<span class="op">=</span><span class="st">"list"</span><span class="op">)</span></span>
-<span></span>
-<span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">fobj</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  </span>
-<span>  <span class="co">#modify the data</span></span>
-<span>    <span class="va">obs</span><span class="op">&lt;-</span><span class="va">forplotdata_bp</span><span class="op">[</span><span class="va">forplotdata_bp</span><span class="op">$</span><span class="va">variable</span><span class="op">==</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"var"</span>,<span class="va">i</span><span class="op">)</span>,<span class="op">]</span></span>
-<span>    <span class="va">obs</span><span class="op">$</span><span class="va">value</span><span class="op">&lt;-</span><span class="va">obs</span><span class="op">$</span><span class="va">value</span> <span class="op">+</span> <span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html" class="external-link">runif</a></span><span class="op">(</span><span class="fl">1</span>,<span class="op">-</span><span class="fl">10</span>,<span class="fl">10</span><span class="op">)</span></span>
-<span>    <span class="va">obs</span><span class="op">$</span><span class="va">variable</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">obs</span><span class="op">$</span><span class="va">variable</span><span class="op">)</span></span>
-<span>    </span>
-<span>    <span class="va">dat</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="va">forplotdata</span><span class="op">[</span><span class="va">i</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span>,<span class="st">""</span><span class="op">)</span></span>
-<span>    <span class="va">dat</span><span class="op">$</span><span class="va">n2</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sprintf.html" class="external-link">sprintf</a></span><span class="op">(</span><span class="st">"%1.1f"</span>,<span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">obs</span><span class="op">$</span><span class="va">value</span><span class="op">[</span><span class="va">obs</span><span class="op">$</span><span class="va">arm</span><span class="op">==</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span><span class="op">)</span>,<span class="st">" ("</span>,</span>
-<span>    <span class="fu"><a href="https://rdrr.io/r/base/sprintf.html" class="external-link">sprintf</a></span><span class="op">(</span><span class="st">"%1.1f"</span>,<span class="fu"><a href="https://rdrr.io/r/stats/sd.html" class="external-link">sd</a></span><span class="op">(</span><span class="va">obs</span><span class="op">$</span><span class="va">value</span><span class="op">[</span><span class="va">obs</span><span class="op">$</span><span class="va">arm</span><span class="op">==</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span><span class="op">)</span>,<span class="st">")"</span><span class="op">)</span></span>
-<span>    <span class="va">dat</span><span class="op">$</span><span class="va">n4</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sprintf.html" class="external-link">sprintf</a></span><span class="op">(</span><span class="st">"%1.1f"</span>,<span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">obs</span><span class="op">$</span><span class="va">value</span><span class="op">[</span><span class="va">obs</span><span class="op">$</span><span class="va">arm</span><span class="op">==</span><span class="fl">2</span><span class="op">]</span><span class="op">)</span><span class="op">)</span>,<span class="st">" ("</span>,</span>
-<span>    <span class="fu"><a href="https://rdrr.io/r/base/sprintf.html" class="external-link">sprintf</a></span><span class="op">(</span><span class="st">"%1.1f"</span>,<span class="fu"><a href="https://rdrr.io/r/stats/sd.html" class="external-link">sd</a></span><span class="op">(</span><span class="va">obs</span><span class="op">$</span><span class="va">value</span><span class="op">[</span><span class="va">obs</span><span class="op">$</span><span class="va">arm</span><span class="op">==</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span><span class="op">)</span>,<span class="st">")"</span><span class="op">)</span></span>
-<span>    </span>
-<span>    <span class="co">#generate individual fplots</span></span>
-<span>    <span class="va">fobji</span><span class="op">&lt;-</span><span class="fu"><a href="reference/genfobj.html">genfobj</a></span><span class="op">(</span>dat <span class="op">=</span> <span class="va">dat</span>, obs <span class="op">=</span> <span class="va">obs</span>,</span>
-<span>        layout <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"t"</span>,<span class="st">"t"</span>,<span class="st">"t"</span>,<span class="st">"t"</span>,<span class="st">"t"</span>,<span class="st">"b"</span>,<span class="st">"t"</span>,<span class="st">"d"</span><span class="op">)</span>, </span>
-<span>        lwidths <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.3</span>,<span class="fl">0.4</span>,<span class="fl">0.6</span>,<span class="fl">0.4</span>,<span class="fl">0.6</span>,<span class="fl">1</span>,<span class="fl">0.1</span>,<span class="fl">1</span><span class="op">)</span>,</span>
-<span>        lheights <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.2</span>,<span class="fl">1</span>,<span class="fl">0.25</span><span class="op">)</span><span class="op">)</span></span>
-<span>    </span>
-<span>    <span class="va">fobji</span><span class="op">&lt;-</span><span class="fu"><a href="reference/b_axis.html">b_axis</a></span><span class="op">(</span><span class="va">fobji</span>, cex.axis<span class="op">=</span><span class="fl">0.8</span>, mgp<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0.3</span>,<span class="fl">0</span><span class="op">)</span>, tck<span class="op">=</span><span class="op">-</span><span class="fl">0.1</span><span class="op">)</span></span>
-<span>    <span class="va">fobji</span><span class="op">&lt;-</span><span class="fu"><a href="reference/d_axis.html">d_axis</a></span><span class="op">(</span><span class="va">fobji</span>, cex.axis<span class="op">=</span><span class="fl">0.8</span>, mgp<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0.3</span>,<span class="fl">0</span><span class="op">)</span>, tck<span class="op">=</span><span class="op">-</span><span class="fl">0.1</span><span class="op">)</span></span>
-<span>    </span>
-<span>    <span class="co">#remove individual headers</span></span>
-<span>    <span class="co">#fobji$header&lt;-NULL</span></span>
-<span>    </span>
-<span>    <span class="co">#gridlines on first and last fobj</span></span>
-<span>    <span class="kw">if</span> <span class="op">(</span><span class="va">i</span><span class="op">==</span><span class="fl">1</span><span class="op">)</span> <span class="op">{</span></span>
-<span>        <span class="va">fobji</span><span class="op">&lt;-</span><span class="fu"><a href="reference/gridlines.html">gridlines</a></span><span class="op">(</span><span class="va">fobji</span>, h<span class="op">=</span><span class="va">fobji</span><span class="op">$</span><span class="va">setup</span><span class="op">$</span><span class="va">ylim</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span><span class="op">)</span></span>
-<span>    <span class="op">}</span></span>
-<span>    <span class="kw">if</span> <span class="op">(</span><span class="va">i</span><span class="op">==</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">fobj</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
-<span>      <span class="va">fobji</span><span class="op">&lt;-</span><span class="fu"><a href="reference/gridlines.html">gridlines</a></span><span class="op">(</span><span class="va">fobji</span>, h<span class="op">=</span><span class="va">fobji</span><span class="op">$</span><span class="va">setup</span><span class="op">$</span><span class="va">ylim</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span></span>
-<span>    <span class="op">}</span></span>
-<span>    </span>
-<span>    <span class="co">#collect</span></span>
-<span>    <span class="va">fobj</span><span class="op">[[</span><span class="va">i</span><span class="op">]</span><span class="op">]</span><span class="op">&lt;-</span><span class="va">fobji</span></span>
-<span>    </span>
-<span><span class="op">}</span></span>
-<span><span class="va">cfobj</span><span class="op">&lt;-</span><span class="fu"><a href="reference/combinefobj.html">combinefobj</a></span><span class="op">(</span><span class="va">fobj</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co">#combine and add overall header</span></span>
-<span><span class="va">cfobj</span><span class="op">&lt;-</span><span class="fu"><a href="reference/combinefobj.html">combinefobj</a></span><span class="op">(</span><span class="va">fobj</span>, keepiheadfoot <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="cn">FALSE</span>, <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="reference/header.html">header</a></span><span class="op">(</span>hlayout <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">2</span>,<span class="fl">3</span>,<span class="fl">3</span>,<span class="fl">4</span>,<span class="fl">5</span>,<span class="fl">6</span><span class="op">)</span>, headernr <span class="op">=</span> <span class="fl">1</span>,</span>
-<span>        labels<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">""</span>,<span class="st">"Arm A"</span>,<span class="st">"Arm B"</span>,<span class="st">"Boxplot"</span>,<span class="st">""</span>,<span class="st">"Density"</span><span class="op">)</span>,</span>
-<span>        col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="st">"red"</span>,<span class="st">"blue"</span>,<span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span>, y <span class="op">=</span> <span class="fl">0.9</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="reference/header.html">header</a></span><span class="op">(</span>hlayout <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">3</span>,<span class="fl">4</span>,<span class="fl">5</span>,<span class="fl">6</span>,<span class="fl">7</span>,<span class="fl">8</span><span class="op">)</span>, headernr <span class="op">=</span> <span class="fl">2</span>,</span>
-<span>            labels<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">""</span>,<span class="st">"N"</span>,<span class="st">"mean (sd)"</span>,<span class="st">"N"</span>,<span class="st">"mean (sd)"</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span><span class="op">)</span>,</span>
-<span>            col <span class="op">=</span> <span class="fl">1</span>, y <span class="op">=</span> <span class="fl">0.35</span><span class="op">)</span></span>
-<span>        </span>
-<span><span class="co">#adapt overall header and footer</span></span>
-<span><span class="va">cfobj</span><span class="op">$</span><span class="va">setup</span><span class="op">$</span><span class="va">lheights</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">&lt;-</span><span class="fl">1</span></span>
-<span><span class="va">cfobj</span><span class="op">$</span><span class="va">setup</span><span class="op">$</span><span class="va">lheights</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">cfobj</span><span class="op">$</span><span class="va">setup</span><span class="op">$</span><span class="va">lheights</span><span class="op">)</span><span class="op">]</span><span class="op">&lt;-</span><span class="fl">0.5</span></span>
-<span></span>
-<span><span class="co">#combine and plot the list of fobj</span></span>
-<span><span class="fu"><a href="reference/plotfobj.html">plotfobj</a></span><span class="op">(</span><span class="va">cfobj</span><span class="op">)</span></span></code></pre></div>
-<p><img src="reference/figures/README-unnamed-chunk-33-1.png"><!-- --></p>
-</div>
-<div class="section level2">
-<h2 id="inserting-subtitles">Inserting subtitles<a class="anchor" aria-label="anchor" href="#inserting-subtitles"></a>
-</h2>
-<p>Subtitles can be inserted using the <code>combinefobj</code> functionality with an <strong>fobj</strong> that does only have one column. The function <code>insert_subtitle</code> helps with the preparation:</p>
-<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">fobj</span><span class="op">&lt;-</span><span class="fu"><a href="reference/genfobj.html">genfobj</a></span><span class="op">(</span>dat <span class="op">=</span> <span class="va">forplotdata</span>,</span>
-<span>  layout <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"t"</span>,<span class="st">"t"</span>,<span class="st">"t"</span>,<span class="st">"t"</span>,<span class="st">"t"</span>,<span class="st">"t"</span>,<span class="st">"f"</span>,<span class="st">"t"</span><span class="op">)</span>, </span>
-<span>    lwidths <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.3</span>,<span class="fl">0.4</span>,<span class="fl">0.6</span>,<span class="fl">0.4</span>,<span class="fl">0.6</span>,<span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">0.5</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">cfobj</span><span class="op">&lt;-</span><span class="fu"><a href="reference/insert_subtitle.html">insert_subtitle</a></span><span class="op">(</span><span class="va">fobj</span>,</span>
-<span>    atrows<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">3</span>, <span class="fl">5</span><span class="op">)</span>,</span>
-<span>    subtitle<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"A first long title is added here"</span>,</span>
-<span>        <span class="st">"A second long title is added here"</span>,</span>
-<span>        <span class="st">"A third long title is added here"</span><span class="op">)</span></span>
-<span><span class="op">)</span></span>
-<span></span>
-<span><span class="fu"><a href="reference/plotfobj.html">plotfobj</a></span><span class="op">(</span><span class="va">cfobj</span><span class="op">)</span></span></code></pre></div>
-<p><img src="reference/figures/README-unnamed-chunk-34-1.png"><!-- --></p>
-<p>The resulting <strong>cfobj</strong> contains 6 individual <strong>fobj</strong> (for each subtitle and the parts in between), which can be modified individually. We can e.g. modify subtitles or remove the axes in the first and second part of the plot.</p>
-<p>Note that there are no individual headers and footers for this 6 <strong>fobj</strong>, which is the case if they are combined directly via <code>combinefobj</code> (unless option <em>keepiheadfoot</em> is set to FALSE).</p>
-<p>The overall header can be accessed via the <code>header</code> function in the same way as for an individual <code>fobj</code>.</p>
-<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co">#change text and background color, add gridlines</span></span>
-<span><span class="va">cfobj</span><span class="op">$</span><span class="va">fobjs</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span><span class="op">&lt;-</span><span class="fu"><a href="reference/t_options.html">t_options</a></span><span class="op">(</span><span class="va">cfobj</span><span class="op">$</span><span class="va">fobjs</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span>, col <span class="op">=</span> <span class="st">"red"</span><span class="op">)</span></span>
-<span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">3</span>,<span class="fl">5</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="va">cfobj</span><span class="op">$</span><span class="va">fobjs</span><span class="op">[[</span><span class="va">i</span><span class="op">]</span><span class="op">]</span><span class="op">&lt;-</span><span class="va">cfobj</span><span class="op">$</span><span class="va">fobjs</span><span class="op">[[</span><span class="va">i</span><span class="op">]</span><span class="op">]</span> <span class="op">|&gt;</span></span>
-<span>      <span class="fu"><a href="reference/stripes.html">stripes</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>      <span class="fu"><a href="reference/gridlines.html">gridlines</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="op">}</span></span>
-<span></span>
-<span><span class="co">#only keep bottom axis</span></span>
-<span><span class="va">cfobj</span><span class="op">$</span><span class="va">fobjs</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">items</span><span class="op">[[</span><span class="fl">7</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">axis</span><span class="op">&lt;-</span><span class="cn">NULL</span></span>
-<span><span class="va">cfobj</span><span class="op">$</span><span class="va">fobjs</span><span class="op">[[</span><span class="fl">4</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">items</span><span class="op">[[</span><span class="fl">7</span><span class="op">]</span><span class="op">]</span><span class="op">$</span><span class="va">axis</span><span class="op">&lt;-</span><span class="cn">NULL</span></span>
-<span><span class="co">#add gridline at the bottom</span></span>
-<span><span class="va">cfobj</span><span class="op">$</span><span class="va">fobjs</span><span class="op">[[</span><span class="fl">6</span><span class="op">]</span><span class="op">]</span><span class="op">&lt;-</span><span class="fu"><a href="reference/gridlines.html">gridlines</a></span><span class="op">(</span><span class="va">cfobj</span><span class="op">$</span><span class="va">fobjs</span><span class="op">[[</span><span class="fl">6</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co">#overall header</span></span>
-<span><span class="va">cfobj</span><span class="op">&lt;-</span><span class="va">cfobj</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu"><a href="reference/header.html">header</a></span><span class="op">(</span>hlayout <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">2</span>,<span class="fl">3</span>,<span class="fl">3</span>,<span class="fl">4</span>,<span class="fl">4</span>,<span class="fl">5</span><span class="op">)</span>,  headernr <span class="op">=</span> <span class="fl">1</span>,</span>
-<span>        labels<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">""</span>,<span class="st">"Arm A"</span>,<span class="st">"Arm B"</span>,<span class="st">"Mean diff (95% CI)"</span>,<span class="st">"P-value"</span><span class="op">)</span>,</span>
-<span>        y<span class="op">=</span><span class="fl">0.9</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu"><a href="reference/header.html">header</a></span><span class="op">(</span>hlayout <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">3</span>,<span class="fl">4</span>,<span class="fl">5</span>,<span class="fl">6</span>,<span class="fl">7</span>,<span class="fl">8</span><span class="op">)</span>, headernr <span class="op">=</span> <span class="fl">2</span>,</span>
-<span>        labels<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">""</span>,<span class="st">"N"</span>,<span class="st">"Mean (sd)"</span>,<span class="st">"N"</span>,<span class="st">"Mean (sd)"</span>,<span class="st">""</span>,<span class="st">""</span>,<span class="st">""</span><span class="op">)</span>,y<span class="op">=</span><span class="fl">0.3</span><span class="op">)</span> </span>
-<span>    </span>
-<span><span class="co">#adapt height of header and footer</span></span>
-<span><span class="va">cfobj</span><span class="op">$</span><span class="va">setup</span><span class="op">$</span><span class="va">lheights</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">&lt;-</span><span class="fl">0.15</span></span>
-<span><span class="va">cfobj</span><span class="op">$</span><span class="va">setup</span><span class="op">$</span><span class="va">lheights</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">cfobj</span><span class="op">$</span><span class="va">setup</span><span class="op">$</span><span class="va">lheights</span><span class="op">)</span><span class="op">]</span><span class="op">&lt;-</span><span class="fl">0.15</span></span>
-<span></span>
-<span><span class="fu"><a href="reference/plotfobj.html">plotfobj</a></span><span class="op">(</span><span class="va">cfobj</span><span class="op">)</span></span></code></pre></div>
-<p><img src="reference/figures/README-unnamed-chunk-35-1.png"><!-- --></p>
-</div>
-</div>
-  </div>
-
-  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
-    <div class="links">
+  </main><aside class="col-md-3"><div class="links">
 <h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
 <li><a href="https://github.com/dcr-unibe-ch/forplot/" class="external-link">Browse source code</a></li>
@@ -798,23 +125,20 @@
 
 
 
-  </div>
+  </aside>
 </div>
 
 
-      <footer><div class="copyright">
-  <p></p>
-<p>Developed by Lukas Bütikofer.</p>
+    <footer><div class="pkgdown-footer-left">
+  <p>Developed by Lukas Bütikofer.</p>
 </div>
 
-<div class="pkgdown">
-  <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.1.</p>
+<div class="pkgdown-footer-right">
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.1.</p>
 </div>
 
-      </footer>
+    </footer>
 </div>
-
 
 
 
