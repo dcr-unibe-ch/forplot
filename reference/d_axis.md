@@ -1,4 +1,4 @@
-# Modify density (d) items of a forest plot object (fobj).
+# Modify axis in density (d) items of a forest plot object (fobj)
 
 Passed to [`axis`](https://rdrr.io/r/graphics/axis.html).
 

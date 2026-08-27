@@ -1,4 +1,4 @@
-# Add and modify borders of a sripe (s) item of a forest plot object (fobj).
+# Customize borders of stripchart (s) item of a forest plot object (fobj)
 
 Passed to [`abline`](https://rdrr.io/r/graphics/abline.html). Without
 options two vertical lines are plotted at x-axis limits.

@@ -1,4 +1,4 @@
-# Create a forest plot (fobj) object
+# Create a forest plot object (fobj)
 
 First step to generate a forest plot. Generates a fobj that can be
 plotted.

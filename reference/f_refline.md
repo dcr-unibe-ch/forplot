@@ -1,4 +1,4 @@
-# Add and modify the reference line in forest (f) items of a forest plot object (fobj).
+# Add and modify the reference line in forest (f) items of a forest plot object (fobj)
 
 Passed to [`abline`](https://rdrr.io/r/graphics/abline.html).
 

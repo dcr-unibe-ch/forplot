@@ -1,4 +1,4 @@
-# Modify points in stripe (s) items of a forest plot object (fobj).
+# Modify points in stripchart (s) items of a forest plot object (fobj)
 
 Passed to [`points`](https://rdrr.io/r/graphics/points.html).
 

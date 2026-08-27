@@ -3,20 +3,20 @@
 ## Generate and plot forest plots
 
 - [`genfobj()`](https://dcr-unibe-ch.github.io/forplot/reference/genfobj.md)
-  : Create a forest plot (fobj) object
+  : Create a forest plot object (fobj)
 - [`combinefobj()`](https://dcr-unibe-ch.github.io/forplot/reference/combinefobj.md)
-  : Combine multiple fobjs
+  : Combine multiple forest plot objects (fobj)
 - [`plotfobj()`](https://dcr-unibe-ch.github.io/forplot/reference/plotfobj.md)
-  : Plot a forest plot (fobj) object
+  : Plot a forest plot object (fobj)
 
 ### Modify overarching appearance
 
 - [`header()`](https://dcr-unibe-ch.github.io/forplot/reference/header.md)
-  : Modify the header of a forest plot object (fobj).
+  : Modify the header of a forest plot object (fobj)
 - [`gridlines()`](https://dcr-unibe-ch.github.io/forplot/reference/gridlines.md)
-  : Add or modify horizontal lines to a forest plot object (fobj).
+  : Customize horizontal lines in a forest plot object (fobj)
 - [`stripes()`](https://dcr-unibe-ch.github.io/forplot/reference/stripes.md)
-  : Add or modify stripes in a forest plot object (fobj).
+  : Customize stripes in a forest plot object (fobj)
 - [`insert_subtitle()`](https://dcr-unibe-ch.github.io/forplot/reference/insert_subtitle.md)
   : Insert subtitles over the whole width of an fobj
 
@@ -24,46 +24,46 @@
 
 - [`f_arrows()`](https://dcr-unibe-ch.github.io/forplot/reference/f_arrows.md)
   : Modify arrows (confidence intervals) in forest (f) items of a forest
-  plot object (fobj).
+  plot object (fobj)
 - [`f_axis()`](https://dcr-unibe-ch.github.io/forplot/reference/f_axis.md)
-  : Modify axis in forest (f) items of a forest plot object (fobj).
+  : Modify axis in forest (f) items of a forest plot object (fobj)
 - [`f_cutarrows()`](https://dcr-unibe-ch.github.io/forplot/reference/f_cutarrows.md)
   : Adds arrowheads to confidence intervals which extend beyond the
-  x-axis limits in forest (f) items of a forest plot object (fobj).
+  x-axis limits in forest (f) items of a forest plot object (fobj)
 - [`f_direction()`](https://dcr-unibe-ch.github.io/forplot/reference/f_direction.md)
   : Add and modify direction indicator in forest (f) items of a forest
-  plot object (fobj).
+  plot object (fobj)
 - [`f_points()`](https://dcr-unibe-ch.github.io/forplot/reference/f_points.md)
-  : Modify points in forest (f) items of a forest plot object (fobj).
+  : Modify points in forest (f) items of a forest plot object (fobj)
 - [`f_refline()`](https://dcr-unibe-ch.github.io/forplot/reference/f_refline.md)
   : Add and modify the reference line in forest (f) items of a forest
-  plot object (fobj).
+  plot object (fobj)
 
 ## Modify text columns
 
 - [`t_options()`](https://dcr-unibe-ch.github.io/forplot/reference/t_options.md)
-  : Modify text (t) items of a forest plot object (fobj).
+  : Modify text (t) items of a forest plot object (fobj)
 
 ## Modify data plot (density plots, boxplots, stripcharts)
 
 - [`d_lines()`](https://dcr-unibe-ch.github.io/forplot/reference/d_lines.md)
-  : Modify lines in density (d) items of a forest plot object (fobj).
+  : Modify lines in density (d) items of a forest plot object (fobj)
 - [`d_axis()`](https://dcr-unibe-ch.github.io/forplot/reference/d_axis.md)
-  : Modify density (d) items of a forest plot object (fobj).
+  : Modify axis in density (d) items of a forest plot object (fobj)
 - [`b_boxplot()`](https://dcr-unibe-ch.github.io/forplot/reference/b_boxplot.md)
-  : Modify boxplot (b) items of a forest plot object (fobj).
+  : Modify boxplot (b) items of a forest plot object (fobj)
 - [`b_axis()`](https://dcr-unibe-ch.github.io/forplot/reference/b_axis.md)
-  : Modify boxplot (b) axis of a forest plot object (fobj).
+  : Modify axis in boxplot (b) items of a forest plot object (fobj)
 - [`s_points()`](https://dcr-unibe-ch.github.io/forplot/reference/s_points.md)
-  : Modify points in stripe (s) items of a forest plot object (fobj).
+  : Modify points in stripchart (s) items of a forest plot object (fobj)
 - [`s_axis()`](https://dcr-unibe-ch.github.io/forplot/reference/s_axis.md)
-  : Modify axis of stripe (s) items of a forest plot object (fobj).
+  : Modify axis of stripchart (s) items of a forest plot object (fobj)
 - [`s_hline()`](https://dcr-unibe-ch.github.io/forplot/reference/s_hline.md)
-  : Modify the hiorzontal line in stripe (s) items of forest plot object
-  (fobj).
+  : Modify the hiorzontal line in stripchart (s) items of forest plot
+  object (fobj)
 - [`s_borders()`](https://dcr-unibe-ch.github.io/forplot/reference/s_borders.md)
-  : Add and modify borders of a sripe (s) item of a forest plot object
-  (fobj).
+  : Customize borders of stripchart (s) item of a forest plot object
+  (fobj)
 
 ## Demonstration datasets
 

@@ -1,4 +1,4 @@
-# Modify text (t) items of a forest plot object (fobj).
+# Modify text (t) items of a forest plot object (fobj)
 
 Passed to [`text`](https://rdrr.io/r/graphics/text.html).
 

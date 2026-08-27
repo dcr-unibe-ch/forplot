@@ -1,4 +1,4 @@
-# Modify axis of stripe (s) items of a forest plot object (fobj).
+# Modify axis of stripchart (s) items of a forest plot object (fobj)
 
 Passed to [`axis`](https://rdrr.io/r/graphics/axis.html).
 

@@ -1,4 +1,4 @@
-# Add or modify stripes in a forest plot object (fobj).
+# Customize stripes in a forest plot object (fobj)
 
 Passed to [`rect`](https://rdrr.io/r/graphics/rect.html).
 

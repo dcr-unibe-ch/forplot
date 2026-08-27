@@ -1,4 +1,4 @@
-# Add and modify direction indicator in forest (f) items of a forest plot object (fobj).
+# Add and modify direction indicator in forest (f) items of a forest plot object (fobj)
 
 Passed to [`mtext`](https://rdrr.io/r/graphics/mtext.html).
 

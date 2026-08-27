@@ -1,7 +1,7 @@
-# Adds arrowheads to confidence intervals which extend beyond the x-axis limits in forest (f) items of a forest plot object (fobj).
+# Adds arrowheads to confidence intervals which extend beyond the x-axis limits in forest (f) items of a forest plot object (fobj)
 
 Adds arrowheads to confidence intervals which extend beyond the x-axis
-limits in forest (f) items of a forest plot object (fobj).
+limits in forest (f) items of a forest plot object (fobj)
 
 ## Usage
 

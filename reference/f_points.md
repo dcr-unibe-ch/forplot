@@ -1,4 +1,4 @@
-# Modify points in forest (f) items of a forest plot object (fobj).
+# Modify points in forest (f) items of a forest plot object (fobj)
 
 Passed to [`points`](https://rdrr.io/r/graphics/points.html).
 

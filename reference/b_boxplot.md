@@ -1,4 +1,4 @@
-# Modify boxplot (b) items of a forest plot object (fobj).
+# Modify boxplot (b) items of a forest plot object (fobj)
 
 Passed to [`boxplot`](https://rdrr.io/r/graphics/boxplot.html).
 

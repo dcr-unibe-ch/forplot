@@ -1,4 +1,4 @@
-# Modify the header of a forest plot object (fobj).
+# Modify the header of a forest plot object (fobj)
 
 Passed to [`text`](https://rdrr.io/r/graphics/text.html).
 

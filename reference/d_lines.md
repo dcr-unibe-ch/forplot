@@ -1,4 +1,4 @@
-# Modify lines in density (d) items of a forest plot object (fobj).
+# Modify lines in density (d) items of a forest plot object (fobj)
 
 Passed to [`lines`](https://rdrr.io/r/graphics/lines.html).
 

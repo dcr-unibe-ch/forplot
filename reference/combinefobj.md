@@ -1,6 +1,6 @@
-# Combine multiple fobjs
+# Combine multiple forest plot objects (fobj)
 
-Combines a list of fobj. Changes to fobj to an cfobj.
+Combines a list of fobj. Changes the fobj to an cfobj.
 
 ## Usage
 

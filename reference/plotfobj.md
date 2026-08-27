@@ -1,6 +1,6 @@
-# Plot a forest plot (fobj) object
+# Plot a forest plot object (fobj)
 
-Plot a forest plot (fobj) object
+Plot a forest plot object (fobj)
 
 ## Usage
 

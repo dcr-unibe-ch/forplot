@@ -1,4 +1,4 @@
-# Modify axis in forest (f) items of a forest plot object (fobj).
+# Modify axis in forest (f) items of a forest plot object (fobj)
 
 Passed to [`axis`](https://rdrr.io/r/graphics/axis.html).
 

@@ -1,4 +1,4 @@
-# Modify the hiorzontal line in stripe (s) items of forest plot object (fobj).
+# Modify the hiorzontal line in stripchart (s) items of forest plot object (fobj)
 
 Passed to [`abline`](https://rdrr.io/r/graphics/abline.html).
 
