@@ -267,8 +267,8 @@ insert_subtitle<-function(fobj, atrows, subtitle = NA, lheights = NA)	{
 
 	#subtitle rows
 	for (ir in (1:length(inspos))) {
-		fobjs[[inspos[ir]]]<-genfobj(dat = data.frame(subtitle[ir]),layout="t") |>
-			t_options(x=0, adj=c(0,0.5))
+		fobjs[[inspos[ir]]]<-genfobj(dat = data.frame(subtitle[ir]),layout="t")
+		fobjs[[inspos[ir]]]<-t_options(fobjs[[inspos[ir]]], x=0, adj=c(0,0.5))
 	}
 
 	cfobj<-list(

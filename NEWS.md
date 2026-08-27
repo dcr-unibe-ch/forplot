@@ -1,3 +1,7 @@
+forplot 3.1.1
+------------------
+remove |> from combinefobj
+
 forplot 3.1.0
 ------------------
 use abline for f_refline

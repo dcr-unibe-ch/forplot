@@ -170,6 +170,8 @@ plotfobj<- function(fobj) {
 #' @importFrom graphics abline rect
 #' @importFrom stats aggregate
 #'
+#' @noRd
+#'
 #'
 plotfobj1<- function(fobj, additems = TRUE, addfoot = TRUE, addhead = TRUE) {
 

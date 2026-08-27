@@ -12,7 +12,6 @@ reference:
   - genfobj
   - combinefobj
   - plotfobj
-  - plotfobj1
 
 - subtitle: Modify overarching appearance
   contents:
