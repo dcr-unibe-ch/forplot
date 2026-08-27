@@ -53,7 +53,7 @@ and all options available there can be used.
 
 Publication quality forest plots can be created with only a small amount of code.
 
-```{r}
+```{r, fig.height=3.5, fig.width=8}
 data(forplotdata)
 fobj <- genfobj(dat = forplotdata, 
                 layout = c("t","t","t","t","t","t","f","t"), 
