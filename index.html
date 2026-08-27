@@ -58,7 +58,7 @@
 <p><code>forplot</code> can be installed from github:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">#install package using remotes</span></span>
-<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"dcr-unibe-ch/forplot"</span><span class="op">)</span></span>
+<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"dcr-unibe-ch/forplot"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># load package</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/dcr-unibe-ch/forplot" class="external-link">forplot</a></span><span class="op">)</span></span></code></pre></div>
@@ -72,10 +72,12 @@
 <li><p><code>plotfobj</code> produces the plot from the <strong>fobj</strong></p></li>
 </ul>
 <p>The <strong>fobj</strong> can be modified using a set of helper functions or by directly changing the list. The individual elements are from the <a href="https://r-project.org" class="external-link">R</a> <a href="http://127.0.0.1:28323/library/graphics/html/graphics-package.html" class="external-link">graphics package</a> and all options available there can be used.</p>
-<p>Publication quality forest plots can be created with only a small amount of code.</p>
+<p>The <code>forplotdata</code> dataset contains summary data with a 10 continuous variables.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">forplotdata</span><span class="op">)</span></span>
-<span><span class="va">fobj</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/genfobj.html">genfobj</a></span><span class="op">(</span>dat <span class="op">=</span> <span class="va">forplotdata</span>, </span>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">forplotdata</span><span class="op">)</span></span></code></pre></div>
+<p>Let’s generate a forest plot with the <em>forplotdata</em> including the label, the descriptives, the formatted effect, the p-value, and a forest for the beta. We pass the dataset to the <code>dat</code> argument. The layout argument is used to define how each variable in the dataset should be handled in the plot - <code>t</code> for text; <code>f</code> for forest (this requires 3 columns). The <code>lwidths</code> argument is used to control the relative widths of each column in the forest plot.</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">fobj</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/genfobj.html">genfobj</a></span><span class="op">(</span>dat <span class="op">=</span> <span class="va">forplotdata</span>, </span>
 <span>                layout <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"t"</span>,<span class="st">"t"</span>,<span class="st">"t"</span>,<span class="st">"t"</span>,<span class="st">"t"</span>,<span class="st">"t"</span>,<span class="st">"f"</span>,<span class="st">"t"</span><span class="op">)</span>, </span>
 <span>                lwidths <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">3</span>,<span class="fl">3</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="reference/stripes.html">stripes</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
@@ -88,8 +90,7 @@
 <span>         labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">""</span>, <span class="st">"N"</span>, <span class="st">"Mean (SD)"</span>, <span class="st">"N"</span>, <span class="st">"Mean (SD)"</span>, </span>
 <span>                    <span class="st">"Mean difference (95% CI)"</span>, <span class="st">"P value"</span><span class="op">)</span>, y <span class="op">=</span> <span class="fl">.4</span><span class="op">)</span></span>
 <span><span class="fu"><a href="reference/plotfobj.html">plotfobj</a></span><span class="op">(</span><span class="va">fobj</span><span class="op">)</span></span></code></pre></div>
-<p><img src="reference/figures/README-unnamed-chunk-3-1.png"><!-- --></p>
-<p>The above example only scratches the surface of what <code>forplot</code> can do. Check the vignette for further examples.</p>
+<p><img src="reference/figures/README-unnamed-chunk-4-1.png"><!-- --></p>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">

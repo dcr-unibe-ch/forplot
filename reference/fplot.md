@@ -1,7 +1,6 @@
-# Produce forest plots
+# forest
 
-*This function is deprecated. We recommend using genfobj and friends
-instead*
+produces forest plots
 
 ## Usage
 

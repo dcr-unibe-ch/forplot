@@ -34,12 +34,24 @@ directly changing the list. The individual elements are from the
 package](http://127.0.0.1:28323/library/graphics/html/graphics-package.md)
 and all options available there can be used.
 
-Publication quality forest plots can be created with only a small amount
-of code.
+The `forplotdata` dataset contains summary data with a 10 continuous
+variables.
 
 ``` r
 
 data(forplotdata)
+```
+
+Let’s generate a forest plot with the *forplotdata* including the label,
+the descriptives, the formatted effect, the p-value, and a forest for
+the beta. We pass the dataset to the `dat` argument. The layout argument
+is used to define how each variable in the dataset should be handled in
+the plot - `t` for text; `f` for forest (this requires 3 columns). The
+`lwidths` argument is used to control the relative widths of each column
+in the forest plot.
+
+``` r
+
 fobj <- genfobj(dat = forplotdata, 
                 layout = c("t","t","t","t","t","t","f","t"), 
                 lwidths = c(2,1,2,1,2,3,3,1)) |> 
@@ -55,7 +67,4 @@ fobj <- genfobj(dat = forplotdata,
 plotfobj(fobj)
 ```
 
-![](reference/figures/README-unnamed-chunk-3-1.png)
-
-The above example only scratches the surface of what `forplot` can do.
-Check the vignette for further examples.
+![](reference/figures/README-unnamed-chunk-4-1.png)

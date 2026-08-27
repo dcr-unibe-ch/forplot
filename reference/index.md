@@ -55,7 +55,7 @@
 - [`b_boxplot()`](https://dcr-unibe-ch.github.io/forplot/reference/b_boxplot.md)
   : Modify boxplot (b) items of a forest plot object (fobj).
 - [`b_axis()`](https://dcr-unibe-ch.github.io/forplot/reference/b_axis.md)
-  : Modify boxplot (b) axis of a forest plot object (fobj).
+  : Modify boxplot (b) items of a forest plot object (fobj).
 - [`s_points()`](https://dcr-unibe-ch.github.io/forplot/reference/s_points.md)
   : Modify points in stripe (s) items of a forest plot object (fobj).
 - [`s_axis()`](https://dcr-unibe-ch.github.io/forplot/reference/s_axis.md)
@@ -79,4 +79,4 @@
 ## Deprecated
 
 - [`fplot()`](https://dcr-unibe-ch.github.io/forplot/reference/fplot.md)
-  : Produce forest plots
+  : forest
