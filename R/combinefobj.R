@@ -1,7 +1,7 @@
 
-#' Combine multiple fobjs
+#' Combine multiple forest plot objects (fobj)
 #'
-#' Combines a list of fobj. Changes to fobj to an cfobj.
+#' Combines a list of fobj. Changes the fobj to an cfobj.
 #'
 #' @param lfobj a list of forest plot objects of class 'fobj'
 #' @param atrows number of the row(s) at which the fibj should be split. The split is always before the indicated rows.

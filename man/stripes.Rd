@@ -2,7 +2,7 @@
 % Please edit documentation in R/genfobj.R
 \name{stripes}
 \alias{stripes}
-\title{Add or modify stripes in a forest plot object (fobj).}
+\title{Customize stripes in a forest plot object (fobj)}
 \usage{
 stripes(fobj, ...)
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/genfobj.R
 \name{s_axis}
 \alias{s_axis}
-\title{Modify axis of stripe (s) items of a forest plot object (fobj).}
+\title{Modify axis of stripchart (s) items of a forest plot object (fobj)}
 \usage{
 s_axis(fobj, item = NULL, ...)
 }

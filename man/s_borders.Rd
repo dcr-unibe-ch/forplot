@@ -2,7 +2,7 @@
 % Please edit documentation in R/genfobj.R
 \name{s_borders}
 \alias{s_borders}
-\title{Add and modify borders of a sripe (s) item of a forest plot object (fobj).}
+\title{Customize borders of stripchart (s) item of a forest plot object (fobj)}
 \usage{
 s_borders(fobj, item = NULL, ...)
 }

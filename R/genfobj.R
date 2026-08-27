@@ -1,5 +1,5 @@
 
-#' Create a forest plot (fobj) object
+#' Create a forest plot object (fobj)
 #'
 #' First step to generate a forest plot. Generates a fobj that can be plotted.
 #'
@@ -255,7 +255,7 @@ genfobj<-function(layout, dat, obs = NULL,
 # text (f)
 #---------------------
 
-#' Modify text (t) items of a forest plot object (fobj).
+#' Modify text (t) items of a forest plot object (fobj)
 #'
 #'	Passed to \code{\link[graphics]{text}}.
 #'
@@ -299,7 +299,7 @@ t_options<-function(fobj, item = NULL, ...)	{
 #forest (f)
 #---------------------
 
-#' Modify axis in forest (f) items of a forest plot object (fobj).
+#' Modify axis in forest (f) items of a forest plot object (fobj)
 #'
 #'	Passed to \code{\link[graphics]{axis}}.
 #'
@@ -344,7 +344,7 @@ f_axis<-function(fobj, item = NULL, ...) {
 }
 
 
-#' Modify points in forest (f) items of a forest plot object (fobj).
+#' Modify points in forest (f) items of a forest plot object (fobj)
 #'
 #'	Passed to \code{\link[graphics]{points}}.
 #'
@@ -379,7 +379,7 @@ f_points<-function(fobj, item = NULL, ...) {
 	return(fobj)
 }
 
-#' Modify arrows (confidence intervals) in forest (f) items of a forest plot object (fobj).
+#' Modify arrows (confidence intervals) in forest (f) items of a forest plot object (fobj)
 #'
 #'	Passed to \code{\link[graphics]{arrows}}.
 #'
@@ -415,7 +415,7 @@ f_arrows<-function(fobj, item = NULL, ...) {
 }
 
 #' Adds arrowheads to confidence intervals which extend beyond the x-axis limits
-#'	in forest (f) items of a forest plot object (fobj).
+#'	in forest (f) items of a forest plot object (fobj)
 #'
 #' @param fobj a forest plot object of class 'fobj'
 #' @param item item to be modified, either a number or the name of the column in fobj$dat.
@@ -513,7 +513,7 @@ f_cutarrows<-function(fobj, item = NULL) {
 }
 
 
-#' Add and modify the reference line in forest (f) items of a forest plot object (fobj).
+#' Add and modify the reference line in forest (f) items of a forest plot object (fobj)
 #'
 #' Passed to \code{\link[graphics]{abline}}.
 #'
@@ -553,7 +553,7 @@ f_refline<-function(fobj, item = NULL, ...) {
 }
 
 
-#' Add and modify direction indicator in forest (f) items of a forest plot object (fobj).
+#' Add and modify direction indicator in forest (f) items of a forest plot object (fobj)
 #'
 #'	Passed to \code{\link[graphics]{mtext}}.
 #'
@@ -600,7 +600,7 @@ f_direction<-function(fobj, item= NULL, ...) {
 # strip plot (s)
 #---------------------
 
-#' Modify axis of stripe (s) items of a forest plot object (fobj).
+#' Modify axis of stripchart (s) items of a forest plot object (fobj)
 #'
 #' Passed to \code{\link[graphics]{axis}}.
 #'
@@ -645,7 +645,7 @@ s_axis<-function(fobj, item = NULL, ...) {
 	return(fobj)
 }
 
-#' Modify the hiorzontal line in stripe (s) items of forest plot object (fobj).
+#' Modify the hiorzontal line in stripchart (s) items of forest plot object (fobj)
 #'
 #' Passed to \code{\link[graphics]{abline}}.
 #'
@@ -684,7 +684,7 @@ s_hline<-function(fobj, item = NULL, ...) {
 
 
 
-#' Modify points in stripe (s) items of a forest plot object (fobj).
+#' Modify points in stripchart (s) items of a forest plot object (fobj)
 #'
 #' Passed to \code{\link[graphics]{points}}.
 #'
@@ -739,7 +739,7 @@ s_points<-function(fobj, item = NULL, pointnr = NULL, ...) {
 }
 
 
-#' Add and modify borders of a sripe (s) item of a forest plot object (fobj).
+#' Customize borders of stripchart (s) item of a forest plot object (fobj)
 #'
 #' Passed to \code{\link[graphics]{abline}}.
 #' Without options two vertical lines are plotted at x-axis limits.
@@ -789,7 +789,7 @@ s_borders<-function(fobj, item = NULL, ...) {
 # boxplot (b)
 #---------------------
 
-#' Modify boxplot (b) items of a forest plot object (fobj).
+#' Modify boxplot (b) items of a forest plot object (fobj)
 #'
 #' Passed to \code{\link[graphics]{boxplot}}.
 #'
@@ -834,7 +834,7 @@ b_boxplot<-function(fobj, item = NULL, ...) {
 	return(fobj)
 }
 
-#' Modify boxplot (b) axis of a forest plot object (fobj).
+#' Modify axis in boxplot (b) items of a forest plot object (fobj)
 #'
 #' Passed to \code{\link[graphics]{axis}}.
 #'
@@ -884,7 +884,7 @@ b_axis<-function(fobj, item = NULL, ...) {
 # density plot (d)
 #---------------------
 
-#' Modify density (d) items of a forest plot object (fobj).
+#' Modify axis in density (d) items of a forest plot object (fobj)
 #'
 #' Passed to \code{\link[graphics]{axis}}.
 #'
@@ -929,7 +929,7 @@ d_axis<-function(fobj, item = NULL, ...) {
 	return(fobj)
 }
 
-#' Modify lines in density (d) items of a forest plot object (fobj).
+#' Modify lines in density (d) items of a forest plot object (fobj)
 #'
 #' Passed to \code{\link[graphics]{lines}}.
 #'
@@ -1001,7 +1001,7 @@ d_lines<-function(fobj, item = NULL, linenr = NULL, ...) {
 #header
 #---------------------
 
-#' Modify the header of a forest plot object (fobj).
+#' Modify the header of a forest plot object (fobj)
 #'
 #'	Passed to \code{\link[graphics]{text}}.
 #'
@@ -1092,7 +1092,7 @@ header<-function(fobj, hlayout = NULL, headernr = NULL, ...)	{
 # grid options
 #----------------
 
-#' Add or modify horizontal lines to a forest plot object (fobj).
+#' Customize horizontal lines in a forest plot object (fobj)
 #'
 #'	Passed to \code{\link[graphics]{abline}}.
 #'
@@ -1133,7 +1133,7 @@ gridlines<-function(fobj, ...)	{
 #stripes
 #----------
 
-#' Add or modify stripes in a forest plot object (fobj).
+#' Customize stripes in a forest plot object (fobj)
 #'
 #'	Passed to \code{\link[graphics]{rect}}.
 #'

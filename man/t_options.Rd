@@ -2,7 +2,7 @@
 % Please edit documentation in R/genfobj.R
 \name{t_options}
 \alias{t_options}
-\title{Modify text (t) items of a forest plot object (fobj).}
+\title{Modify text (t) items of a forest plot object (fobj)}
 \usage{
 t_options(fobj, item = NULL, ...)
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/genfobj.R
 \name{f_refline}
 \alias{f_refline}
-\title{Add and modify the reference line in forest (f) items of a forest plot object (fobj).}
+\title{Add and modify the reference line in forest (f) items of a forest plot object (fobj)}
 \usage{
 f_refline(fobj, item = NULL, ...)
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/combinefobj.R
 \name{combinefobj}
 \alias{combinefobj}
-\title{Combine multiple fobjs}
+\title{Combine multiple forest plot objects (fobj)}
 \usage{
 combinefobj(
   lfobj,
@@ -28,7 +28,7 @@ The length has to correspond to 3 + 2*number of inserted subtitles.}
 a combined forest plot object of class 'cfobj'
 }
 \description{
-Combines a list of fobj. Changes to fobj to an cfobj.
+Combines a list of fobj. Changes the fobj to an cfobj.
 }
 \examples{
 

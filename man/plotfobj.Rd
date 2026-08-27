@@ -2,7 +2,7 @@
 % Please edit documentation in R/plotfobj.R
 \name{plotfobj}
 \alias{plotfobj}
-\title{Plot a forest plot (fobj) object}
+\title{Plot a forest plot object (fobj)}
 \usage{
 plotfobj(fobj)
 }
@@ -13,7 +13,7 @@ plotfobj(fobj)
 a plot
 }
 \description{
-Plot a forest plot (fobj) object
+Plot a forest plot object (fobj)
 }
 \examples{
 

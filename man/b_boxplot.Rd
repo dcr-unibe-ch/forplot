@@ -2,7 +2,7 @@
 % Please edit documentation in R/genfobj.R
 \name{b_boxplot}
 \alias{b_boxplot}
-\title{Modify boxplot (b) items of a forest plot object (fobj).}
+\title{Modify boxplot (b) items of a forest plot object (fobj)}
 \usage{
 b_boxplot(fobj, item = NULL, ...)
 }

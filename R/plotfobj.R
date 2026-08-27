@@ -1,4 +1,4 @@
-#' Plot a forest plot (fobj) object
+#' Plot a forest plot object (fobj)
 #'
 #' @param fobj a forest plot object or a combined forest plot object
 #'

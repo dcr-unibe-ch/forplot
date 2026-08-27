@@ -2,7 +2,7 @@
 % Please edit documentation in R/genfobj.R
 \name{f_axis}
 \alias{f_axis}
-\title{Modify axis in forest (f) items of a forest plot object (fobj).}
+\title{Modify axis in forest (f) items of a forest plot object (fobj)}
 \usage{
 f_axis(fobj, item = NULL, ...)
 }

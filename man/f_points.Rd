@@ -2,7 +2,7 @@
 % Please edit documentation in R/genfobj.R
 \name{f_points}
 \alias{f_points}
-\title{Modify points in forest (f) items of a forest plot object (fobj).}
+\title{Modify points in forest (f) items of a forest plot object (fobj)}
 \usage{
 f_points(fobj, item = NULL, ...)
 }

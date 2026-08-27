@@ -2,7 +2,7 @@
 % Please edit documentation in R/genfobj.R
 \name{s_points}
 \alias{s_points}
-\title{Modify points in stripe (s) items of a forest plot object (fobj).}
+\title{Modify points in stripchart (s) items of a forest plot object (fobj)}
 \usage{
 s_points(fobj, item = NULL, pointnr = NULL, ...)
 }

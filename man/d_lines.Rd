@@ -2,7 +2,7 @@
 % Please edit documentation in R/genfobj.R
 \name{d_lines}
 \alias{d_lines}
-\title{Modify lines in density (d) items of a forest plot object (fobj).}
+\title{Modify lines in density (d) items of a forest plot object (fobj)}
 \usage{
 d_lines(fobj, item = NULL, linenr = NULL, ...)
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/genfobj.R
 \name{gridlines}
 \alias{gridlines}
-\title{Add or modify horizontal lines to a forest plot object (fobj).}
+\title{Customize horizontal lines in a forest plot object (fobj)}
 \usage{
 gridlines(fobj, ...)
 }

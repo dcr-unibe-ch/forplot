@@ -2,7 +2,7 @@
 % Please edit documentation in R/genfobj.R
 \name{d_axis}
 \alias{d_axis}
-\title{Modify density (d) items of a forest plot object (fobj).}
+\title{Modify axis in density (d) items of a forest plot object (fobj)}
 \usage{
 d_axis(fobj, item = NULL, ...)
 }

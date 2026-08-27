@@ -2,7 +2,7 @@
 % Please edit documentation in R/genfobj.R
 \name{b_axis}
 \alias{b_axis}
-\title{Modify boxplot (b) axis of a forest plot object (fobj).}
+\title{Modify axis in boxplot (b) items of a forest plot object (fobj)}
 \usage{
 b_axis(fobj, item = NULL, ...)
 }

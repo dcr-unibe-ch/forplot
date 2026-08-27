@@ -2,7 +2,7 @@
 % Please edit documentation in R/genfobj.R
 \name{header}
 \alias{header}
-\title{Modify the header of a forest plot object (fobj).}
+\title{Modify the header of a forest plot object (fobj)}
 \usage{
 header(fobj, hlayout = NULL, headernr = NULL, ...)
 }

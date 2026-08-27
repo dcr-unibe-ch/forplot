@@ -3,7 +3,7 @@
 \name{f_cutarrows}
 \alias{f_cutarrows}
 \title{Adds arrowheads to confidence intervals which extend beyond the x-axis limits
-in forest (f) items of a forest plot object (fobj).}
+in forest (f) items of a forest plot object (fobj)}
 \usage{
 f_cutarrows(fobj, item = NULL)
 }
@@ -18,7 +18,7 @@ a forest plot object of class 'fobj'
 }
 \description{
 Adds arrowheads to confidence intervals which extend beyond the x-axis limits
-in forest (f) items of a forest plot object (fobj).
+in forest (f) items of a forest plot object (fobj)
 }
 \examples{
 

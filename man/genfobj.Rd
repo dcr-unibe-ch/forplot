@@ -2,7 +2,7 @@
 % Please edit documentation in R/genfobj.R
 \name{genfobj}
 \alias{genfobj}
-\title{Create a forest plot (fobj) object}
+\title{Create a forest plot object (fobj)}
 \usage{
 genfobj(
   layout,
