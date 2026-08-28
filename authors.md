@@ -10,13 +10,13 @@
 Source:
 [`DESCRIPTION`](https://github.com/dcr-unibe-ch/forplot/blob/main/DESCRIPTION)
 
-Bütikofer L (2026). *forplot: Forest plots*. R package version 3.1.1,
+Bütikofer L (2026). *forplot: Forest plots*. R package version 3.2.0,
 <https://github.com/dcr-unibe-ch/forplot>.
 
     @Manual{,
       title = {forplot: Forest plots},
       author = {Lukas Bütikofer},
       year = {2026},
-      note = {R package version 3.1.1},
+      note = {R package version 3.2.0},
       url = {https://github.com/dcr-unibe-ch/forplot},
     }

@@ -45,9 +45,9 @@ dat = forplotdata, obs = forplotdata_bp,
 fobj<-d_lines(fobj=fobj, lw=2)
 plotfobj(fobj)
 
+
 #only one arm:
 fobj<-d_lines(fobj=fobj, linenr=c(NA,2), col=1)
 plotfobj(fobj)
-
 
 ```

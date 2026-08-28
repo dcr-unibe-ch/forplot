@@ -9,7 +9,7 @@
 - [`plotfobj()`](https://dcr-unibe-ch.github.io/forplot/reference/plotfobj.md)
   : Plot a forest plot object (fobj)
 
-### Modify overarching appearance
+## Modify overarching appearance
 
 - [`header()`](https://dcr-unibe-ch.github.io/forplot/reference/header.md)
   : Modify the header of a forest plot object (fobj)

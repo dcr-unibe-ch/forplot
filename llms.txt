@@ -42,7 +42,7 @@ of code.
 data(forplotdata)
 fobj <- genfobj(dat = forplotdata, 
                 layout = c("t","t","t","t","t","t","f","t"), 
-                lwidths = c(2,1,2,1,2,3,3,1)) |> 
+                lwidths = c(1.5,1,2,1,2,3,3,1)) |> 
   stripes() |> 
   gridlines() |> 
   header(headernr = 1, 
@@ -71,7 +71,7 @@ Check the vignette for further examples.
 - [`plotfobj()`](https://dcr-unibe-ch.github.io/forplot/reference/plotfobj.md)
   : Plot a forest plot object (fobj)
 
-### Modify overarching appearance
+## Modify overarching appearance
 
 - [`header()`](https://dcr-unibe-ch.github.io/forplot/reference/header.md)
   : Modify the header of a forest plot object (fobj)

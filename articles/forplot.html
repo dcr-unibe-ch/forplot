@@ -20,7 +20,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">forplot</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">3.1.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">3.2.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -61,17 +61,14 @@
     
     
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-<div class="section level2">
-<h2 id="forplot">
-<code>forplot</code><a class="anchor" aria-label="anchor" href="#forplot"></a>
-</h2>
+<!-- # `forplot`  -->
 <p>An R package to generate highly customizable forest plots.</p>
 <p>It relies on the <a href="https://r-project.org" class="external-link">R</a> <a href="http://127.0.0.1:28323/library/graphics/html/graphics-package.html" class="external-link">graphics
 package</a> and generates an overall layout that is then populated with
 the desired elements (e.g. a text column or a specific plot).</p>
-<div class="section level3">
-<h3 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
-</h3>
+<div class="section level2">
+<h2 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
+</h2>
 <p><code>forplot</code> contains two main functions:</p>
 <ul>
 <li><p><code>genfobj</code> generates a list of class
@@ -85,9 +82,9 @@ functions or by directly changing the list. The individual elements are
 from the <a href="https://r-project.org" class="external-link">R</a> <a href="http://127.0.0.1:28323/library/graphics/html/graphics-package.html" class="external-link">graphics
 package</a> and all options available there can be used.</p>
 </div>
-<div class="section level3">
-<h3 id="example-data">Example data<a class="anchor" aria-label="anchor" href="#example-data"></a>
-</h3>
+<div class="section level2">
+<h2 id="example-data">Example data<a class="anchor" aria-label="anchor" href="#example-data"></a>
+</h2>
 <p>The <code>forplot</code> package includes three data sets:</p>
 <ul>
 <li>
@@ -169,7 +166,7 @@ and three numeric variables to draw the forest (<em>beta</em>,
 <em>beta_lci</em> and <em>beta_uci</em>).</p>
 <p>In <em>forplotdata_prop</em> there are two further numeric variables
 with the proportion in each arm (<em>prop1</em>, <em>prop2</em>) to draw
-a strip plot.</p>
+a strip chart.</p>
 <p><em>forplotdata_bp</em> has three variables with the actual
 observations of <em>forplotdata</em> with</p>
 <ul>
@@ -181,14 +178,14 @@ observations of <em>forplotdata</em> with</p>
 <em>arm</em>: the treatment arm (factor).</li>
 </ul>
 </div>
-<div class="section level3">
-<h3 id="generating-the-fobj-with-genfobj">Generating the <strong>fobj</strong> with <code>genfobj</code><a class="anchor" aria-label="anchor" href="#generating-the-fobj-with-genfobj"></a>
-</h3>
+<div class="section level2">
+<h2 id="generating-the-fobj-with-genfobj">Generating the <strong>fobj</strong> with <code>genfobj</code><a class="anchor" aria-label="anchor" href="#generating-the-fobj-with-genfobj"></a>
+</h2>
 <p>The required input for <code>genfobj</code> are a <em>layout</em> and
 a data frame (<em>dat</em>).</p>
 <p><em>layout</em> must be a character vector with elements <em>t</em>
-(text), <em>f</em> (forest), <em>s[1-9]</em> (strip), or <em>b</em>
-(boxplot).</p>
+(text), <em>f</em> (forest), <em>s[1-9]</em> (strip chart), or
+<em>b</em> (boxplot).</p>
 <p>For each <em>t</em> element, <em>dat</em> must contain a single
 variable, for each <em>f</em> element three variables (point estimate,
 lower confidence limit, upper confidence limit, in that order), and for
@@ -212,8 +209,8 @@ forest for the beta:</p>
 example)</li>
 <li>
 <em>setup</em>: overall composition of the plot, <em>layout</em>,
-<em>lheights</em>, <em>lwidths</em>, <em>y.at</em>, and
-<em>ylim</em>
+<em>lmatrix</em>, <em>lheights</em>, <em>lwidths</em>, <em>y.at</em>,
+and <em>ylim</em>
 </li>
 <li>
 <em>items</em>: a list of length from <em>layout</em> with the
@@ -229,6 +226,12 @@ options for each item</li>
 <span><span class="va">fobj</span><span class="op">$</span><span class="va">setup</span></span>
 <span><span class="co">#&gt; $layout</span></span>
 <span><span class="co">#&gt; [1] "t" "t" "t" "t" "t" "t" "f" "t"</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $lmatrix</span></span>
+<span><span class="co">#&gt;      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8]</span></span>
+<span><span class="co">#&gt; [1,]   10   10   10   10   10   10   10   10</span></span>
+<span><span class="co">#&gt; [2,]    1    2    3    4    5    6    7    8</span></span>
+<span><span class="co">#&gt; [3,]    9    9    9    9    9    9    9    9</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $lwidths</span></span>
 <span><span class="co">#&gt; [1] 1 1 1 1 1 1 1 1</span></span>
@@ -321,9 +324,9 @@ specify the forest is used. Options for axis, point and arrows can be
 changed using helper functions (or directly in the list). Examples or
 shown below.</p>
 </div>
-<div class="section level3">
-<h3 id="plot-the-fobj">Plot the <strong>fobj</strong><a class="anchor" aria-label="anchor" href="#plot-the-fobj"></a>
-</h3>
+<div class="section level2">
+<h2 id="plot-the-fobj">Plot the <strong>fobj</strong><a class="anchor" aria-label="anchor" href="#plot-the-fobj"></a>
+</h2>
 <p>The <strong>fobj</strong> can be plotted using
 <code>plotfobj</code></p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
@@ -351,9 +354,9 @@ in the fobj:</p>
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/plotfobj.html">plotfobj</a></span><span class="op">(</span><span class="va">fobj</span><span class="op">)</span></span></code></pre></div>
 <p><img src="forplot_files/figure-html/unnamed-chunk-12-1.png" class="r-plt" alt="" width="768"></p>
 </div>
-<div class="section level3">
-<h3 id="modify-the-items">Modify the items<a class="anchor" aria-label="anchor" href="#modify-the-items"></a>
-</h3>
+<div class="section level2">
+<h2 id="modify-the-items">Modify the items<a class="anchor" aria-label="anchor" href="#modify-the-items"></a>
+</h2>
 <p>All items, gridlines and stripes can be modified using helper
 functions or by changing the <strong>fobj</strong> directly.</p>
 <p>With helper function <em>t_options</em>, <em>t</em> items can be
@@ -400,9 +403,9 @@ the footer height has to be increased to fit the direction label.</p>
 <span></span>
 <span><span class="fu"><a href="../reference/plotfobj.html">plotfobj</a></span><span class="op">(</span><span class="va">fobj</span><span class="op">)</span></span></code></pre></div>
 <p><img src="forplot_files/figure-html/unnamed-chunk-16-1.png" class="r-plt" alt="" width="768"></p>
-<div class="section level4">
-<h4 id="piping">Piping<a class="anchor" aria-label="anchor" href="#piping"></a>
-</h4>
+<div class="section level3">
+<h3 id="piping">Piping<a class="anchor" aria-label="anchor" href="#piping"></a>
+</h3>
 <p>The modifying elements can be piped. For example to reproduce the
 <strong>fobj</strong> from above:</p>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
@@ -421,9 +424,9 @@ the footer height has to be increased to fit the direction label.</p>
 <span>  <span class="fu"><a href="../reference/plotfobj.html">plotfobj</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p><img src="forplot_files/figure-html/unnamed-chunk-17-1.png" class="r-plt" alt="" width="768"></p>
 </div>
-<div class="section level4">
-<h4 id="arrowheads">Arrowheads<a class="anchor" aria-label="anchor" href="#arrowheads"></a>
-</h4>
+<div class="section level3">
+<h3 id="arrowheads">Arrowheads<a class="anchor" aria-label="anchor" href="#arrowheads"></a>
+</h3>
 <p>When using <em>xlim</em> via <em>f_axis</em>, x-axis limits that are
 narrower then the confidence limits can be set (even though that is
 usually not recommended). The cap at the end of the confidence interval
@@ -454,9 +457,9 @@ automatically:</p>
 <p><img src="forplot_files/figure-html/unnamed-chunk-18-1.png" class="r-plt" alt="" width="768"></p>
 </div>
 </div>
-<div class="section level3">
-<h3 id="the-header">The header<a class="anchor" aria-label="anchor" href="#the-header"></a>
-</h3>
+<div class="section level2">
+<h2 id="the-header">The header<a class="anchor" aria-label="anchor" href="#the-header"></a>
+</h2>
 <p>By default a header with the columns names is used and stored in the
 <em>header</em> element of <strong>fobj</strong>, which is a list of
 length 1 with these elements.</p>
@@ -520,9 +523,9 @@ options.</p>
 <span><span class="fu"><a href="../reference/plotfobj.html">plotfobj</a></span><span class="op">(</span><span class="va">fobj</span><span class="op">)</span></span></code></pre></div>
 <p><img src="forplot_files/figure-html/unnamed-chunk-22-1.png" class="r-plt" alt="" width="768"></p>
 </div>
-<div class="section level3">
-<h3 id="boxplots">Boxplots<a class="anchor" aria-label="anchor" href="#boxplots"></a>
-</h3>
+<div class="section level2">
+<h2 id="boxplots">Boxplots<a class="anchor" aria-label="anchor" href="#boxplots"></a>
+</h2>
 <p>For a more in-depth presentation of the data in each group, a boxplot
 can be added. However, it depends on the input of the actual
 observations as a data frame <em>obs</em> in a long format with the
@@ -561,9 +564,9 @@ and <a href="https://stat.ethz.ch/R-manual/R-devel/library/graphics/html/axis.ht
 <span><span class="fu"><a href="../reference/plotfobj.html">plotfobj</a></span><span class="op">(</span><span class="va">fobj</span><span class="op">)</span></span></code></pre></div>
 <p><img src="forplot_files/figure-html/unnamed-chunk-24-1.png" class="r-plt" alt="" width="768"></p>
 </div>
-<div class="section level3">
-<h3 id="density-plots">Density plots<a class="anchor" aria-label="anchor" href="#density-plots"></a>
-</h3>
+<div class="section level2">
+<h2 id="density-plots">Density plots<a class="anchor" aria-label="anchor" href="#density-plots"></a>
+</h2>
 <p>Density plots can be specified using layout item <em>d</em> and
 depend on the same data with the observations as the boxplots.</p>
 <div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
@@ -618,14 +621,14 @@ the second the arm.</p>
 the <strong>fobj</strong>). Note that the y-position has to be shifted
 by <em>y.at</em> for each variable.</p>
 </div>
-<div class="section level3">
-<h3 id="strip-plot-for-proportions">Strip plot for proportions<a class="anchor" aria-label="anchor" href="#strip-plot-for-proportions"></a>
-</h3>
+<div class="section level2">
+<h2 id="strip-charts-for-proportions">Strip charts for proportions<a class="anchor" aria-label="anchor" href="#strip-charts-for-proportions"></a>
+</h2>
 <p>For binary outcomes and in particular for serious adverse event
 reporting a graphical representation of the proportion in both arms has
 been recommended.</p>
-<p>A strip plot for the proportions can be added via <em>s[1-9]</em>,
-where the number would indicate the number of points in the strip plot
+<p>A strip chart for the proportions can be added via <em>s[1-9]</em>,
+where the number would indicate the number of points in the strip chart
 and the number of columns in the <em>dat</em> (usually two if there are
 two treatment arms). The “s” items then contains several <em>points</em>
 elements.</p>
@@ -662,9 +665,9 @@ using <em>pointnr</em> (e.g. to specify colors).</p>
 <span><span class="fu"><a href="../reference/plotfobj.html">plotfobj</a></span><span class="op">(</span><span class="va">fobj</span><span class="op">)</span></span></code></pre></div>
 <p><img src="forplot_files/figure-html/unnamed-chunk-29-1.png" class="r-plt" alt="" width="768"></p>
 </div>
-<div class="section level3">
-<h3 id="combine-fobjs">Combine fobjs<a class="anchor" aria-label="anchor" href="#combine-fobjs"></a>
-</h3>
+<div class="section level2">
+<h2 id="combine-fobjs">Combine fobjs<a class="anchor" aria-label="anchor" href="#combine-fobjs"></a>
+</h2>
 <p>A list of <strong>fobj</strong> can be combined using
 <code>combinefobj</code> resulting in an object of class
 <strong>cfobj</strong>, which includes an overall <em>setup</em>, an
@@ -733,15 +736,15 @@ multiple. If the <em>lwdiths</em> vary, the average is taken.</p>
 <span><span class="co">#&gt; [1] "setup"  "header" "fobjs"</span></span>
 <span><span class="va">cfobj</span><span class="op">$</span><span class="va">setup</span></span>
 <span><span class="co">#&gt; $lmatrix</span></span>
-<span><span class="co">#&gt;      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11]</span></span>
-<span><span class="co">#&gt; [1,]   25    1    1    1    1    1    1    1    1     1    26</span></span>
-<span><span class="co">#&gt; [2,]   25   12   12   12   12   12   12   12   12    12    26</span></span>
-<span><span class="co">#&gt; [3,]   25    2    3    4    5    6    7    8    9    10    26</span></span>
-<span><span class="co">#&gt; [4,]   25   11   11   11   11   11   11   11   11    11    26</span></span>
-<span><span class="co">#&gt; [5,]   25   23   23   23   23   23   23   23   23    23    26</span></span>
-<span><span class="co">#&gt; [6,]   25   13   14   15   16   17   18   19   20    21    26</span></span>
-<span><span class="co">#&gt; [7,]   25   22   22   22   22   22   22   22   22    22    26</span></span>
-<span><span class="co">#&gt; [8,]   25   24   24   24   24   24   24   24   24    24    26</span></span>
+<span><span class="co">#&gt;      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9]</span></span>
+<span><span class="co">#&gt; [1,]    1    1    1    1    1    1    1    1    1</span></span>
+<span><span class="co">#&gt; [2,]   12   12   12   12   12   12   12   12   12</span></span>
+<span><span class="co">#&gt; [3,]    2    3    4    5    6    7    8    9   10</span></span>
+<span><span class="co">#&gt; [4,]   11   11   11   11   11   11   11   11   11</span></span>
+<span><span class="co">#&gt; [5,]   23   23   23   23   23   23   23   23   23</span></span>
+<span><span class="co">#&gt; [6,]   13   14   15   16   17   18   19   20   21</span></span>
+<span><span class="co">#&gt; [7,]   22   22   22   22   22   22   22   22   22</span></span>
+<span><span class="co">#&gt; [8,]   24   24   24   24   24   24   24   24   24</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; $lwidths</span></span>
 <span><span class="co">#&gt; [1] 0.05172414 0.06896552 0.10344828 0.06896552 0.10344828 0.17241379 0.17241379</span></span>
@@ -825,9 +828,9 @@ kept the footer (to have space for the axes) by setting
 <span><span class="fu"><a href="../reference/plotfobj.html">plotfobj</a></span><span class="op">(</span><span class="va">cfobj</span><span class="op">)</span></span></code></pre></div>
 <p><img src="forplot_files/figure-html/unnamed-chunk-32-1.png" class="r-plt" alt="" width="768"></p>
 </div>
-<div class="section level3">
-<h3 id="inserting-subtitles">Inserting subtitles<a class="anchor" aria-label="anchor" href="#inserting-subtitles"></a>
-</h3>
+<div class="section level2">
+<h2 id="inserting-subtitles">Inserting subtitles<a class="anchor" aria-label="anchor" href="#inserting-subtitles"></a>
+</h2>
 <p>Subtitles can be inserted using the <code>combinefobj</code>
 functionality with an <strong>fobj</strong> that does only have one
 column. The function <code>insert_subtitle</code> helps with the
@@ -885,7 +888,6 @@ function in the same way as for an individual <code>fobj</code>.</p>
 <span></span>
 <span><span class="fu"><a href="../reference/plotfobj.html">plotfobj</a></span><span class="op">(</span><span class="va">cfobj</span><span class="op">)</span></span></code></pre></div>
 <p><img src="forplot_files/figure-html/unnamed-chunk-34-1.png" class="r-plt" alt="" width="768"></p>
-</div>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>

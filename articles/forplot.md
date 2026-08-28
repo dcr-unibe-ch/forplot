@@ -1,7 +1,5 @@
 # forplot
 
-## `forplot`
-
 An R package to generate highly customizable forest plots.
 
 It relies on the [R](https://r-project.org) [graphics
@@ -9,7 +7,7 @@ package](http://127.0.0.1:28323/library/graphics/html/graphics-package.md)
 and generates an overall layout that is then populated with the desired
 elements (e.g. a text column or a specific plot).
 
-### Usage
+## Usage
 
 `forplot` contains two main functions:
 
@@ -24,7 +22,7 @@ directly changing the list. The individual elements are from the
 package](http://127.0.0.1:28323/library/graphics/html/graphics-package.md)
 and all options available there can be used.
 
-### Example data
+## Example data
 
 The `forplot` package includes three data sets:
 
@@ -110,7 +108,7 @@ p-value (*p1*), and three numeric variables to draw the forest (*beta*,
 *beta_lci* and *beta_uci*).
 
 In *forplotdata_prop* there are two further numeric variables with the
-proportion in each arm (*prop1*, *prop2*) to draw a strip plot.
+proportion in each arm (*prop1*, *prop2*) to draw a strip chart.
 
 *forplotdata_bp* has three variables with the actual observations of
 *forplotdata* with
@@ -119,13 +117,13 @@ proportion in each arm (*prop1*, *prop2*) to draw a strip plot.
 - *variable*: the variable name (factor), and
 - *arm*: the treatment arm (factor).
 
-### Generating the **fobj** with `genfobj`
+## Generating the **fobj** with `genfobj`
 
 The required input for `genfobj` are a *layout* and a data frame
 (*dat*).
 
 *layout* must be a character vector with elements *t* (text), *f*
-(forest), *s\[1-9\]* (strip), or *b* (boxplot).
+(forest), *s\[1-9\]* (strip chart), or *b* (boxplot).
 
 For each *t* element, *dat* must contain a single variable, for each *f*
 element three variables (point estimate, lower confidence limit, upper
@@ -151,8 +149,8 @@ The produced **fobj** is a list of length 5 with class *fobj*. It
 includes those elements:
 
 - *dat* and *obs*: the data (with obs = NULL in this example)
-- *setup*: overall composition of the plot, *layout*, *lheights*,
-  *lwidths*, *y.at*, and *ylim*
+- *setup*: overall composition of the plot, *layout*, *lmatrix*,
+  *lheights*, *lwidths*, *y.at*, and *ylim*
 - *items*: a list of length from *layout* with the options for each item
 - *header*: a list with the options for the header
 
@@ -165,6 +163,12 @@ names(fobj)
 fobj$setup
 #> $layout
 #> [1] "t" "t" "t" "t" "t" "t" "f" "t"
+#> 
+#> $lmatrix
+#>      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8]
+#> [1,]   10   10   10   10   10   10   10   10
+#> [2,]    1    2    3    4    5    6    7    8
+#> [3,]    9    9    9    9    9    9    9    9
 #> 
 #> $lwidths
 #> [1] 1 1 1 1 1 1 1 1
@@ -267,7 +271,7 @@ the forest is used. Options for axis, point and arrows can be changed
 using helper functions (or directly in the list). Examples or shown
 below.
 
-### Plot the **fobj**
+## Plot the **fobj**
 
 The **fobj** can be plotted using `plotfobj`
 
@@ -311,7 +315,7 @@ plotfobj(fobj)
 
 ![](forplot_files/figure-html/unnamed-chunk-12-1.png)
 
-### Modify the items
+## Modify the items
 
 All items, gridlines and stripes can be modified using helper functions
 or by changing the **fobj** directly.
@@ -382,7 +386,7 @@ plotfobj(fobj)
 
 ![](forplot_files/figure-html/unnamed-chunk-16-1.png)
 
-#### Piping
+### Piping
 
 The modifying elements can be piped. For example to reproduce the
 **fobj** from above:
@@ -406,7 +410,7 @@ genfobj(dat = forplotdata,
 
 ![](forplot_files/figure-html/unnamed-chunk-17-1.png)
 
-#### Arrowheads
+### Arrowheads
 
 When using *xlim* via *f_axis*, x-axis limits that are narrower then the
 confidence limits can be set (even though that is usually not
@@ -440,7 +444,7 @@ genfobj(layout = c("t","t","t","t","t","t","f","t"),
 
 ![](forplot_files/figure-html/unnamed-chunk-18-1.png)
 
-### The header
+## The header
 
 By default a header with the columns names is used and stored in the
 *header* element of **fobj**, which is a list of length 1 with these
@@ -524,7 +528,7 @@ plotfobj(fobj)
 
 ![](forplot_files/figure-html/unnamed-chunk-22-1.png)
 
-### Boxplots
+## Boxplots
 
 For a more in-depth presentation of the data in each group, a boxplot
 can be added. However, it depends on the input of the actual
@@ -574,7 +578,7 @@ plotfobj(fobj)
 
 ![](forplot_files/figure-html/unnamed-chunk-24-1.png)
 
-### Density plots
+## Density plots
 
 Density plots can be specified using layout item *d* and depend on the
 same data with the observations as the boxplots.
@@ -645,14 +649,14 @@ Different density curves could be added by using *x* and *y* options in
 *d_lines* (or the *lines* list in the **fobj**). Note that the
 y-position has to be shifted by *y.at* for each variable.
 
-### Strip plot for proportions
+## Strip charts for proportions
 
 For binary outcomes and in particular for serious adverse event
 reporting a graphical representation of the proportion in both arms has
 been recommended.
 
-A strip plot for the proportions can be added via *s\[1-9\]*, where the
-number would indicate the number of points in the strip plot and the
+A strip chart for the proportions can be added via *s\[1-9\]*, where the
+number would indicate the number of points in the strip chart and the
 number of columns in the *dat* (usually two if there are two treatment
 arms). The “s” items then contains several *points* elements.
 
@@ -701,7 +705,7 @@ plotfobj(fobj)
 
 ![](forplot_files/figure-html/unnamed-chunk-29-1.png)
 
-### Combine fobjs
+## Combine fobjs
 
 A list of **fobj** can be combined using `combinefobj` resulting in an
 object of class **cfobj**, which includes an overall *setup*, an overall
@@ -772,15 +776,15 @@ names(cfobj)
 #> [1] "setup"  "header" "fobjs"
 cfobj$setup
 #> $lmatrix
-#>      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10] [,11]
-#> [1,]   25    1    1    1    1    1    1    1    1     1    26
-#> [2,]   25   12   12   12   12   12   12   12   12    12    26
-#> [3,]   25    2    3    4    5    6    7    8    9    10    26
-#> [4,]   25   11   11   11   11   11   11   11   11    11    26
-#> [5,]   25   23   23   23   23   23   23   23   23    23    26
-#> [6,]   25   13   14   15   16   17   18   19   20    21    26
-#> [7,]   25   22   22   22   22   22   22   22   22    22    26
-#> [8,]   25   24   24   24   24   24   24   24   24    24    26
+#>      [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9]
+#> [1,]    1    1    1    1    1    1    1    1    1
+#> [2,]   12   12   12   12   12   12   12   12   12
+#> [3,]    2    3    4    5    6    7    8    9   10
+#> [4,]   11   11   11   11   11   11   11   11   11
+#> [5,]   23   23   23   23   23   23   23   23   23
+#> [6,]   13   14   15   16   17   18   19   20   21
+#> [7,]   22   22   22   22   22   22   22   22   22
+#> [8,]   24   24   24   24   24   24   24   24   24
 #> 
 #> $lwidths
 #> [1] 0.05172414 0.06896552 0.10344828 0.06896552 0.10344828 0.17241379 0.17241379
@@ -874,7 +878,7 @@ plotfobj(cfobj)
 
 ![](forplot_files/figure-html/unnamed-chunk-32-1.png)
 
-### Inserting subtitles
+## Inserting subtitles
 
 Subtitles can be inserted using the `combinefobj` functionality with an
 **fobj** that does only have one column. The function `insert_subtitle`

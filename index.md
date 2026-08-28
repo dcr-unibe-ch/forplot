@@ -42,7 +42,7 @@ of code.
 data(forplotdata)
 fobj <- genfobj(dat = forplotdata, 
                 layout = c("t","t","t","t","t","t","f","t"), 
-                lwidths = c(2,1,2,1,2,3,3,1)) |> 
+                lwidths = c(1.5,1,2,1,2,3,3,1)) |> 
   stripes() |> 
   gridlines() |> 
   header(headernr = 1, 

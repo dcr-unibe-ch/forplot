@@ -46,6 +46,7 @@ fobj<-header(fobj = fobj,
  y = 0.6)
 plotfobj(fobj)
 
+
 #Several lines
 fobj<-header(fobj = fobj, hlayout = c(1,2,2,3,3,4,4,5),  headernr = 1,
 labels=c("","Arm A","Arm B","Mean diff (95% CI)","P-value"),
@@ -53,6 +54,5 @@ y = 0.9)
 fobj<-header(fobj = fobj, hlayout = c(1,2,3,4,5,6,7,8), headernr = 2,
 labels=c("","N","Mean (sd)","N","Mean (sd)","","",""),y=0.3)
 plotfobj(fobj)
-
 
 ```
