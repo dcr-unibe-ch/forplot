@@ -13,7 +13,7 @@ reference:
   - combinefobj
   - plotfobj
 
-- subtitle: Modify overarching appearance
+- title: Modify overarching appearance
   contents:
   - header
   - gridlines

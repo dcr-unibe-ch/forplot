@@ -113,8 +113,9 @@ combinefobj<-function(lfobj, atrows = NA, subtitle = NA, lheights = NA, keepihea
 		#overall header and footer:
 		mac<-rbind(rep(1,ncol(mac)),mac+1,rep(max(mac)+2,ncol(mac)))
 
-		#add side
-		mac<-cbind(max(mac)+1,mac,max(mac)+2)
+		#left and right margin not added:
+		#mac<-cbind(max(mac)+1,mac,max(mac)+2)
+		
 		mac<-unname(mac)
 
 		#adapt widths and header layout in each element
@@ -206,8 +207,7 @@ insert_subtitle<-function(fobj, atrows, subtitle = NA, lheights = NA)	{
 			mainp<-mainp + max(mac)
 		}
 
-		#header and footer
-		#not included...
+		#header and footer not included...
 		#mainp<-rbind(rep(max(mainp)+2,le),
 		#	mainp,
 		#	rep(max(mainp)+1,le))
@@ -219,8 +219,9 @@ insert_subtitle<-function(fobj, atrows, subtitle = NA, lheights = NA)	{
 	#overall header and footer:
 	mac<-rbind(rep(1,ncol(mac)),mac+1,rep(max(mac)+2,ncol(mac)))
 
-	#add side
-	mac<-cbind(max(mac)+1,mac,max(mac)+2)
+	#left and right margin not added:
+	#mac<-cbind(max(mac)+1,mac,max(mac)+2)
+	
 	mac<-unname(mac)
 
 

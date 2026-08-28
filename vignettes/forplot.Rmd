@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 library(forplot)
 ```
 
-# `forplot` 
+<!-- # `forplot`  -->
 
 An R package to generate highly customizable forest plots.
 
@@ -62,7 +62,7 @@ head(forplotdata_bp)
 *forplotdata* and  *forplotdata_prop* have a character variable with the variable names (*vlabel*), further character variables *n[1-4]* with the number of observations and descriptives for each arm (either mean (sd) or n(%)), the formatted treatment effect (*beta_format*) and the p-value (*p1*), and
 	three numeric variables to draw the forest (*beta*, *beta_lci* and *beta_uci*).
 
-In *forplotdata_prop* there are two further numeric variables with the proportion in each arm (*prop1*, *prop2*) to draw a strip plot.	
+In *forplotdata_prop* there are two further numeric variables with the proportion in each arm (*prop1*, *prop2*) to draw a strip chart.	
 
 *forplotdata_bp* has three variables with the actual observations of *forplotdata* with
 
@@ -75,7 +75,7 @@ In *forplotdata_prop* there are two further numeric variables with the proportio
 
 The required input for `genfobj` are a *layout* and a data frame (*dat*). 
 
-*layout* must be a character vector with elements *t* (text), *f* (forest), *s[1-9]* (strip), or *b* (boxplot).
+*layout* must be a character vector with elements *t* (text), *f* (forest), *s[1-9]* (strip chart), or *b* (boxplot).
 
 For each *t* element, *dat* must contain a single variable, 
 for each *f* element three variables (point estimate, lower confidence limit, upper confidence limit, in that order), and
@@ -99,7 +99,7 @@ The produced **fobj** is a list of length 5 with class *fobj*.
 It includes those elements:
 
 - *dat* and *obs*: the data (with obs = NULL in this example) 
-- *setup*: overall composition of the plot, *layout*, *lheights*, *lwidths*, *y.at*, and *ylim*
+- *setup*: overall composition of the plot, *layout*, *lmatrix*, *lheights*, *lwidths*, *y.at*, and *ylim*
 - *items*: a list of length from *layout* with the options for each item
 - *header*: a list with the options for the header
 
@@ -406,12 +406,12 @@ plotfobj(fobj)
 Different density curves could be added by using *x* and *y* options in *d_lines* (or the *lines* list in the **fobj**).
 Note that the y-position has to be shifted by *y.at* for each variable.
 
-## Strip plot for proportions
+## Strip charts for proportions
 
 For binary outcomes and in particular for serious adverse event reporting 
 a graphical representation of the proportion in both arms has been recommended.
 
-A strip plot for the proportions can be added via *s[1-9]*, where the number would indicate the number of points in the strip plot and the number of columns in the *dat* (usually two if there are two treatment arms).
+A strip chart for the proportions can be added via *s[1-9]*, where the number would indicate the number of points in the strip chart and the number of columns in the *dat* (usually two if there are two treatment arms).
 The "s" items then contains several *points* elements.
 
 For example:

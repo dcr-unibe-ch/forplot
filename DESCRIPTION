@@ -1,6 +1,6 @@
 Package: forplot
 Title: Forest plots
-Version: 3.1.1
+Version: 3.2.0
 Authors@R: 
     person("Lukas", "Bütikofer", , "lukas.buetikofer@unibe.ch", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-0801-746X"))

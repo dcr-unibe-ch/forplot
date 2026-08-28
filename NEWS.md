@@ -1,3 +1,7 @@
+forplot 3.2.0
+------------------
+remove default margin on left and right side
+
 forplot 3.1.1
 ------------------
 remove |> from combinefobj

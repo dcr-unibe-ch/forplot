@@ -214,9 +214,22 @@ genfobj<-function(layout, dat, obs = NULL,
 
 	}
 
-	#collect
+	#layout matrix
+	mac<-rbind(rep(length(layout)+2,length(layout)),
+		1:length(layout),
+		rep(length(layout)+1,length(layout)))
+		
+	#left and right margin not added:	
+	#mac<-cbind(max(mac)+1,mac,max(mac)+2)
+	
+	mac<-unname(mac)
+		
+	#collect	
 	fobj<-list(dat = dat, obs = obs,
-		setup=list(layout = layout, lwidths = lwidths, lheights = lheights, y.at = y.at, ylim = ylim),
+		setup=list(layout = layout, 
+			lmatrix = mac,
+			lwidths = lwidths, lheights = lheights, 
+			y.at = y.at, ylim = ylim),
 		items = items)
 
 	class(fobj) <- c("fobj", class(fobj))
@@ -224,23 +237,6 @@ genfobj<-function(layout, dat, obs = NULL,
 
 	#header
 	fobj<-header(fobj)
-
-	#stripes
-	#fobj<-stripes(fobj)
-
-	#gridlines
-	#fobj<-gridlines(fobj)
-
-	#add forest sub-items
-	#if (any(fobj$setup$layout=="f")) {
-	#	fobj<-f_direction(fobj)
-	#	fobj<-f_refline(fobj)
-	#}
-
-	#add strip subitems
-	#if (any((grepl("s\\d+",fobj$setup$layout)))) {
-	#	fobj<-s_borders(fobj)
-	#}
 
 	return(fobj)
 
@@ -597,7 +593,7 @@ f_direction<-function(fobj, item= NULL, ...) {
 
 
 
-# strip plot (s)
+# strip chart (s)
 #---------------------
 
 #' Modify axis of stripchart (s) items of a forest plot object (fobj)

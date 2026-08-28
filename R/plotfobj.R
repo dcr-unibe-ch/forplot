@@ -78,15 +78,14 @@ plotfobj<- function(fobj) {
 
 		}
 
-		#add side
-		mac<-cbind(max(mac)+1,mac,max(mac)+2)
-
+		#left and right margin not included
+		#mac<-cbind(max(mac)+1,mac,max(mac)+2)
 		#layout
-		margin<-sum(cwidths)/100
+		#margin<-sum(cwidths)/100
 
 		layout(mac,
 			heights = cheights,
-			widths=c(margin,cwidths,margin))
+			widths=c(cwidths))
 
 		par(mar=c(0,0,0,0))
 
@@ -113,15 +112,16 @@ plotfobj<- function(fobj) {
 
 	if (isfobj) {
 
-		ma<-lma(rows = 1, cols = length(fobj$setup$layout),
-			commonx1 = TRUE, commonx2 = TRUE)
-
-		margin<-sum(fobj$setup$lwidths)/100
-
-		layout(ma,
+		#left and right margin not included:
+		#margin<-sum(fobj$setup$lwidths)/100
+		#layout(fobj$setup$lmatrix,
+		#	heights=fobj$setup$lheights,
+		#	widths=c(margin,fobj$setup$lwidths,margin))
+		
+		layout(fobj$setup$lmatrix,
 			heights=fobj$setup$lheights,
-			widths=c(margin,fobj$setup$lwidths,margin))
-
+			widths=c(fobj$setup$lwidths))
+			
 		par(mar=c(0,0,0,0))
 
 		plotfobj1(fobj = fobj)
@@ -130,12 +130,9 @@ plotfobj<- function(fobj) {
 
 	if (iscfobj) {
 
-		#layout
-		margin<-sum(fobj$setup$lwidths)/100
-
 		layout(fobj$setup$lmatrix,
 			heights=fobj$setup$lheights,
-			widths=c(margin,fobj$setup$lwidths,margin))
+			widths=c(fobj$setup$lwidths))
 
 		par(mar=c(0,0,0,0))
 
