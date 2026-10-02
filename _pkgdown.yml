@@ -20,7 +20,7 @@ reference:
   - stripes
   - insert_subtitle
 
-- title: Modify forest columns
+- title: Modify forest items
   contents:
   - f_arrows
   - f_axis
@@ -29,11 +29,11 @@ reference:
   - f_points
   - f_refline
 
-- title: Modify text columns
+- title: Modify text items
   contents:
   - t_options
 
-- title: Modify data plot (density plots, boxplots, stripcharts)
+- title: Modify further items (density plots, boxplots, stripcharts)
   contents:
   - d_lines
   - d_axis
