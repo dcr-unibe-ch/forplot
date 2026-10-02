@@ -20,7 +20,7 @@
 - [`insert_subtitle()`](https://dcr-unibe-ch.github.io/forplot/reference/insert_subtitle.md)
   : Insert subtitles over the whole width of an fobj
 
-## Modify forest columns
+## Modify forest items
 
 - [`f_arrows()`](https://dcr-unibe-ch.github.io/forplot/reference/f_arrows.md)
   : Modify arrows (confidence intervals) in forest (f) items of a forest
@@ -39,12 +39,12 @@
   : Add and modify the reference line in forest (f) items of a forest
   plot object (fobj)
 
-## Modify text columns
+## Modify text items
 
 - [`t_options()`](https://dcr-unibe-ch.github.io/forplot/reference/t_options.md)
   : Modify text (t) items of a forest plot object (fobj)
 
-## Modify data plot (density plots, boxplots, stripcharts)
+## Modify further items (density plots, boxplots, stripcharts)
 
 - [`d_lines()`](https://dcr-unibe-ch.github.io/forplot/reference/d_lines.md)
   : Modify lines in density (d) items of a forest plot object (fobj)

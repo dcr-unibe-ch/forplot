@@ -47,7 +47,7 @@ fobj <- genfobj(dat = forplotdata,
   gridlines() |> 
   header(headernr = 1, 
          hlayout = c(1,2,2,3,3,4,4,4),
-         labels = c("", "Group 1", "Group 2", ""), y = .9) |> 
+         labels = c("", "Arm A", "Group B", ""), y = .9) |> 
   header(headernr = 2, 
          hlayout = c(1,2,3,4,5,6,6,7),
          labels = c("", "N", "Mean (SD)", "N", "Mean (SD)", 
@@ -82,7 +82,7 @@ Check the vignette for further examples.
 - [`insert_subtitle()`](https://dcr-unibe-ch.github.io/forplot/reference/insert_subtitle.md)
   : Insert subtitles over the whole width of an fobj
 
-## Modify forest columns
+## Modify forest items
 
 - [`f_arrows()`](https://dcr-unibe-ch.github.io/forplot/reference/f_arrows.md)
   : Modify arrows (confidence intervals) in forest (f) items of a forest
@@ -101,12 +101,12 @@ Check the vignette for further examples.
   : Add and modify the reference line in forest (f) items of a forest
   plot object (fobj)
 
-## Modify text columns
+## Modify text items
 
 - [`t_options()`](https://dcr-unibe-ch.github.io/forplot/reference/t_options.md)
   : Modify text (t) items of a forest plot object (fobj)
 
-## Modify data plot (density plots, boxplots, stripcharts)
+## Modify further items (density plots, boxplots, stripcharts)
 
 - [`d_lines()`](https://dcr-unibe-ch.github.io/forplot/reference/d_lines.md)
   : Modify lines in density (d) items of a forest plot object (fobj)

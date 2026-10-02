@@ -452,6 +452,12 @@ elements.
 
 ``` r
 
+fobj <- genfobj(dat = forplotdata, 
+                layout = c("t","t","t","t","t","t","f","t"), 
+                lwidths = c(1.5,1,2,1,2,3,3,1)) |>
+    gridlines() |>
+    stripes()
+    
 fobj$header
 #> [[1]]
 #> [[1]]$hlayout
@@ -484,12 +490,13 @@ empty. And the y is also modified to place the label higher.
 
 ``` r
 
-fobj<-header(fobj = fobj,
-  labels = c("","Arm A\nN","Arm A\nmean (sd)","Arm B\nN","Arm B\nmean (sd)",
-    "Mean difference\n(95% CI)","","P-value"),
-  y = 0.6)
+fobj |>
 
-plotfobj(fobj)
+  header(labels = c("","Arm A\nN","Arm A\nmean (sd)","Arm B\nN","Arm B\nmean (sd)",
+    "Mean difference\n(95% CI)","","P-value"),
+   y = 0.6) |>
+   
+plotfobj()
 ```
 
 ![](forplot_files/figure-html/unnamed-chunk-20-1.png)
@@ -499,11 +506,13 @@ using the layout option where 6 is included twice.
 
 ``` r
 
-fobj<-header(fobj = fobj, hlayout = c(1,2,3,4,5,6,6,7),
-  labels = c("","Arm A\nN","Arm A\nmean (sd)","Arm B\nN","Arm B\nmean (sd)",
-    "Mean difference (95% CI)","P-value"))
+fobj |>
 
-plotfobj(fobj)
+  header(hlayout = c(1,2,3,4,5,6,6,7),
+    labels = c("","Arm A\nN","Arm A\nmean (sd)","Arm B\nN","Arm B\nmean (sd)",
+    "Mean difference (95% CI)","P-value")) |>
+    
+plotfobj()
 ```
 
 ![](forplot_files/figure-html/unnamed-chunk-21-1.png)
@@ -516,14 +525,16 @@ options.
 
 ``` r
 
-fobj<-header(fobj=fobj, hlayout = c(1,2,2,3,3,4,4,5),  headernr = 1,
-    labels=c("","Arm A","Arm B","Mean difference (95% CI)","P-value"),
-    y=0.9)
+fobj |> 
 
-fobj<-header(fobj=fobj, hlayout = c(1,2,3,4,5,6,7,8), headernr = 2,
-    labels=c("","N","Mean (sd)","N","Mean (sd)","","",""),y=0.3)
+  header(headernr = 1, hlayout = c(1,2,2,3,3,4,4,4),
+    labels = c("", "Arm A", "Arm B", ""), y = 0.8) |>
 
-plotfobj(fobj)
+  header(headernr = 2, hlayout = c(1,2,3,4,5,6,6,7),
+    labels = c("", "N", "Mean (SD)", "N", "Mean (SD)", 
+      "Mean difference (95% CI)", "P value"), y = 0.3) |>
+
+  plotfobj()
 ```
 
 ![](forplot_files/figure-html/unnamed-chunk-22-1.png)
@@ -561,19 +572,20 @@ Adding header gridlines and stripes:
 
 ``` r
 
-fobj<-gridlines(fobj)
+fobj |>
+  gridlines() |>
+  stripes(fobj) |>
 
-fobj<-stripes(fobj)
-
-fobj<-header(fobj, hlayout = c(1,2,2,3,3,4,5,5,6),  headernr = 1,
-    labels=c("","Arm A","Arm B","","Mean difference (95% CI)","P-value"),
+  header(hlayout = c(1,2,2,3,3,4,4,4,4),  headernr = 1,
+    labels=c("","Arm A","Arm B",""),
     col = c(1,"red","blue",1,1),
-    y=0.9)
-fobj<-header(fobj, hlayout = c(1,2,3,4,5,6,7,8,9), headernr = 2,
-    labels=c("","N","Mean (sd)","N","Mean (sd)","","","",""),
-    col=1, y=0.3)
+    y=0.9) |>
 
-plotfobj(fobj)
+  header(hlayout = c(1,2,3,4,5,6,7,7,8), headernr = 2,
+    labels=c("","N","Mean (sd)","N","Mean (sd)","","Mean difference (95% CI)","P-value"),
+    col=1, y=0.3) |>
+    
+  plotfobj()
 ```
 
 ![](forplot_files/figure-html/unnamed-chunk-24-1.png)
@@ -585,25 +597,29 @@ same data with the observations as the boxplots.
 
 ``` r
 
-fobj<-genfobj(dat = forplotdata, obs = forplotdata_bp,
+genfobj(dat = forplotdata, obs = forplotdata_bp,
   layout = c("t","t","t","t","t","b","d","t","f","t"),
-  lwidths = c(0.3,0.4,0.6,0.4,0.6,1,1,1,1,0.5))
+  lwidths = c(0.3,0.4,0.6,0.4,0.6,1,1,1,1,0.5)) |>
  
-fobj<-b_axis(fobj, xlim=c(0,9.5))
+  b_axis(xlim=c(0,9.5)) |>
 
-fobj<-gridlines(fobj)
+  gridlines() |>
+  stripes() |>
 
-fobj<-stripes(fobj)
+  header(hlayout = c(1,2,2,3,3,4,4,4,4),  headernr = 1,
+    labels=c("","Arm A","Arm B",""),
+    col = c(1,"red","blue",1,1),
+    y=0.9) |>
 
-fobj<-header(fobj, hlayout = c(1,2,2,3,3,4,5,6,6,7),  headernr = 1,
-    labels=c("","Arm A","Arm B","","","Mean difference (95% CI)","P-value"),
-    col = c(1,"red","blue",1,1,1),
-    y=0.9)
-fobj<-header(fobj, hlayout = c(1,2,3,4,5,6,7,8,9,10), headernr = 2,
-    labels=c("","N","Mean (sd)","N","Mean (sd)","","","","",""),
-    col=1, y=0.3)
-
-plotfobj(fobj)
+  header(hlayout = c(1,2,3,4,5,6,7,7,8), headernr = 2,
+    labels=c("","N","Mean (sd)","N","Mean (sd)","","Mean difference (95% CI)","P-value"),
+    col=1, y=0.3) |>
+    
+  plotfobj()
+#> Warning in cbind(ind = fobj$header[[hi]]$hlayout, cwidth): number of rows of
+#> result is not a multiple of vector length (arg 1)
+#> Warning in cbind(ind = fobj$header[[hi]]$hlayout, cwidth): number of rows of
+#> result is not a multiple of vector length (arg 1)
 ```
 
 ![](forplot_files/figure-html/unnamed-chunk-25-1.png)
@@ -688,18 +704,17 @@ Left and right borders can be added via *s_borders*.
 ``` r
 
 fobj<-s_axis(fobj=fobj, xlim = c(0,1), 
-  at = seq(0,1,by=0.25), labels = seq(0,100,by=25))
+  at = seq(0,1,by=0.25), labels = seq(0,100,by=25)) |>
 
-fobj<-s_points(fobj=fobj, pch = 16, cex=1.5)
+  s_points(pch = 16, cex=1.5) |>
+  s_points(pointnr = 1, col = "red") |>
+  s_points(pointnr = 2, col = "blue") |>
+  s_borders() |>
 
-fobj<-s_points(fobj=fobj, pointnr = 1, col = "red")
-
-fobj<-s_points(fobj=fobj, pointnr = 2, col = "blue")
-
-fobj<-s_borders(fobj)
-
-fobj<-gridlines(fobj)
-
+  f_axis(at=seq(-0.1,0.4,by=0.1),labels=seq(-10,40,by=10)) |>
+  
+  gridlines() 
+  
 plotfobj(fobj)
 ```
 
@@ -720,54 +735,49 @@ multiple. If the *lwdiths* vary, the average is taken.
 #prepare first fobj
 fobj1<-genfobj(dat = forplotdata, obs = forplotdata_bp,
   layout = c("t","t","t","t","t","b","t","f","t"),
-  lwidths = c(0.3,0.4,0.6,0.4,0.6,1,1,1,0.5))
+  lwidths = c(0.3,0.4,0.6,0.4,0.6,1,1,1,0.5),
+  lheight=c(0.12,1,0.15)) |>
 
-fobj1$setup$lheights[1]<-0.2
-fobj1$setup$lheights[3]<-0.2
+  gridlines() |>
+  stripes() |>
 
-fobj1<-gridlines(fobj = fobj1)
-fobj1<-stripes(fobj = fobj1)
-
-fobj1<-header(fobj = fobj1, hlayout = c(1), headernr = 1,
-    labels=c("Continuous variables"),
-    col = 1, y = 0.9, font = 2, cex=1.2)
-
-fobj1<-header(fobj = fobj1, hlayout = c(1,2,2,3,3,4,5,5,6),  headernr = 2,
-    labels=c("","Arm A","Arm B","","Mean difference (95% CI)","P-value"),
-    col = c(1,"red","blue",1,1), y = 0.45, font = 1, cex = 1)
-
-fobj1<-header(fobj = fobj1, hlayout = c(1,2,3,4,5,6,7,8,9), headernr = 3,
-    labels=c("","N","Mean (sd)","N","Mean (sd)","","","",""),
-    col = 1, y = 0.15, font = 1, cex = 1)
+  header(hlayout = c(1), headernr = 1,
+      labels=c("Continuous variables"),
+      col = 1, y = 0.9, font = 2, cex=1.2) |>
+  header(hlayout = c(1,2,2,3,3,4,4,4,4),  headernr = 2,
+      labels=c("","Arm A","Arm B",""),
+      col = c(1,"red","blue",1,1), y = 0.7, font = 1, cex = 1) |>
+  header(hlayout = c(1,2,3,4,5,6,7,7,8), headernr = 3,
+    labels=c("","N","Mean (sd)","N","Mean (sd)","","Mean difference (95% CI)","P-value"),
+    col = 1, y = 0.3, font = 1, cex = 1)
 
 
 #prepare second fobj
 fobj2<-genfobj(dat = forplotdata_prop,
   layout = c("t","t","t","t","t","s2","t","f","t"),
-  lwidths = c(0.3,0.4,0.6,0.4,0.6,1,1,1,0.5))
+  lwidths = c(0.3,0.4,0.6,0.4,0.6,1,1,1,0.5),
+  lheight=c(0.12,1,0.15)) |>
 
-fobj2$setup$lheights[1]<-0.2
-fobj2$setup$lheights[3]<-0.2
+  s_axis(xlim = c(0,1), 
+    at = seq(0,1,by=0.25), labels = seq(0,100,by=25)) |>
+  s_borders() |>
+  s_points(pointnr = 1, col = "red") |>
+  s_points(pointnr = 2, col = "blue") |>
+  
+  f_axis(at=seq(-0.1,0.4,by=0.1),labels=seq(-10,40,by=10)) |>
+   
+  gridlines() |>
+  stripes() |>
 
-fobj2<-s_axis(fobj = fobj2, xlim = c(0,1), 
-  at = seq(0,1,by=0.25), labels = seq(0,100,by=25))
-
-fobj2<-s_borders(fobj = fobj2)
-
-fobj2<-gridlines(fobj = fobj2)
-fobj2<-stripes(fobj = fobj2)
-
-fobj2<-header(fobj = fobj2, hlayout = c(1), headernr = 1,
-    labels=c("Binary variables"),
-    col = 1, y = 0.9, font = 2, cex=1.2)
-
-fobj2<-header(fobj = fobj2, hlayout = c(1,2,2,3,3,4,5,5,6),  headernr = 2,
-    labels=c("","Arm A","Arm B","Proportion (%)","Odds ratio (95% CI)","P-value"),
-    col = c(1,"red","blue",1,1), y = 0.45, font = 1, cex = 1)
-
-fobj2<-header(fobj = fobj2, hlayout = c(1,2,3,4,5,6,7,8,9), headernr = 3,
-    labels=c("","N","n (%)","N","n (%)","","","",""),
-    col = 1, y = 0.15, font = 1, cex = 1)
+  header(hlayout = c(1), headernr = 1,
+      labels=c("Binary variables"),
+      col = 1, y = 0.9, font = 2, cex=1.2) |>
+  header(hlayout = c(1,2,2,3,3,4,4,4,4),  headernr = 2,
+      labels=c("","Arm A","Arm B",""),
+      col = c(1,"red","blue",1,1), y = 0.7, font = 1, cex = 1) |>
+  header(hlayout = c(1,2,3,4,5,6,7,7,8), headernr = 3,
+      labels=c("","N","n (%)","N","n (%)","Proportion (%)","Risk difference (95% CI)","P-value"),
+      col = 1, y = 0.3, font = 1, cex = 1)
 
 #combine:
 cfobj<-combinefobj(list(fobj1, fobj2))
@@ -791,17 +801,19 @@ cfobj$setup
 #> [8] 0.17241379 0.08620690
 #> 
 #> $lheights
-#> [1] 0.200 0.200 1.000 0.200 0.200 1.000 0.200 0.028
+#> [1] 0.1200 0.1200 1.0000 0.1500 0.1200 1.0000 0.1500 0.0254
 #> 
 #> $iheadfoot
 #> [1] TRUE TRUE
+
+#top header and footer are not used
+cfobj$setup$lheights[c(1,length(cfobj$setup$lheights))]<-c(0.01,0.01)
 ```
 
 The **cfobj** can be plotted using the same plot function:
 
 ``` r
 
-#plot list:
 plotfobj(fobj = cfobj)
 ```
 
@@ -932,11 +944,11 @@ cfobj$fobjs[[6]]<-gridlines(cfobj$fobjs[[6]])
 
 #overall header
 cfobj<-cfobj |>
-    header(hlayout = c(1,2,2,3,3,4,4,5),  headernr = 1,
-        labels=c("","Arm A","Arm B","Mean diff (95% CI)","P-value"),
+    header(hlayout = c(1,2,2,3,3,4,4,4),  headernr = 1,
+        labels=c("","Arm A","Arm B",""),
         y=0.9) |>
-    header(hlayout = c(1,2,3,4,5,6,7,8), headernr = 2,
-        labels=c("","N","Mean (sd)","N","Mean (sd)","","",""),y=0.3) 
+    header(hlayout = c(1,2,3,4,5,6,6,7), headernr = 2,
+        labels=c("","N","Mean (sd)","N","Mean (sd)","Mean difference (95% CI)","P-value"),y=0.3) 
     
 #adapt height of header and footer
 cfobj$setup$lheights[1]<-0.15
