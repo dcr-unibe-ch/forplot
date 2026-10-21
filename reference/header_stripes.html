@@ -13,7 +13,7 @@ If there are several headers, the 'stripes' argument is added to the first one b
 
     <a class="navbar-brand me-2" href="../index.html">forplot</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">3.3.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">3.4.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,7 +49,7 @@ If there are several headers, the 'stripes' argument is added to the first one b
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">header_stripes</span><span class="op">(</span><span class="va">fobj</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">header_stripes</span><span class="op">(</span><span class="va">fobj</span>, item <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -58,6 +58,12 @@ If there are several headers, the 'stripes' argument is added to the first one b
 
 <dl><dt id="arg-fobj">fobj<a class="anchor" aria-label="anchor" href="#arg-fobj"></a></dt>
 <dd><p>a forest plot object of class 'fobj'</p></dd>
+
+
+<dt id="arg-item">item<a class="anchor" aria-label="anchor" href="#arg-item"></a></dt>
+<dd><p>if only the header above an item should be modified,
+either a number with the position in layout or the name of the column in fobj$dat.
+If NULL (the default), the whole header is affected.</p></dd>
 
 
 <dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>

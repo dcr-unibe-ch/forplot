@@ -47,11 +47,11 @@ fobj <- genfobj(dat = forplotdata,
   gridlines() |> 
   header(headernr = 1, 
          hlayout = c(1,2,2,3,3,4,4,4),
-         labels = c("", "Arm A", "Group B", ""), y = .9) |> 
+         labels = c("", "Arm A", "Group B", ""), y = .8) |> 
   header(headernr = 2, 
          hlayout = c(1,2,3,4,5,6,6,7),
          labels = c("", "N", "Mean (SD)", "N", "Mean (SD)", 
-                    "Mean difference (95% CI)", "P value"), y = .4)
+                    "Mean difference (95% CI)", "P value"), y = .3)
 
 plotfobj(fobj)
 ```

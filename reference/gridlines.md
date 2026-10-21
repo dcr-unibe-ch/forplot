@@ -1,4 +1,4 @@
-# Customize horizontal lines in a forest plot object (fobj)
+# Add and customize horizontal lines in a forest plot object (fobj)
 
 Passed to [`abline`](https://rdrr.io/r/graphics/abline.html).
 

@@ -8,7 +8,7 @@ are always set to the left and right end of the plotting region.
 ## Usage
 
 ``` r
-stripes(fobj, ...)
+stripes(fobj, item = NULL, ...)
 ```
 
 ## Arguments
@@ -16,6 +16,12 @@ stripes(fobj, ...)
 - fobj:
 
   a forest plot object of class 'fobj'
+
+- item:
+
+  item to be modified, either a number with the position in layout or
+  the name of the column in fobj\$dat. If NULL (the default), all items
+  are affected.
 
 - ...:
 

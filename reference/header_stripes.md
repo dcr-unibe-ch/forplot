@@ -9,7 +9,7 @@ one but applies to all.
 ## Usage
 
 ``` r
-header_stripes(fobj, ...)
+header_stripes(fobj, item = NULL, ...)
 ```
 
 ## Arguments
@@ -17,6 +17,12 @@ header_stripes(fobj, ...)
 - fobj:
 
   a forest plot object of class 'fobj'
+
+- item:
+
+  if only the header above an item should be modified, either a number
+  with the position in layout or the name of the column in fobj\$dat. If
+  NULL (the default), the whole header is affected.
 
 - ...:
 
