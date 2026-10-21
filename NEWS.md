@@ -1,3 +1,8 @@
+forplot 3.4.0
+------------------
+add item option to stripes and header_stripes
+add function header_gridlines
+
 forplot 3.3.1
 ------------------
 rename header_bg to header_stripes

@@ -4,10 +4,14 @@
 \alias{header_stripes}
 \title{Modify the background of the header of a forest plot object (fobj)}
 \usage{
-header_stripes(fobj, ...)
+header_stripes(fobj, item = NULL, ...)
 }
 \arguments{
 \item{fobj}{a forest plot object of class 'fobj'}
+
+\item{item}{if only the header above an item should be modified,
+either a number with the position in layout or the name of the column in fobj$dat.
+If NULL (the default), the whole header is affected.}
 
 \item{...}{options to be passed to \code{\link[graphics]{rect}}}
 }

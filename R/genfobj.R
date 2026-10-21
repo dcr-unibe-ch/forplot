@@ -1117,6 +1117,9 @@ header<-function(fobj, hlayout = NULL, headernr = NULL, ...)	{
 #'	If there are several headers, the 'stripes' argument is added to the first one but applies to all.
 #'
 #' @param fobj a forest plot object of class 'fobj'
+#' @param item if only the header above an item should be modified, 
+#'	either a number with the position in layout or the name of the column in fobj$dat.
+#' 	If NULL (the default), the whole header is affected.
 #' @param ... options to be passed to \code{\link[graphics]{rect}}
 #'
 #' @returns a forest plot object of class 'fobj'
@@ -1138,12 +1141,26 @@ header<-function(fobj, hlayout = NULL, headernr = NULL, ...)	{
 #' fobj<-header_stripes(fobj = fobj, col = rgb(1,0,0,0.1))
 #' plotfobj(fobj)
 #'
-header_stripes<-function(fobj, ...)	{
+header_stripes<-function(fobj, item = NULL, ...)	{
 
 	if (!("fobj" %in% class(fobj) | "sfobj" %in% class(fobj) | "cfobj" %in% class(fobj))) {
 		stop("fobj has to be of class fobj, sfobj or cfobj - use genfobj to define it")
 	}
-
+	
+	if (!is.null(item)) {
+		if (!is.numeric(item)) {
+			vnames<-unlist(lapply(fobj$items,function(x) x$vname))
+			if (!all(item %in% vnames)) {
+				stop("Item have to be numeric or match a columns name from 'dat'")
+			}
+			itemnr<-match(item,unlist(lapply(fobj$items,function(x) x$vname)))
+		} else {
+			itemnr<-item
+		}
+	} else {
+		itemnr<-1:length(fobj$setup$layout)
+	}
+	
 	input<-list(...)
 
 	if (length(fobj$header)==0) {
@@ -1159,14 +1176,69 @@ header_stripes<-function(fobj, ...)	{
 		}
 	}
 	
+	if (is.null(fobj$header[[1]]$stripes)) {
+		fobj$header[[1]]$stripes<-list(items = itemnr, 
+			rect = list(xleft = NA, ybottom = NA, xright = NA, ytop = NA,
+			col = rgb(.1,.1,.1,.1), border = NA))
+	} else {
+		fobj$header[[1]]$stripes$items<-itemnr
+	}
 	
-	fobj$header[[1]]$stripes<-list(xleft = NA, ybottom = NA, xright = NA, ytop = NA,
-		col = rgb(.1,.1,.1,.1), border = NA)
-			
-	fobj$header[[1]]$stripes<-modifyList(fobj$header[[1]]$stripes, input)
+	fobj$header[[1]]$stripes$rect<-modifyList(fobj$header[[1]]$stripes$rect, input)
 
 	return(fobj)
 }
+
+#' Add and customize horizontal lines in the header of a forest plot object (fobj)
+#'
+#'	Passed to \code{\link[graphics]{abline}}.
+#'
+#' @param fobj a forest plot object of class 'fobj'
+#' @param ... options to be passed to Passed to \code{\link[graphics]{abline}}.
+#'
+#' @returns a forest plot object of class 'fobj'
+#'
+#' @export
+#'
+#' @importFrom utils modifyList
+#'
+#' @examples
+#'
+#' fobj<-genfobj(layout = c("ttttttft"),
+#' 	dat = forplotdata,
+#'	lwidths = c(0.8,0.4,0.6,0.4,0.6,1,1,0.5))
+#' fobj<-header_gridlines(fobj = fobj)
+#' plotfobj(fobj)
+header_gridlines<-function(fobj, ...)	{
+
+	if (!("fobj" %in% class(fobj) )) {
+		stop("fobj has to be of class fobj - use genfobj to define it")
+	}
+	
+	input<-list(...)
+	
+	if (length(fobj$header)==0) {
+
+		if (is.null(fobj$dat)) {
+			h<-paste0("header",1:length(fobj$setup$lwidth))
+			fobj$header<-list(list(hlayout = 1:length(fobj$setup$lwidth),
+				text = list(x = NULL, y = 0.5, labels = h, adj = c(0.5,0.5))))
+		} else {
+			h<-headernames(dat = fobj$dat, layout = fobj$setup$layout)
+			fobj$header<-list(list(hlayout = 1:length(fobj$setup$layout),
+				text = list(x = NULL, y = 0.5, labels = h, adj = c(0.5,0.5))))
+		}
+	}
+	
+	if (is.null(fobj$header[[1]]$gridlines)) {
+		fobj$header[[1]]$gridlines<-list(h = c(0, 1), xpd = TRUE)
+	}
+
+	fobj$header[[1]]$gridlines<-modifyList(fobj$header[[1]]$gridlines, input)
+
+	return(fobj)
+}
+
 
 
 #---------------------
@@ -1176,7 +1248,7 @@ header_stripes<-function(fobj, ...)	{
 # grid options
 #----------------
 
-#' Customize horizontal lines in a forest plot object (fobj)
+#' Add and customize horizontal lines in a forest plot object (fobj)
 #'
 #'	Passed to \code{\link[graphics]{abline}}.
 #'
@@ -1226,6 +1298,9 @@ gridlines<-function(fobj, ...)	{
 #' 
 #'
 #' @param fobj a forest plot object of class 'fobj'
+#' @param item item to be modified, either a number with the position in layout 
+#'	or the name of the column in fobj$dat.
+#' 	If NULL (the default), all items are affected.
 #' @param ... options to be passed to \code{\link[graphics]{rect}}
 #'
 #' @returns a forest plot object of class 'fobj'
@@ -1241,11 +1316,26 @@ gridlines<-function(fobj, ...)	{
 #'	lwidths = c(0.8,0.4,0.6,0.4,0.6,1,1,0.5))
 #' fobj<-stripes(fobj = fobj)
 #' plotfobj(fobj)
-stripes<-function(fobj, ...)	{
+stripes<-function(fobj, item = NULL, ...)	{
 
 	if (!("fobj" %in% class(fobj) )) {
 		stop("fobj has to be of class fobj - use genfobj to define it")
 	}
+	
+	if (!is.null(item)) {
+		if (!is.numeric(item)) {
+			vnames<-unlist(lapply(fobj$items,function(x) x$vname))
+			if (!all(item %in% vnames)) {
+				stop("Item have to be numeric or match a columns name from 'dat'")
+			}
+			itemnr<-match(item,unlist(lapply(fobj$items,function(x) x$vname)))
+		} else {
+			itemnr<-item
+		}
+	} else {
+		itemnr<-1:length(fobj$setup$layout)
+	}
+	
 
 	input<-list(...)
 
@@ -1259,11 +1349,14 @@ stripes<-function(fobj, ...)	{
 			ys<-t(matrix(ys))
 		}
 
-		fobj$stripes<-list(xleft = NA, ybottom = ys[,1], xright = NA, ytop = ys[,2],
-			col = rgb(.1,.1,.1,.1), border = NA)
+		fobj$stripes<-list(items = itemnr, 
+			rect = list(xleft = NA, ybottom = ys[,1], xright = NA, ytop = ys[,2],
+				col = rgb(.1,.1,.1,.1), border = NA))
+	} else {
+		fobj$stripes$items<-itemnr
 	}
 
-	fobj$stripes<-modifyList(fobj$stripes, input)
+	fobj$stripes$rect<-modifyList(fobj$stripes$rect, input)
 
 	return(fobj)
 }

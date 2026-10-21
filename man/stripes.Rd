@@ -4,10 +4,14 @@
 \alias{stripes}
 \title{Add and customize stripes in a forest plot object (fobj)}
 \usage{
-stripes(fobj, ...)
+stripes(fobj, item = NULL, ...)
 }
 \arguments{
 \item{fobj}{a forest plot object of class 'fobj'}
+
+\item{item}{item to be modified, either a number with the position in layout
+or the name of the column in fobj$dat.
+If NULL (the default), all items are affected.}
 
 \item{...}{options to be passed to \code{\link[graphics]{rect}}}
 }

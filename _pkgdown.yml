@@ -17,6 +17,7 @@ reference:
   contents:
   - header
   - header_stripes
+  - header_gridlines
   - gridlines
   - stripes
   - insert_subtitle

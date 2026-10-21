@@ -177,25 +177,36 @@ plotfobj1<- function(fobj, additems = TRUE, addfoot = TRUE, addhead = TRUE) {
 		for (i in 1:length(fobj$setup$layout)) {
 
 			if (fobj$setup$layout[i]=="t") {
-
+				
 				do.call(plot, fobj$items[[i]]$plot)
+				
+				if (!is.null(fobj$stripes)) {
+					if (i %in% fobj$stripes$items) {
+						fobj$stripes$rect$xleft<-par("usr")[1]
+						fobj$stripes$rect$xright<-par("usr")[2]
+						do.call(rect, fobj$stripes$rect)
+					}
+				}
+				
 				do.call(text, fobj$items[[i]]$text)
 
 				if (!is.null(fobj$gridlines)) {
 					do.call(abline, fobj$gridlines)
-				}
-
-				if (!is.null(fobj$stripes)) {
-					fobj$stripes$xleft<-par("usr")[1]
-					fobj$stripes$xright<-par("usr")[2]
-					do.call(rect, fobj$stripes)
-				}
+				}	
 			}
 
 			if (fobj$setup$layout[i]=="f") {
 
 				do.call(plot, fobj$items[[i]]$plot)
-
+				
+				if (!is.null(fobj$stripes)) {
+					if (i %in% fobj$stripes$items) {
+						fobj$stripes$rect$xleft<-par("usr")[1]
+						fobj$stripes$rect$xright<-par("usr")[2]
+						do.call(rect, fobj$stripes$rect)
+					}
+				}
+				
 				if (!is.null(fobj$items[[i]]$axis)) {
 					do.call(axis, fobj$items[[i]]$axis)
 				}
@@ -217,19 +228,21 @@ plotfobj1<- function(fobj, additems = TRUE, addfoot = TRUE, addhead = TRUE) {
 
 				if (!is.null(fobj$gridlines)) {
 					do.call(abline, fobj$gridlines)
-				}
-
-				if (!is.null(fobj$stripes)) {
-					fobj$stripes$xleft<-par("usr")[1]
-					fobj$stripes$xright<-par("usr")[2]
-					do.call(rect, fobj$stripes)
-				}
+				}	
 			}
 
 			if (grepl("s\\d+",fobj$setup$layout[i])) {
 
 				do.call(plot, fobj$items[[i]]$plot)
-
+				
+				if (!is.null(fobj$stripes)) {
+					if (i %in% fobj$stripes$items) {
+						fobj$stripes$rect$xleft<-par("usr")[1]
+						fobj$stripes$rect$xright<-par("usr")[2]
+						do.call(rect, fobj$stripes$rect)
+					}
+				}
+				
 				if (!is.null(fobj$items[[i]]$axis)) {
 					do.call(axis, fobj$items[[i]]$axis)
 				}
@@ -250,16 +263,19 @@ plotfobj1<- function(fobj, additems = TRUE, addfoot = TRUE, addhead = TRUE) {
 					do.call(abline, fobj$gridlines)
 				}
 
-				if (!is.null(fobj$stripes)) {
-					fobj$stripes$xleft<-par("usr")[1]
-					fobj$stripes$xright<-par("usr")[2]
-					do.call(rect, fobj$stripes)
-				}
 			}
 
 			if (fobj$setup$layout[i]=="b") {
 
 				do.call(plot, fobj$items[[i]]$plot)
+				
+				if (!is.null(fobj$stripes)) {
+					if (i %in% fobj$stripes$items) {
+						fobj$stripes$rect$xleft<-par("usr")[1]
+						fobj$stripes$rect$xright<-par("usr")[2]
+						do.call(rect, fobj$stripes$rect)
+					}
+				}
 
 				do.call(boxplot, fobj$items[[i]]$boxplot)
 
@@ -270,19 +286,20 @@ plotfobj1<- function(fobj, additems = TRUE, addfoot = TRUE, addhead = TRUE) {
 				if (!is.null(fobj$gridlines)) {
 					do.call(abline, fobj$gridlines)
 				}
-
-				if (!is.null(fobj$stripes)) {
-					fobj$stripes$xleft<-par("usr")[1]
-					fobj$stripes$xright<-par("usr")[2]
-					do.call(rect, fobj$stripes)
-				}
-
 			}
 
 			if (fobj$setup$layout[i]=="d") {
 
 				do.call(plot, fobj$items[[i]]$plot)
-
+				
+				if (!is.null(fobj$stripes)) {
+					if (i %in% fobj$stripes$items) {
+						fobj$stripes$rect$xleft<-par("usr")[1]
+						fobj$stripes$rect$xright<-par("usr")[2]
+						do.call(rect, fobj$stripes$rect)
+					}
+				}
+				
 				if (!is.null(fobj$items[[i]]$axis)) {
 					do.call(axis, fobj$items[[i]]$axis)
 				}
@@ -293,11 +310,6 @@ plotfobj1<- function(fobj, additems = TRUE, addfoot = TRUE, addhead = TRUE) {
 					do.call(abline, fobj$gridlines)
 				}
 
-				if (!is.null(fobj$stripes)) {
-					fobj$stripes$xleft<-par("usr")[1]
-					fobj$stripes$xright<-par("usr")[2]
-					do.call(rect, fobj$stripes)
-				}
 			}
 		}
 	}
@@ -317,26 +329,36 @@ plotfobj1<- function(fobj, additems = TRUE, addfoot = TRUE, addhead = TRUE) {
 			plot(x=0, type="n", xlim=c(0,1), ylim=c(0,1),
 				ylab="", xlab="", axes=FALSE, xaxs="i", yaxs="i")
 			
-			if (!is.null(fobj$header[[1]]$stripes)) {
-				if (all(is.na(fobj$header[[1]]$stripes$xleft))) {
-					fobj$header[[1]]$stripes$xleft<-par("usr")[1]
-				}
-				if (all(is.na(fobj$header[[1]]$stripes$xright))) {
-					fobj$header[[1]]$stripes$xright<-par("usr")[2]
-				}
-				if (all(is.na(fobj$header[[1]]$stripes$ybottom))) {
-					fobj$header[[1]]$stripes$ybottom<-par("usr")[3]
-				}
-				if (all(is.na(fobj$header[[1]]$stripes$ytop))) {
-					fobj$header[[1]]$stripes$ytop<-par("usr")[4]
-				}
-				do.call(rect, fobj$header[[1]]$stripes)
-			}			
-				
 			xsize<-par("usr")[2]-par("usr")[1]
 			rwidth<-fobj$setup$lwidths
 			cwidth<-(xsize/sum(rwidth)*rwidth)
-
+			
+			if (!is.null(fobj$header[[1]]$stripes)) {
+				ccwidth<-cumsum(cwidth)
+				xleft<-c(par("usr")[1],ccwidth)[fobj$header[[1]]$stripes$items]
+				xright<-ccwidth[fobj$header[[1]]$stripes$items]
+				reph<-max(length(fobj$header[[1]]$stripes$rect$ybottom),
+					length(fobj$header[[1]]$stripes$rect$ytop))
+				
+				if (all(is.na(fobj$header[[1]]$stripes$rect$xleft))) {
+					fobj$header[[1]]$stripes$rect$xleft<-rep(xleft,each=reph)
+				}
+				if (all(is.na(fobj$header[[1]]$stripes$rect$xright))) {
+					fobj$header[[1]]$stripes$rect$xright<-rep(xright,each=reph)
+				}
+				if (all(is.na(fobj$header[[1]]$stripes$rect$ybottom))) {
+					fobj$header[[1]]$stripes$rect$ybottom<-par("usr")[3]
+				}
+				if (all(is.na(fobj$header[[1]]$stripes$rect$ytop))) {
+					fobj$header[[1]]$stripes$rect$ytop<-par("usr")[4]
+				}
+				do.call(rect, fobj$header[[1]]$stripes$rect)
+			}			
+				
+			if (!is.null(fobj$header[[1]]$gridlines)) {
+				do.call(abline, fobj$header[[1]]$gridlines)
+			}
+				
 			hi<-1
 			for (hi in 1:headernr) {
 
