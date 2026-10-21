@@ -42,7 +42,7 @@ of code.
 ``` r
 data(forplotdata)
 fobj <- genfobj(dat = forplotdata, 
-                layout = c("t","t","t","t","t","t","f","t"), 
+                layout = c("ttttttft"), 
                 lwidths = c(1.5,1,2,1,2,3,3,1)) |> 
   stripes() |> 
   gridlines() |> 
@@ -53,6 +53,7 @@ fobj <- genfobj(dat = forplotdata,
          hlayout = c(1,2,3,4,5,6,6,7),
          labels = c("", "N", "Mean (SD)", "N", "Mean (SD)", 
                     "Mean difference (95% CI)", "P value"), y = .4)
+
 plotfobj(fobj)
 ```
 

@@ -15,7 +15,8 @@ genfobj(
 )
 }
 \arguments{
-\item{layout}{layout of the plot, character vector with 't' (text), 'f' (forest), 's' (strip), 'b' (boxplot) or 'd' (density plot).}
+\item{layout}{layout of the plot, single string of characters or character vector
+with 't' (text), 'f' (forest), 's#' (strip), 'b' (boxplot) or 'd' (density plot).}
 
 \item{dat}{data frame that should be plotted}
 
@@ -38,7 +39,7 @@ First step to generate a forest plot. Generates a fobj that can be plotted.
 }
 \examples{
 
-fobj<-genfobj(layout = c("t","t","t","t","t","t","f","t"),
+fobj<-genfobj(layout = c("ttttttft"),
 	dat = forplotdata,
 lwidths = c(0.8,0.4,0.6,0.4,0.6,1,1,0.5))
 plotfobj(fobj)

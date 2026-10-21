@@ -9,7 +9,8 @@ s_borders(fobj, item = NULL, ...)
 \arguments{
 \item{fobj}{a forest plot object of class 'fobj'}
 
-\item{item}{item to be modified, either a number or the name of the column in fobj$dat.
+\item{item}{item to be modified, either a number with the position in layout
+or the name of the column in fobj$dat.
 If NULL (the default), all items of type 's' are affected}
 
 \item{...}{options to be passed to \code{\link[graphics]{abline}}}
@@ -23,7 +24,7 @@ Without options two vertical lines are plotted at x-axis limits.
 }
 \examples{
 
-fobj<-genfobj(layout = c("t","t","t","t","t","s2","t","f","t"),
+fobj<-genfobj(layout = c("ttttts2tft"),
 dat = forplotdata_prop,
 lwidths = c(0.6,0.4,0.6,0.4,0.6,1.0,1.2,1,0.5))
 fobj<-s_borders(fobj=fobj)

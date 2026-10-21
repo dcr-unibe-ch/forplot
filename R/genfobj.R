@@ -3,7 +3,8 @@
 #'
 #' First step to generate a forest plot. Generates a fobj that can be plotted.
 #'
-#' @param layout layout of the plot, character vector with 't' (text), 'f' (forest), 's' (strip), 'b' (boxplot) or 'd' (density plot).
+#' @param layout layout of the plot, single string of characters or character vector 
+#'	with 't' (text), 'f' (forest), 's#' (strip), 'b' (boxplot) or 'd' (density plot).
 #' @param dat data frame that should be plotted
 #' @param obs Optional data frame with the observations for the boxplot.
 #'	Required of layout includes 'b' or 'd'.
@@ -20,7 +21,7 @@
 #'
 #' @examples
 #'
-#' fobj<-genfobj(layout = c("t","t","t","t","t","t","f","t"),
+#' fobj<-genfobj(layout = c("ttttttft"),
 #' 	dat = forplotdata,
 #'	lwidths = c(0.8,0.4,0.6,0.4,0.6,1,1,0.5))
 #' plotfobj(fobj)
@@ -29,6 +30,20 @@ genfobj<-function(layout, dat, obs = NULL,
 	lwidths = NA, lheights = NA,
 	y.at = NA, ylim = NA) {
 
+	#convert layout 
+	if (length(layout)==1) {
+		layout<-strsplit(layout, "(?<=.)(?=[A-Za-z])", perl = TRUE)[[1]]
+	}
+	
+	#check s itms
+	si <- which(startsWith(layout, "s"))
+	if (!all(grepl("^s[0-9]+$", layout[si]))) {
+		stop("All 's' items have to be followed by a number indicating the number of points to be drawn.")
+	}
+	
+	all(si < length(layout) & grepl("^[0-9]+$", layout[si]))
+
+	#check inputs
 	if (sum(!is.na(y.at))==0) {
 		y.at<-nrow(dat):1
 	} else {
@@ -79,7 +94,8 @@ genfobj<-function(layout, dat, obs = NULL,
 			addi<-list(
 				type = layout[i],
 				vname = hnames[i],
-				plot = list(x = 0, type="n", xlim=c(0,1), ylim=ylim, yaxt="n", ylab="", xlab="", axes=FALSE, xaxs = "i", yaxs = "i"),
+				plot = list(x = 0, type="n", xlim=c(0,1), ylim=ylim,
+					ylab="", xlab="", axes=FALSE, xaxs = "i", yaxs = "i"),
 				text = list(x = 0.5, y = y.at, labels = dat[,j], adj = c(0.5,0.5))
 			)
 
@@ -97,7 +113,7 @@ genfobj<-function(layout, dat, obs = NULL,
 				type = layout[i],
 				vname = hnames[i],
 				plot = list(x=0, type="n", xlim = xlim, ylim = ylim,
-					yaxt="n" ,ylab="", xlab="", axes=FALSE, xaxs = "i", yaxs = "i"),
+					ylab="", xlab="", axes=FALSE, xaxs = "i", yaxs = "i"),
 				axis = list(side = 1, line = 0, las = 1),
 				points = list(x = dat[,j], y = y.at, pch = 15),
 				arrows = list(y0 = y.at, y1 = y.at, x0 = dat[,j+1], x1 = dat[,j+2],
@@ -119,7 +135,7 @@ genfobj<-function(layout, dat, obs = NULL,
 				type = layout[i],
 				vname = hnames[i],
 				plot = list(x=0, type="n", xlim = xlim, ylim = ylim,
-					yaxt="n" ,ylab="", xlab="", axes=FALSE, xaxs = "i", yaxs = "i"),
+					ylab="", xlab="", axes=FALSE, xaxs = "i", yaxs = "i"),
 				axis = list(side = 1, line = 0, las = 1),
 				hline = list(h = y.at, lty = 3))
 
@@ -161,7 +177,7 @@ genfobj<-function(layout, dat, obs = NULL,
 				type = layout[i],
 				vname = hnames[i],
 				plot = list(x=0, type="n", xlim = xlim, ylim = ylim,
-					yaxt="n" ,ylab="", xlab="", axes=FALSE, xaxs = "i", yaxs = "i"),
+					ylab="", xlab="", axes=FALSE, xaxs = "i", yaxs = "i"),
 				boxplot = list(formula = value ~ arm*variable, data=obs,
 					at=rev(bp.at), boxwex = bwidth, horizontal=TRUE, axes=FALSE, col=cols, add=TRUE),
 				axis = list(side = 1, line = 0, las = 1))
@@ -204,7 +220,7 @@ genfobj<-function(layout, dat, obs = NULL,
 				type = layout[i],
 				vname = hnames[i],
 				plot = list(x=0, type="n", xlim = xlim, ylim = ylim,
-					yaxt="n" ,ylab="", xlab="", axes=FALSE, xaxs = "i", yaxs = "i"),
+					ylab="", xlab="", axes=FALSE, xaxs = "i", yaxs = "i"),
 				axis = list(side = 1, line = 0, las = 1),
 				lines = liv)
 
@@ -256,7 +272,8 @@ genfobj<-function(layout, dat, obs = NULL,
 #'	Passed to \code{\link[graphics]{text}}.
 #'
 #' @param fobj a forest plot object of class fobj
-#' @param item item to be modified, either a number or the name of the column in fobj$dat.
+#' @param item item to be modified, either a number with the position in layout 
+#'	or the name of the column in fobj$dat.
 #' 	If NULL (the default), all items of type 't' are affected
 #' @param ... options to be passed to \code{\link[graphics]{text}}
 #'
@@ -268,7 +285,7 @@ genfobj<-function(layout, dat, obs = NULL,
 #'
 #' @examples
 #'
-#' fobj<-genfobj(layout = c("t","t","t","t","t","t","f","t"),
+#' fobj<-genfobj(layout = c("ttttttft"),
 #' 	dat = forplotdata, lwidths = c(0.8,0.4,0.6,0.4,0.6,1,1,0.5))
 #' fobj<-t_options(fobj = fobj, item = 1, col = 2)
 #' plotfobj(fobj)
@@ -300,7 +317,8 @@ t_options<-function(fobj, item = NULL, ...)	{
 #'	Passed to \code{\link[graphics]{axis}}.
 #'
 #' @param fobj a forest plot object of class 'fobj'
-#' @param item item to be modified, either a number or the name of the column in fobj$dat.
+##' @param item item to be modified, either a number with the position in layout 
+#'	or the name of the column in fobj$dat.
 #' 	If NULL (the default), all items of type 'f' are affected
 #' @param ... options to be passed to  \code{\link[graphics]{axis}}
 #'
@@ -312,7 +330,7 @@ t_options<-function(fobj, item = NULL, ...)	{
 #'
 #' @examples
 #'
-#' fobj<-genfobj(layout = c("t","t","t","t","t","t","f","t"),
+#' fobj<-genfobj(layout = c("ttttttft"),
 #' 	dat = forplotdata, lwidths = c(0.8,0.4,0.6,0.4,0.6,1,1,0.5))
 #' fobj<-f_axis(fobj = fobj, at = seq(-1,0.2, by=0.4),
 #'	tck=-0.03, mgp = c(2,0.5,0))
@@ -345,7 +363,8 @@ f_axis<-function(fobj, item = NULL, ...) {
 #'	Passed to \code{\link[graphics]{points}}.
 #'
 #' @param fobj a forest plot object of class 'fobj'
-#' @param item item to be modified, either a number or the name of the column in fobj$dat.
+#' @param item item to be modified, either a number with the position in layout 
+#'	or the name of the column in fobj$dat.
 #' 	If NULL (the default), all items of type 'f' are affected
 #' @param ... options to be passed to \code{\link[graphics]{points}}
 #'
@@ -357,7 +376,7 @@ f_axis<-function(fobj, item = NULL, ...) {
 #'
 #' @examples
 #'
-#' fobj<-genfobj(layout = c("t","t","t","t","t","t","f","t"),
+#' fobj<-genfobj(layout = c("ttttttft"),
 #' 	dat = forplotdata, lwidths = c(0.8,0.4,0.6,0.4,0.6,1,1,0.5))
 #' fobj<-f_points(fobj = fobj, pch = 16, cex = 1.5)
 #' plotfobj(fobj)
@@ -380,7 +399,8 @@ f_points<-function(fobj, item = NULL, ...) {
 #'	Passed to \code{\link[graphics]{arrows}}.
 #'
 #' @param fobj a forest plot object of class 'fobj'
-#' @param item item to be modified, either a number or the name of the column in fobj$dat.
+#' @param item item to be modified, either a number with the position in layout 
+#'	or the name of the column in fobj$dat.
 #' 	If NULL (the default), all items of type 'f' are affected
 #' @param ... options to be passed to \code{\link[graphics]{arrows}}
 #'
@@ -392,7 +412,7 @@ f_points<-function(fobj, item = NULL, ...) {
 #'
 #' @examples
 #'
-#' fobj<-genfobj(layout = c("t","t","t","t","t","t","f","t"),
+#' fobj<-genfobj(layout = c("ttttttft"),
 #' 	dat = forplotdata, lwidths = c(0.8,0.4,0.6,0.4,0.6,1,1,0.5))
 #' fobj<-f_arrows(fobj = fobj, col = 2)
 #' plotfobj(fobj)
@@ -414,7 +434,8 @@ f_arrows<-function(fobj, item = NULL, ...) {
 #'	in forest (f) items of a forest plot object (fobj)
 #'
 #' @param fobj a forest plot object of class 'fobj'
-#' @param item item to be modified, either a number or the name of the column in fobj$dat.
+#' @param item item to be modified, either a number with the position in layout 
+#'	or the name of the column in fobj$dat.
 #' 	If NULL (the default), all items of type 'f' are affected
 #'
 #' @returns a forest plot object of class 'fobj'
@@ -434,7 +455,7 @@ f_arrows<-function(fobj, item = NULL, ...) {
 #'	sprintf("%2.2f",dat$beta_uci),")")
 #'
 #' #Generat fobj
-#' fobj<-genfobj(layout = c("t","t","t","t","t","t","f","t"),
+#' fobj<-genfobj(layout = c("ttttttft"),
 #'	dat = dat, lwidths = c(0.8,0.4,0.6,0.4,0.6,1,1,0.5))
 #'
 #' #Cut arrows
@@ -514,7 +535,8 @@ f_cutarrows<-function(fobj, item = NULL) {
 #' Passed to \code{\link[graphics]{abline}}.
 #'
 #' @param fobj a forest plot object of class 'fobj'
-#' @param item item to be modified, either a number or the name of the column in fobj$dat.
+#' @param item item to be modified, either a number with the position in layout 
+#'	or the name of the column in fobj$dat.
 #' 	If NULL (the default), all items of type 'f' are affected
 #' @param ... options to be passed to \code{\link[graphics]{abline}}
 #'
@@ -526,7 +548,7 @@ f_cutarrows<-function(fobj, item = NULL) {
 #'
 #' @examples
 #'
-#' fobj<-genfobj(layout = c("t","t","t","t","t","t","f","t"),
+#' fobj<-genfobj(layout = c("ttttttft"),
 #' 	dat = forplotdata, lwidths = c(0.8,0.4,0.6,0.4,0.6,1,1,0.5))
 #' fobj<-f_refline(fobj = fobj, v = 0)
 #' plotfobj(fobj)
@@ -554,7 +576,8 @@ f_refline<-function(fobj, item = NULL, ...) {
 #'	Passed to \code{\link[graphics]{mtext}}.
 #'
 #' @param fobj a forest plot object of class 'fobj'
-#' @param item item to be modified, either a number or the name of the column in fobj$dat.
+#' @param item item to be modified, either a number with the position in layout 
+#'	or the name of the column in fobj$dat.
 #' 	If NULL (the default), all items of type 'f' are affected
 #' @param ... options to be passed to  \code{\link[graphics]{mtext}}
 #'
@@ -566,7 +589,7 @@ f_refline<-function(fobj, item = NULL, ...) {
 #'
 #' @examples
 #'
-#' fobj<-genfobj(layout = c("t","t","t","t","t","t","f","t"),
+#' fobj<-genfobj(layout = c("ttttttft"),
 #' 	dat = forplotdata, lwidths = c(0.8,0.4,0.6,0.4,0.6,1,1,0.5))
 #' fobj<-f_direction(fobj = fobj, text = "A better    B better",
 #' 	line = 1.6)
@@ -601,7 +624,8 @@ f_direction<-function(fobj, item= NULL, ...) {
 #' Passed to \code{\link[graphics]{axis}}.
 #'
 #' @param fobj a forest plot object of class 'fobj'
-#' @param item item to be modified, either a number or the name of the column in fobj$dat.
+#' @param item item to be modified, either a number with the position in layout 
+#'	or the name of the column in fobj$dat.
 #' 	If NULL (the default), all items of type 's' are affected
 #' @param ... options to be passed to \code{\link[graphics]{axis}}
 #'
@@ -613,7 +637,7 @@ f_direction<-function(fobj, item= NULL, ...) {
 #'
 #' @examples
 #'
-#'fobj<-genfobj(layout = c("t","t","t","t","t","s2","t","f","t"),
+#'fobj<-genfobj(layout = c("ttttts2tft"),
 #'	dat = forplotdata_prop,
 #'	lwidths = c(0.6,0.4,0.6,0.4,0.6,1.0,1.2,1,0.5))
 #'fobj<-s_axis(fobj=fobj, xlim = c(0,1),
@@ -646,7 +670,8 @@ s_axis<-function(fobj, item = NULL, ...) {
 #' Passed to \code{\link[graphics]{abline}}.
 #'
 #' @param fobj a forest plot object of class 'fobj'
-#' @param item item to be modified, either a number or the name of the column in fobj$dat.
+#' @param item item to be modified, either a number with the position in layout 
+#'	or the name of the column in fobj$dat.
 #' 	If NULL (the default), all items of type 's' are affected
 #' @param ... options to be passed to \code{\link[graphics]{abline}}
 #'
@@ -658,7 +683,7 @@ s_axis<-function(fobj, item = NULL, ...) {
 #'
 #' @examples
 #'
-#'fobj<-genfobj(layout = c("t","t","t","t","t","s2","t","f","t"),
+#'fobj<-genfobj(layout = c("ttttts2tft"),
 #'	dat = forplotdata_prop,
 #'	lwidths = c(0.6,0.4,0.6,0.4,0.6,1.0,1.2,1,0.5))
 #'fobj<-s_hline(fobj=fobj, lty = 4)
@@ -685,7 +710,8 @@ s_hline<-function(fobj, item = NULL, ...) {
 #' Passed to \code{\link[graphics]{points}}.
 #'
 #' @param fobj a forest plot object of class 'fobj'
-#' @param item item to be modified, either a number or the name of the column in fobj$dat.
+#' @param item item to be modified, either a number with the position in layout 
+#'	or the name of the column in fobj$dat.
 #' 	If NULL (the default), all items of type 's' are affected
 #' @param pointnr points to be modified. If NULL (the default), all points are affected.
 #' @param ... options to be passed to \code{\link[graphics]{points}}
@@ -698,7 +724,7 @@ s_hline<-function(fobj, item = NULL, ...) {
 #'
 #' @examples
 #'
-#'fobj<-genfobj(layout = c("t","t","t","t","t","s2","t","f","t"),
+#'fobj<-genfobj(layout = c("ttttts2tft"),
 #'	dat = forplotdata_prop,
 #'	lwidths = c(0.6,0.4,0.6,0.4,0.6,1.0,1.2,1,0.5))
 #'fobj<-s_points(fobj=fobj, pch = 16, cex=1.5)
@@ -741,7 +767,8 @@ s_points<-function(fobj, item = NULL, pointnr = NULL, ...) {
 #' Without options two vertical lines are plotted at x-axis limits.
 #'
 #' @param fobj a forest plot object of class 'fobj'
-#' @param item item to be modified, either a number or the name of the column in fobj$dat.
+#' @param item item to be modified, either a number with the position in layout 
+#'	or the name of the column in fobj$dat.
 #' 	If NULL (the default), all items of type 's' are affected
 #' @param ... options to be passed to \code{\link[graphics]{abline}}
 #'
@@ -753,7 +780,7 @@ s_points<-function(fobj, item = NULL, pointnr = NULL, ...) {
 #'
 #' @examples
 #'
-#'fobj<-genfobj(layout = c("t","t","t","t","t","s2","t","f","t"),
+#'fobj<-genfobj(layout = c("ttttts2tft"),
 #'	dat = forplotdata_prop,
 #'	lwidths = c(0.6,0.4,0.6,0.4,0.6,1.0,1.2,1,0.5))
 #'fobj<-s_borders(fobj=fobj)
@@ -790,7 +817,8 @@ s_borders<-function(fobj, item = NULL, ...) {
 #' Passed to \code{\link[graphics]{boxplot}}.
 #'
 #' @param fobj a forest plot object of class 'fobj'
-#' @param item item to be modified, either a number or the name of the column in fobj$dat.
+#' @param item item to be modified, either a number with the position in layout 
+#'	or the name of the column in fobj$dat.
 #' 	If NULL (the default), all items of type 'b' are affected
 #' @param ... options to be passed to \code{\link[graphics]{boxplot}}
 #'
@@ -802,7 +830,7 @@ s_borders<-function(fobj, item = NULL, ...) {
 #'
 #' @examples
 #'
-#'fobj<-genfobj(layout = c("t","t","t","t","t","b","t","f","t"),
+#'fobj<-genfobj(layout = c("tttttbtft"),
 #'	dat = forplotdata, obs = forplotdata_bp,
 #'  lwidths = c(0.6,0.4,0.6,0.4,0.6,1,1,1,0.5))
 #'fobj<-b_boxplot(fobj, boxwex = 0.2)
@@ -835,7 +863,8 @@ b_boxplot<-function(fobj, item = NULL, ...) {
 #' Passed to \code{\link[graphics]{axis}}.
 #'
 #' @param fobj a forest plot object of class 'fobj'
-#' @param item item to be modified, either a number or the name of the column in fobj$dat.
+#' @param item item to be modified, either a number with the position in layout 
+#'	or the name of the column in fobj$dat.
 #' 	If NULL (the default), all items of type 'b' are affected.
 #' @param ... options to be passed to  \code{\link[graphics]{axis}}.
 #'
@@ -847,7 +876,7 @@ b_boxplot<-function(fobj, item = NULL, ...) {
 #'
 #' @examples
 #'
-#'fobj<-genfobj(layout = c("t","t","t","t","t","b","t","f","t"),
+#'fobj<-genfobj(layout = c("tttttbtft"),
 #'	dat = forplotdata, obs = forplotdata_bp,
 #'  lwidths = c(0.6,0.4,0.6,0.4,0.6,1,1,1,0.5))
 #'fobj<-b_axis(fobj, at = seq(2,10,by=2))
@@ -885,7 +914,8 @@ b_axis<-function(fobj, item = NULL, ...) {
 #' Passed to \code{\link[graphics]{axis}}.
 #'
 #' @param fobj a forest plot object of class 'fobj'
-#' @param item item to be modified, either a number or the name of the column in fobj$dat.
+#' @param item item to be modified, either a number with the position in layout 
+#'	or the name of the column in fobj$dat.
 #' 	If NULL (the default), all items of type 'b' are affected.
 #' @param ... options to be passed to  \code{\link[graphics]{axis}}.
 #'
@@ -897,7 +927,7 @@ b_axis<-function(fobj, item = NULL, ...) {
 #'
 #' @examples
 #'
-#'fobj<-genfobj(layout = c("t","t","t","t","t","d","t","f","t"),
+#'fobj<-genfobj(layout = c("tttttdtft"),
 #'	dat = forplotdata, obs = forplotdata_bp,
 #'  lwidths = c(0.6,0.4,0.6,0.4,0.6,1,1,1,0.5))
 #'fobj<-d_axis(fobj, at = seq(2,10,by=2))
@@ -930,7 +960,8 @@ d_axis<-function(fobj, item = NULL, ...) {
 #' Passed to \code{\link[graphics]{lines}}.
 #'
 #' @param fobj a forest plot object of class 'fobj'
-#' @param item item to be modified, either a number or the name of the column in fobj$dat.
+#' @param item item to be modified, either a number with the position in layout 
+#'	or the name of the column in fobj$dat.
 #' 	If NULL (the default), all items of type 's' are affected
 #' @param linenr lines to be modified. A vector of length 2 refering to the variable and the arm.
 #'	If NULL (the default), all lines are affected. If one number is NA, all lines are affected.
@@ -944,7 +975,7 @@ d_axis<-function(fobj, item = NULL, ...) {
 #'
 #' @examples
 #'
-#'fobj<-genfobj(layout = c("t","t","t","t","t","d","t","f","t"),
+#'fobj<-genfobj(layout = c("tttttdtft"),
 #'	dat = forplotdata, obs = forplotdata_bp,
 #'  lwidths = c(0.6,0.4,0.6,0.4,0.6,1,1,1,0.5))
 #'#all lines:
@@ -1015,7 +1046,7 @@ d_lines<-function(fobj, item = NULL, linenr = NULL, ...) {
 #'
 #' @examples
 #'
-#' fobj<-genfobj(layout = c("t","t","t","t","t","t","f","t"),
+#' fobj<-genfobj(layout = c("ttttttft"),
 #' 	dat = forplotdata,
 #'	lwidths = c(0.8,0.4,0.6,0.4,0.6,1,1,0.5))
 #' #Custom names
@@ -1052,8 +1083,6 @@ header<-function(fobj, hlayout = NULL, headernr = NULL, ...)	{
 			fobj$header<-list(list(hlayout = 1:length(fobj$setup$layout),
 				text = list(x = NULL, y = 0.5, labels = h, adj = c(0.5,0.5))))
 		}
-
-
 	}
 
 
@@ -1076,6 +1105,65 @@ header<-function(fobj, hlayout = NULL, headernr = NULL, ...)	{
 
 		fobj$header[[htn]]$text<-modifyList(fobj$header[[htn]]$text, input)
 	}
+
+	return(fobj)
+}
+
+#' Modify the background of the header of a forest plot object (fobj)
+#'
+#'	Passed to \code{\link[graphics]{rect}}.
+#'  If the xright, xleft, ytop and ybottom are not given, the whole plotting region is used.
+#'	With no argument, the default col = rgb(.1,.1,.1,.1) is used.
+#'	If there are several headers, the 'bg' argument is added to the first one but applies to all.
+#'
+#' @param fobj a forest plot object of class 'fobj'
+#' @param ... options to be passed to \code{\link[graphics]{rect}}
+#'
+#' @returns a forest plot object of class 'fobj'
+#'
+#' @export
+#'
+#' @importFrom utils modifyList
+#'
+#' @examples
+#'
+#' fobj<-genfobj(layout = c("ttttttft"),
+#' 	dat = forplotdata,
+#'	lwidths = c(0.8,0.4,0.6,0.4,0.6,1,1,0.5))
+#' #Add default background color:
+#' fobj<-header_bg(fobj = fobj)
+#' plotfobj(fobj)
+#'
+#' #Other color
+#' fobj<-header_bg(fobj = fobj, col = rgb(1,0,0,0.1))
+#' plotfobj(fobj)
+#'
+header_bg<-function(fobj, ...)	{
+
+	if (!("fobj" %in% class(fobj) | "sfobj" %in% class(fobj) | "cfobj" %in% class(fobj))) {
+		stop("fobj has to be of class fobj, sfobj or cfobj - use genfobj to define it")
+	}
+
+	input<-list(...)
+
+	if (length(fobj$header)==0) {
+
+		if (is.null(fobj$dat)) {
+			h<-paste0("header",1:length(fobj$setup$lwidth))
+			fobj$header<-list(list(hlayout = 1:length(fobj$setup$lwidth),
+				text = list(x = NULL, y = 0.5, labels = h, adj = c(0.5,0.5))))
+		} else {
+			h<-headernames(dat = fobj$dat, layout = fobj$setup$layout)
+			fobj$header<-list(list(hlayout = 1:length(fobj$setup$layout),
+				text = list(x = NULL, y = 0.5, labels = h, adj = c(0.5,0.5))))
+		}
+	}
+	
+	
+	fobj$header[[1]]$bg<-list(xleft = NA, ybottom = NA, xright = NA, ytop = NA,
+		col = rgb(.1,.1,.1,.1), border = NA)
+			
+	fobj$header[[1]]$bg<-modifyList(fobj$header[[1]]$bg, input)
 
 	return(fobj)
 }
@@ -1103,7 +1191,7 @@ header<-function(fobj, hlayout = NULL, headernr = NULL, ...)	{
 #'
 #' @examples
 #'
-#' fobj<-genfobj(layout = c("t","t","t","t","t","t","f","t"),
+#' fobj<-genfobj(layout = c("ttttttft"),
 #' 	dat = forplotdata,
 #'	lwidths = c(0.8,0.4,0.6,0.4,0.6,1,1,0.5))
 #' fobj<-gridlines(fobj = fobj)
@@ -1129,9 +1217,13 @@ gridlines<-function(fobj, ...)	{
 #stripes
 #----------
 
-#' Customize stripes in a forest plot object (fobj)
+#' Add and customize stripes in a forest plot object (fobj)
 #'
 #'	Passed to \code{\link[graphics]{rect}}.
+#'	With no argument, every second row is coloured using rgb(.1,.1,.1,.1).
+#'	Options 'xright' and 'xleft' of \code{\link[graphics]{rect}} 
+#'	are always set to the left and right end of the plotting region.
+#' 
 #'
 #' @param fobj a forest plot object of class 'fobj'
 #' @param ... options to be passed to \code{\link[graphics]{rect}}
@@ -1144,7 +1236,7 @@ gridlines<-function(fobj, ...)	{
 #'
 #' @examples
 #'
-#' fobj<-genfobj(layout = c("t","t","t","t","t","t","f","t"),
+#' fobj<-genfobj(layout = c("ttttttft"),
 #' 	dat = forplotdata,
 #'	lwidths = c(0.8,0.4,0.6,0.4,0.6,1,1,0.5))
 #' fobj<-stripes(fobj = fobj)
@@ -1175,5 +1267,3 @@ stripes<-function(fobj, ...)	{
 
 	return(fobj)
 }
-
-

@@ -9,7 +9,8 @@ f_arrows(fobj, item = NULL, ...)
 \arguments{
 \item{fobj}{a forest plot object of class 'fobj'}
 
-\item{item}{item to be modified, either a number or the name of the column in fobj$dat.
+\item{item}{item to be modified, either a number with the position in layout
+or the name of the column in fobj$dat.
 If NULL (the default), all items of type 'f' are affected}
 
 \item{...}{options to be passed to \code{\link[graphics]{arrows}}}
@@ -22,7 +23,7 @@ Passed to \code{\link[graphics]{arrows}}.
 }
 \examples{
 
-fobj<-genfobj(layout = c("t","t","t","t","t","t","f","t"),
+fobj<-genfobj(layout = c("ttttttft"),
 	dat = forplotdata, lwidths = c(0.8,0.4,0.6,0.4,0.6,1,1,0.5))
 fobj<-f_arrows(fobj = fobj, col = 2)
 plotfobj(fobj)

@@ -11,7 +11,7 @@
 #'
 #' @examples
 #'
-#' fobj<-genfobj(layout = c("t","t","t","t","t","t","f","t"),
+#' fobj<-genfobj(layout = c("ttttttft"),
 #' 	dat = forplotdata,
 #'	lwidths = c(0.8,0.4,0.6,0.4,0.6,1,1,0.5))
 #' plotfobj(fobj)
@@ -177,6 +177,7 @@ plotfobj1<- function(fobj, additems = TRUE, addfoot = TRUE, addhead = TRUE) {
 		for (i in 1:length(fobj$setup$layout)) {
 
 			if (fobj$setup$layout[i]=="t") {
+
 				do.call(plot, fobj$items[[i]]$plot)
 				do.call(text, fobj$items[[i]]$text)
 
@@ -303,7 +304,8 @@ plotfobj1<- function(fobj, additems = TRUE, addfoot = TRUE, addhead = TRUE) {
 
 	#footer
 	if (addfoot) {
-		plot(0,type="n",axes=FALSE,ylim=c(0,1),xlim=c(0,1),xlab="",ylab="")
+		plot(x=0, type="n", xlim=c(0,1), ylim=c(0,1),
+			ylab="", xlab="", axes=FALSE, xaxs="i", yaxs="i")
 	}
 
 	#header
@@ -312,8 +314,25 @@ plotfobj1<- function(fobj, additems = TRUE, addfoot = TRUE, addhead = TRUE) {
 
 		if (headernr>0) {
 
-			plot(x = 0, type="n", xlim=c(0,1), ylim=c(0,1), yaxt="n", ylab="", xlab="", axes=FALSE)
-
+			plot(x=0, type="n", xlim=c(0,1), ylim=c(0,1),
+				ylab="", xlab="", axes=FALSE, xaxs="i", yaxs="i")
+			
+			if (!is.null(fobj$header[[1]]$bg)) {
+				if (all(is.na(fobj$header[[1]]$bg$xleft))) {
+					fobj$header[[1]]$bg$xleft<-par("usr")[1]
+				}
+				if (all(is.na(fobj$header[[1]]$bg$xright))) {
+					fobj$header[[1]]$bg$xright<-par("usr")[2]
+				}
+				if (all(is.na(fobj$header[[1]]$bg$ybottom))) {
+					fobj$header[[1]]$bg$ybottom<-par("usr")[3]
+				}
+				if (all(is.na(fobj$header[[1]]$bg$ytop))) {
+					fobj$header[[1]]$bg$ytop<-par("usr")[4]
+				}
+				do.call(rect, fobj$header[[1]]$bg)
+			}			
+				
 			xsize<-par("usr")[2]-par("usr")[1]
 			rwidth<-fobj$setup$lwidths
 			cwidth<-(xsize/sum(rwidth)*rwidth)
@@ -340,7 +359,9 @@ plotfobj1<- function(fobj, additems = TRUE, addfoot = TRUE, addhead = TRUE) {
 				do.call(text, fobj$header[[hi]]$text)
 			}
 		} else {
-			plot(0,type="n",axes=FALSE,ylim=c(0,1),xlim=c(0,1),xlab="",ylab="")
+			plot(x=0, type="n", xlim=c(0,1), ylim=c(0,1),
+				ylab="", xlab="", axes=FALSE, xaxs="i", yaxs="i")
+			
 		}
 	}
 

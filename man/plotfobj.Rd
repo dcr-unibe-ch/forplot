@@ -17,7 +17,7 @@ Plot a forest plot object (fobj)
 }
 \examples{
 
-fobj<-genfobj(layout = c("t","t","t","t","t","t","f","t"),
+fobj<-genfobj(layout = c("ttttttft"),
 	dat = forplotdata,
 lwidths = c(0.8,0.4,0.6,0.4,0.6,1,1,0.5))
 plotfobj(fobj)

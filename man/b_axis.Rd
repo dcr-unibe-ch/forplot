@@ -9,7 +9,8 @@ b_axis(fobj, item = NULL, ...)
 \arguments{
 \item{fobj}{a forest plot object of class 'fobj'}
 
-\item{item}{item to be modified, either a number or the name of the column in fobj$dat.
+\item{item}{item to be modified, either a number with the position in layout
+or the name of the column in fobj$dat.
 If NULL (the default), all items of type 'b' are affected.}
 
 \item{...}{options to be passed to  \code{\link[graphics]{axis}}.}
@@ -22,7 +23,7 @@ Passed to \code{\link[graphics]{axis}}.
 }
 \examples{
 
-fobj<-genfobj(layout = c("t","t","t","t","t","b","t","f","t"),
+fobj<-genfobj(layout = c("tttttbtft"),
 dat = forplotdata, obs = forplotdata_bp,
  lwidths = c(0.6,0.4,0.6,0.4,0.6,1,1,1,0.5))
 fobj<-b_axis(fobj, at = seq(2,10,by=2))

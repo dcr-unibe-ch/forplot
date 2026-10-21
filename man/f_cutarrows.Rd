@@ -10,7 +10,8 @@ f_cutarrows(fobj, item = NULL)
 \arguments{
 \item{fobj}{a forest plot object of class 'fobj'}
 
-\item{item}{item to be modified, either a number or the name of the column in fobj$dat.
+\item{item}{item to be modified, either a number with the position in layout
+or the name of the column in fobj$dat.
 If NULL (the default), all items of type 'f' are affected}
 }
 \value{
@@ -33,7 +34,7 @@ dat$beta_format<-paste0(sprintf("\%2.2f",dat$beta),
 sprintf("\%2.2f",dat$beta_uci),")")
 
 #Generat fobj
-fobj<-genfobj(layout = c("t","t","t","t","t","t","f","t"),
+fobj<-genfobj(layout = c("ttttttft"),
 dat = dat, lwidths = c(0.8,0.4,0.6,0.4,0.6,1,1,0.5))
 
 #Cut arrows

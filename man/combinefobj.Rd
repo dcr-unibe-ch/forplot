@@ -33,11 +33,11 @@ Combines a list of fobj. Changes the fobj to an cfobj.
 \examples{
 
 fobj1<-genfobj(dat = forplotdata[1:5,],
- layout = c("t","t","t","t","t","t","f","t"),
+ layout = c("ttttttft"),
 	lwidths = c(0.8,0.4,0.6,0.4,0.6,1,1,0.5))
 
 fobj2<-genfobj(dat = forplotdata[6:10,],
-	layout = c("t","t","t","t","t","t","f","t"),
+	layout = c("ttttttft"),
 	lwidths = c(0.8,0.4,0.6,0.4,0.6,1,1,0.5))
 
 cfobj<-combinefobj(list(fobj1,fobj2))

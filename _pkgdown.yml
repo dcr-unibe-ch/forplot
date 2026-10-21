@@ -16,6 +16,7 @@ reference:
 - title: Modify overarching appearance
   contents:
   - header
+  - header_bg
   - gridlines
   - stripes
   - insert_subtitle

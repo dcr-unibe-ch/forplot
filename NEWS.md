@@ -1,3 +1,8 @@
+forplot 3.3.0
+------------------
+allow layout input as single string of characters
+function header_bg to add background color to the header
+
 forplot 3.2.0
 ------------------
 remove default margin on left and right side
