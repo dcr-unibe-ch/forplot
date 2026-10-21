@@ -13,10 +13,12 @@
 
 - [`header()`](https://dcr-unibe-ch.github.io/forplot/reference/header.md)
   : Modify the header of a forest plot object (fobj)
+- [`header_bg()`](https://dcr-unibe-ch.github.io/forplot/reference/header_bg.md)
+  : Modify the background of the header of a forest plot object (fobj)
 - [`gridlines()`](https://dcr-unibe-ch.github.io/forplot/reference/gridlines.md)
   : Customize horizontal lines in a forest plot object (fobj)
 - [`stripes()`](https://dcr-unibe-ch.github.io/forplot/reference/stripes.md)
-  : Customize stripes in a forest plot object (fobj)
+  : Add and customize stripes in a forest plot object (fobj)
 - [`insert_subtitle()`](https://dcr-unibe-ch.github.io/forplot/reference/insert_subtitle.md)
   : Insert subtitles over the whole width of an fobj
 

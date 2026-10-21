@@ -16,8 +16,9 @@ d_lines(fobj, item = NULL, linenr = NULL, ...)
 
 - item:
 
-  item to be modified, either a number or the name of the column in
-  fobj\$dat. If NULL (the default), all items of type 's' are affected
+  item to be modified, either a number with the position in layout or
+  the name of the column in fobj\$dat. If NULL (the default), all items
+  of type 's' are affected
 
 - linenr:
 
@@ -38,7 +39,7 @@ a forest plot object of class 'fobj'
 
 ``` r
 
-fobj<-genfobj(layout = c("t","t","t","t","t","d","t","f","t"),
+fobj<-genfobj(layout = c("tttttdtft"),
 dat = forplotdata, obs = forplotdata_bp,
  lwidths = c(0.6,0.4,0.6,0.4,0.6,1,1,1,0.5))
 #all lines:

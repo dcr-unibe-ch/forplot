@@ -16,8 +16,9 @@ f_axis(fobj, item = NULL, ...)
 
 - item:
 
-  item to be modified, either a number or the name of the column in
-  fobj\$dat. If NULL (the default), all items of type 'f' are affected
+  item to be modified, either a number with the position in layout or
+  the name of the column in fobj\$dat. If NULL (the default), all items
+  of type 'f' are affected
 
 - ...:
 
@@ -31,7 +32,7 @@ a forest plot object of class 'fobj'
 
 ``` r
 
-fobj<-genfobj(layout = c("t","t","t","t","t","t","f","t"),
+fobj<-genfobj(layout = c("ttttttft"),
   dat = forplotdata, lwidths = c(0.8,0.4,0.6,0.4,0.6,1,1,0.5))
 fobj<-f_axis(fobj = fobj, at = seq(-1,0.2, by=0.4),
 tck=-0.03, mgp = c(2,0.5,0))

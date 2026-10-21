@@ -41,7 +41,7 @@ of code.
 
 data(forplotdata)
 fobj <- genfobj(dat = forplotdata, 
-                layout = c("t","t","t","t","t","t","f","t"), 
+                layout = c("ttttttft"), 
                 lwidths = c(1.5,1,2,1,2,3,3,1)) |> 
   stripes() |> 
   gridlines() |> 
@@ -52,6 +52,7 @@ fobj <- genfobj(dat = forplotdata,
          hlayout = c(1,2,3,4,5,6,6,7),
          labels = c("", "N", "Mean (SD)", "N", "Mean (SD)", 
                     "Mean difference (95% CI)", "P value"), y = .4)
+
 plotfobj(fobj)
 ```
 
@@ -75,10 +76,12 @@ Check the vignette for further examples.
 
 - [`header()`](https://dcr-unibe-ch.github.io/forplot/reference/header.md)
   : Modify the header of a forest plot object (fobj)
+- [`header_bg()`](https://dcr-unibe-ch.github.io/forplot/reference/header_bg.md)
+  : Modify the background of the header of a forest plot object (fobj)
 - [`gridlines()`](https://dcr-unibe-ch.github.io/forplot/reference/gridlines.md)
   : Customize horizontal lines in a forest plot object (fobj)
 - [`stripes()`](https://dcr-unibe-ch.github.io/forplot/reference/stripes.md)
-  : Customize stripes in a forest plot object (fobj)
+  : Add and customize stripes in a forest plot object (fobj)
 - [`insert_subtitle()`](https://dcr-unibe-ch.github.io/forplot/reference/insert_subtitle.md)
   : Insert subtitles over the whole width of an fobj
 

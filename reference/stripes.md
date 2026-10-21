@@ -1,6 +1,9 @@
-# Customize stripes in a forest plot object (fobj)
+# Add and customize stripes in a forest plot object (fobj)
 
-Passed to [`rect`](https://rdrr.io/r/graphics/rect.html).
+Passed to [`rect`](https://rdrr.io/r/graphics/rect.html). With no
+argument, every second row is coloured using rgb(.1,.1,.1,.1). Options
+'xright' and 'xleft' of [`rect`](https://rdrr.io/r/graphics/rect.html)
+are always set to the left and right end of the plotting region.
 
 ## Usage
 
@@ -26,7 +29,7 @@ a forest plot object of class 'fobj'
 
 ``` r
 
-fobj<-genfobj(layout = c("t","t","t","t","t","t","f","t"),
+fobj<-genfobj(layout = c("ttttttft"),
   dat = forplotdata,
 lwidths = c(0.8,0.4,0.6,0.4,0.6,1,1,0.5))
 fobj<-stripes(fobj = fobj)

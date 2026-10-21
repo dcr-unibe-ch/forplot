@@ -142,7 +142,7 @@ the beta:
 
 ``` r
 
-fobj<-genfobj(dat = forplotdata, layout = c("t","t","t","t","t","t","f","t"))
+fobj<-genfobj(dat = forplotdata, layout = c("ttttttft"))
 ```
 
 The produced **fobj** is a list of length 5 with class *fobj*. It
@@ -211,9 +211,6 @@ fobj$item[[1]]
 #> 
 #> $plot$ylim
 #> [1]  0.5 10.5
-#> 
-#> $plot$yaxt
-#> [1] "n"
 #> 
 #> $plot$ylab
 #> [1] ""
@@ -395,7 +392,7 @@ The modifying elements can be piped. For example to reproduce the
 
 
 genfobj(dat = forplotdata,
-  layout = c("t","t","t","t","t","t","f","t"),
+  layout = c("ttttttft"),
   lwidth = c(0.3,0.4,0.6,0.4,0.6,1,1,0.5),
   lheight = c(0.1,1,0.15)) |>
   gridlines() |>
@@ -435,7 +432,7 @@ dat$beta_format<-paste0(sprintf("%2.2f",dat$beta),
   sprintf("%2.2f",dat$beta_uci),")")
 
 # Generate and plot fobj:
-genfobj(layout = c("t","t","t","t","t","t","f","t"),
+genfobj(layout = c("ttttttft"),
     dat = dat, lwidths = c(0.8,0.4,0.6,0.4,0.6,1,1,0.5)) |>
   f_axis(xlim=c(-1.5,1)) |>
   f_cutarrows() |>
@@ -453,7 +450,7 @@ elements.
 ``` r
 
 fobj <- genfobj(dat = forplotdata, 
-                layout = c("t","t","t","t","t","t","f","t"), 
+                layout = c("ttttttft"), 
                 lwidths = c(1.5,1,2,1,2,3,3,1)) |>
     gridlines() |>
     stripes()
@@ -539,6 +536,52 @@ fobj |>
 
 ![](forplot_files/figure-html/unnamed-chunk-22-1.png)
 
+It is possible to adapt the background color for the header using
+*header_bg* which is passed to
+[graphics::rect()](https://stat.ethz.ch/R-manual/R-devel/library/graphics/html/rect.html)
+and generates a *bg* element in the header list (if there are multiple
+header lines, it is added to the first). Without argument the default
+color rgb(.1,.1,.1,.1) is used and applied to the whole header plotting.
+More compplicated pattern can be defined using arguments from
+[graphics::rect()](https://stat.ethz.ch/R-manual/R-devel/library/graphics/html/rect.html).
+
+``` r
+
+fobj |> 
+
+  header(headernr = 1, hlayout = c(1,2,2,3,3,4,4,4),
+    labels = c("", "Arm A", "Arm B", ""), y = 0.8) |>
+
+  header(headernr = 2, hlayout = c(1,2,3,4,5,6,6,7),
+    labels = c("", "N", "Mean (SD)", "N", "Mean (SD)", 
+      "Mean difference (95% CI)", "P value"), y = 0.3) |>
+  
+  header_bg() |>
+
+  plotfobj()
+```
+
+![](forplot_files/figure-html/unnamed-chunk-23-1.png)
+
+``` r
+
+fobj |> 
+
+  header(headernr = 1, hlayout = c(1,2,2,3,3,4,4,4),
+    labels = c("", "Arm A", "Arm B", ""), y = 0.8) |>
+
+  header(headernr = 2, hlayout = c(1,2,3,4,5,6,6,7),
+    labels = c("", "N", "Mean (SD)", "N", "Mean (SD)", 
+      "Mean difference (95% CI)", "P value"), y = 0.3) |>
+  
+  header_bg(col = c(rgb(.1,.1,.1,.1),rgb(.1,.1,.1,.2)), 
+    ybottom=c(0,0.5), ytop = c(0.5,1)) |>
+
+  plotfobj()
+```
+
+![](forplot_files/figure-html/unnamed-chunk-24-1.png)
+
 ## Boxplots
 
 For a more in-depth presentation of the data in each group, a boxplot
@@ -560,13 +603,13 @@ and
 ``` r
 
 fobj<-genfobj(dat = forplotdata, obs = forplotdata_bp,
-  layout = c("t","t","t","t","t","b","t","f","t"),
+  layout = c("tttttbtft"),
   lwidths = c(0.6,0.4,0.6,0.4,0.6,1,1,1,0.5))
 
 plotfobj(fobj)
 ```
 
-![](forplot_files/figure-html/unnamed-chunk-23-1.png)
+![](forplot_files/figure-html/unnamed-chunk-25-1.png)
 
 Adding header gridlines and stripes:
 
@@ -588,7 +631,7 @@ fobj |>
   plotfobj()
 ```
 
-![](forplot_files/figure-html/unnamed-chunk-24-1.png)
+![](forplot_files/figure-html/unnamed-chunk-26-1.png)
 
 ## Density plots
 
@@ -622,7 +665,7 @@ genfobj(dat = forplotdata, obs = forplotdata_bp,
 #> result is not a multiple of vector length (arg 1)
 ```
 
-![](forplot_files/figure-html/unnamed-chunk-25-1.png)
+![](forplot_files/figure-html/unnamed-chunk-27-1.png)
 
 Options can be change via *d_axis* and *d_lines* using all options
 available for
@@ -640,7 +683,7 @@ the second the arm.
 ``` r
 
 fobj<-genfobj(dat = forplotdata, obs = forplotdata_bp,
-  layout = c("t","t","t","t","t","d","t","f","t"),
+  layout = c("tttttdtft"),
   lwidths = c(0.3,0.4,0.6,0.4,0.6,1,1,1,0.5))
 
 #all lines:
@@ -649,7 +692,7 @@ fobj<-d_lines(fobj=fobj, lw=1.5)
 plotfobj(fobj)
 ```
 
-![](forplot_files/figure-html/unnamed-chunk-26-1.png)
+![](forplot_files/figure-html/unnamed-chunk-28-1.png)
 
 ``` r
 
@@ -659,7 +702,7 @@ fobj<-d_lines(fobj=fobj, linenr=c(NA,2), col=1)
 plotfobj(fobj)
 ```
 
-![](forplot_files/figure-html/unnamed-chunk-27-1.png)
+![](forplot_files/figure-html/unnamed-chunk-29-1.png)
 
 Different density curves could be added by using *x* and *y* options in
 *d_lines* (or the *lines* list in the **fobj**). Note that the
@@ -681,13 +724,13 @@ For example:
 ``` r
 
 fobj<-genfobj(dat = forplotdata_prop,
-  layout = c("t","t","t","t","t","s2","t","f","t"),
+  layout = c("ttttts2tft"),
   lwidths = c(0.3,0.4,0.6,0.4,0.6,1.0,1.2,1,0.5))
 
 plotfobj(fobj)
 ```
 
-![](forplot_files/figure-html/unnamed-chunk-28-1.png)
+![](forplot_files/figure-html/unnamed-chunk-30-1.png)
 
 Options can be modified via *s_axis*, *s_hline* and *s_points* using all
 options available for using all options available for
@@ -718,7 +761,7 @@ fobj<-s_axis(fobj=fobj, xlim = c(0,1),
 plotfobj(fobj)
 ```
 
-![](forplot_files/figure-html/unnamed-chunk-29-1.png)
+![](forplot_files/figure-html/unnamed-chunk-31-1.png)
 
 ## Combine fobjs
 
@@ -734,7 +777,7 @@ multiple. If the *lwdiths* vary, the average is taken.
 
 #prepare first fobj
 fobj1<-genfobj(dat = forplotdata, obs = forplotdata_bp,
-  layout = c("t","t","t","t","t","b","t","f","t"),
+  layout = c("tttttbtft"),
   lwidths = c(0.3,0.4,0.6,0.4,0.6,1,1,1,0.5),
   lheight=c(0.12,1,0.15)) |>
 
@@ -754,7 +797,7 @@ fobj1<-genfobj(dat = forplotdata, obs = forplotdata_bp,
 
 #prepare second fobj
 fobj2<-genfobj(dat = forplotdata_prop,
-  layout = c("t","t","t","t","t","s2","t","f","t"),
+  layout = c("ttttts2tft"),
   lwidths = c(0.3,0.4,0.6,0.4,0.6,1,1,1,0.5),
   lheight=c(0.12,1,0.15)) |>
 
@@ -817,7 +860,7 @@ The **cfobj** can be plotted using the same plot function:
 plotfobj(fobj = cfobj)
 ```
 
-![](forplot_files/figure-html/unnamed-chunk-31-1.png)
+![](forplot_files/figure-html/unnamed-chunk-33-1.png)
 
 Combining plots can also be used to get different scaling for the plots
 of the individual variables. Assume we would like to present a number of
@@ -888,7 +931,7 @@ cfobj$setup$lheights[length(cfobj$setup$lheights)]<-0.5
 plotfobj(cfobj)
 ```
 
-![](forplot_files/figure-html/unnamed-chunk-32-1.png)
+![](forplot_files/figure-html/unnamed-chunk-34-1.png)
 
 ## Inserting subtitles
 
@@ -899,7 +942,7 @@ helps with the preparation:
 ``` r
 
 fobj<-genfobj(dat = forplotdata,
-  layout = c("t","t","t","t","t","t","f","t"), 
+  layout = c("ttttttft"), 
     lwidths = c(0.3,0.4,0.6,0.4,0.6,1,1,0.5))
 
 cfobj<-insert_subtitle(fobj,
@@ -912,7 +955,7 @@ cfobj<-insert_subtitle(fobj,
 plotfobj(cfobj)
 ```
 
-![](forplot_files/figure-html/unnamed-chunk-33-1.png)
+![](forplot_files/figure-html/unnamed-chunk-35-1.png)
 
 The resulting **cfobj** contains 6 individual **fobj** (for each
 subtitle and the parts in between), which can be modified individually.
@@ -957,4 +1000,4 @@ cfobj$setup$lheights[length(cfobj$setup$lheights)]<-0.15
 plotfobj(cfobj)
 ```
 
-![](forplot_files/figure-html/unnamed-chunk-34-1.png)
+![](forplot_files/figure-html/unnamed-chunk-36-1.png)
