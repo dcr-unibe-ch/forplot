@@ -3,8 +3,8 @@
 Passed to [`rect`](https://rdrr.io/r/graphics/rect.html). If the xright,
 xleft, ytop and ybottom are not given, the whole plotting region is
 used. With no argument, the default col = rgb(.1,.1,.1,.1) is used. If
-there are several headers, the 'bg' argument is added to the first one
-but applies to all.
+there are several headers, the 'stripes' argument is added to the first
+one but applies to all.
 
 ## Usage
 

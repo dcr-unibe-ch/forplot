@@ -539,10 +539,10 @@ fobj |>
 It is possible to adapt the background color for the header using
 *header_stripes* which is passed to
 [graphics::rect()](https://stat.ethz.ch/R-manual/R-devel/library/graphics/html/rect.html)
-and generates a *bg* element in the header list (if there are multiple
-header lines, it is added to the first). Without argument the default
-color rgb(.1,.1,.1,.1) is used and applied to the whole header plotting.
-More compplicated pattern can be defined using arguments from
+and generates a *stripes* element in the header list (if there are
+multiple header lines, it is added to the first). Without argument the
+default color rgb(.1,.1,.1,.1) is used and applied to the whole header
+plotting. More compplicated pattern can be defined using arguments from
 [graphics::rect()](https://stat.ethz.ch/R-manual/R-devel/library/graphics/html/rect.html).
 
 ``` r
