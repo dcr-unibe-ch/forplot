@@ -317,20 +317,20 @@ plotfobj1<- function(fobj, additems = TRUE, addfoot = TRUE, addhead = TRUE) {
 			plot(x=0, type="n", xlim=c(0,1), ylim=c(0,1),
 				ylab="", xlab="", axes=FALSE, xaxs="i", yaxs="i")
 			
-			if (!is.null(fobj$header[[1]]$bg)) {
-				if (all(is.na(fobj$header[[1]]$bg$xleft))) {
-					fobj$header[[1]]$bg$xleft<-par("usr")[1]
+			if (!is.null(fobj$header[[1]]$stripes)) {
+				if (all(is.na(fobj$header[[1]]$stripes$xleft))) {
+					fobj$header[[1]]$stripes$xleft<-par("usr")[1]
 				}
-				if (all(is.na(fobj$header[[1]]$bg$xright))) {
-					fobj$header[[1]]$bg$xright<-par("usr")[2]
+				if (all(is.na(fobj$header[[1]]$stripes$xright))) {
+					fobj$header[[1]]$stripes$xright<-par("usr")[2]
 				}
-				if (all(is.na(fobj$header[[1]]$bg$ybottom))) {
-					fobj$header[[1]]$bg$ybottom<-par("usr")[3]
+				if (all(is.na(fobj$header[[1]]$stripes$ybottom))) {
+					fobj$header[[1]]$stripes$ybottom<-par("usr")[3]
 				}
-				if (all(is.na(fobj$header[[1]]$bg$ytop))) {
-					fobj$header[[1]]$bg$ytop<-par("usr")[4]
+				if (all(is.na(fobj$header[[1]]$stripes$ytop))) {
+					fobj$header[[1]]$stripes$ytop<-par("usr")[4]
 				}
-				do.call(rect, fobj$header[[1]]$bg)
+				do.call(rect, fobj$header[[1]]$stripes)
 			}			
 				
 			xsize<-par("usr")[2]-par("usr")[1]

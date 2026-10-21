@@ -1114,7 +1114,7 @@ header<-function(fobj, hlayout = NULL, headernr = NULL, ...)	{
 #'	Passed to \code{\link[graphics]{rect}}.
 #'  If the xright, xleft, ytop and ybottom are not given, the whole plotting region is used.
 #'	With no argument, the default col = rgb(.1,.1,.1,.1) is used.
-#'	If there are several headers, the 'bg' argument is added to the first one but applies to all.
+#'	If there are several headers, the 'stripes' argument is added to the first one but applies to all.
 #'
 #' @param fobj a forest plot object of class 'fobj'
 #' @param ... options to be passed to \code{\link[graphics]{rect}}
@@ -1160,10 +1160,10 @@ header_stripes<-function(fobj, ...)	{
 	}
 	
 	
-	fobj$header[[1]]$bg<-list(xleft = NA, ybottom = NA, xright = NA, ytop = NA,
+	fobj$header[[1]]$stripes<-list(xleft = NA, ybottom = NA, xright = NA, ytop = NA,
 		col = rgb(.1,.1,.1,.1), border = NA)
 			
-	fobj$header[[1]]$bg<-modifyList(fobj$header[[1]]$bg, input)
+	fobj$header[[1]]$stripes<-modifyList(fobj$header[[1]]$stripes, input)
 
 	return(fobj)
 }
