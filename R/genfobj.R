@@ -1131,14 +1131,14 @@ header<-function(fobj, hlayout = NULL, headernr = NULL, ...)	{
 #' 	dat = forplotdata,
 #'	lwidths = c(0.8,0.4,0.6,0.4,0.6,1,1,0.5))
 #' #Add default background color:
-#' fobj<-header_bg(fobj = fobj)
+#' fobj<-header_stripes(fobj = fobj)
 #' plotfobj(fobj)
 #'
 #' #Other color
-#' fobj<-header_bg(fobj = fobj, col = rgb(1,0,0,0.1))
+#' fobj<-header_stripes(fobj = fobj, col = rgb(1,0,0,0.1))
 #' plotfobj(fobj)
 #'
-header_bg<-function(fobj, ...)	{
+header_stripes<-function(fobj, ...)	{
 
 	if (!("fobj" %in% class(fobj) | "sfobj" %in% class(fobj) | "cfobj" %in% class(fobj))) {
 		stop("fobj has to be of class fobj, sfobj or cfobj - use genfobj to define it")
