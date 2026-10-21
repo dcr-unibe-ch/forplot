@@ -537,7 +537,7 @@ fobj |>
 ![](forplot_files/figure-html/unnamed-chunk-22-1.png)
 
 It is possible to adapt the background color for the header using
-*header_bg* which is passed to
+*header_stripes* which is passed to
 [graphics::rect()](https://stat.ethz.ch/R-manual/R-devel/library/graphics/html/rect.html)
 and generates a *bg* element in the header list (if there are multiple
 header lines, it is added to the first). Without argument the default
@@ -556,7 +556,7 @@ fobj |>
     labels = c("", "N", "Mean (SD)", "N", "Mean (SD)", 
       "Mean difference (95% CI)", "P value"), y = 0.3) |>
   
-  header_bg() |>
+  header_stripes() |>
 
   plotfobj()
 ```
@@ -574,7 +574,7 @@ fobj |>
     labels = c("", "N", "Mean (SD)", "N", "Mean (SD)", 
       "Mean difference (95% CI)", "P value"), y = 0.3) |>
   
-  header_bg(col = c(rgb(.1,.1,.1,.1),rgb(.1,.1,.1,.2)), 
+  header_stripes(col = c(rgb(.1,.1,.1,.1),rgb(.1,.1,.1,.2)), 
     ybottom=c(0,0.5), ytop = c(0.5,1)) |>
 
   plotfobj()

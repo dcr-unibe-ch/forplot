@@ -13,7 +13,7 @@
 
 - [`header()`](https://dcr-unibe-ch.github.io/forplot/reference/header.md)
   : Modify the header of a forest plot object (fobj)
-- [`header_bg()`](https://dcr-unibe-ch.github.io/forplot/reference/header_bg.md)
+- [`header_stripes()`](https://dcr-unibe-ch.github.io/forplot/reference/header_stripes.md)
   : Modify the background of the header of a forest plot object (fobj)
 - [`gridlines()`](https://dcr-unibe-ch.github.io/forplot/reference/gridlines.md)
   : Customize horizontal lines in a forest plot object (fobj)

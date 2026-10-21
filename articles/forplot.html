@@ -20,7 +20,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">forplot</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">3.3.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">3.3.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -531,7 +531,7 @@ options.</p>
 <span>  <span class="fu"><a href="../reference/plotfobj.html">plotfobj</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p><img src="forplot_files/figure-html/unnamed-chunk-22-1.png" class="r-plt" alt="" width="768"></p>
 <p>It is possible to adapt the background color for the header using
-<em>header_bg</em> which is passed to <a href="https://stat.ethz.ch/R-manual/R-devel/library/graphics/html/rect.html" class="external-link">graphics::rect()</a>
+<em>header_stripes</em> which is passed to <a href="https://stat.ethz.ch/R-manual/R-devel/library/graphics/html/rect.html" class="external-link">graphics::rect()</a>
 and generates a <em>bg</em> element in the header list (if there are
 multiple header lines, it is added to the first). Without argument the
 default color rgb(.1,.1,.1,.1) is used and applied to the whole header
@@ -547,7 +547,7 @@ plotting. More compplicated pattern can be defined using arguments from
 <span>    labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">""</span>, <span class="st">"N"</span>, <span class="st">"Mean (SD)"</span>, <span class="st">"N"</span>, <span class="st">"Mean (SD)"</span>, </span>
 <span>      <span class="st">"Mean difference (95% CI)"</span>, <span class="st">"P value"</span><span class="op">)</span>, y <span class="op">=</span> <span class="fl">0.3</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  </span>
-<span>  <span class="fu"><a href="../reference/header_bg.html">header_bg</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="../reference/header_stripes.html">header_stripes</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span></span>
 <span>  <span class="fu"><a href="../reference/plotfobj.html">plotfobj</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <p><img src="forplot_files/figure-html/unnamed-chunk-23-1.png" class="r-plt" alt="" width="768"></p>
@@ -561,7 +561,7 @@ plotting. More compplicated pattern can be defined using arguments from
 <span>    labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">""</span>, <span class="st">"N"</span>, <span class="st">"Mean (SD)"</span>, <span class="st">"N"</span>, <span class="st">"Mean (SD)"</span>, </span>
 <span>      <span class="st">"Mean difference (95% CI)"</span>, <span class="st">"P value"</span><span class="op">)</span>, y <span class="op">=</span> <span class="fl">0.3</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  </span>
-<span>  <span class="fu"><a href="../reference/header_bg.html">header_bg</a></span><span class="op">(</span>col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/grDevices/rgb.html" class="external-link">rgb</a></span><span class="op">(</span><span class="fl">.1</span>,<span class="fl">.1</span>,<span class="fl">.1</span>,<span class="fl">.1</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/grDevices/rgb.html" class="external-link">rgb</a></span><span class="op">(</span><span class="fl">.1</span>,<span class="fl">.1</span>,<span class="fl">.1</span>,<span class="fl">.2</span><span class="op">)</span><span class="op">)</span>, </span>
+<span>  <span class="fu"><a href="../reference/header_stripes.html">header_stripes</a></span><span class="op">(</span>col <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/grDevices/rgb.html" class="external-link">rgb</a></span><span class="op">(</span><span class="fl">.1</span>,<span class="fl">.1</span>,<span class="fl">.1</span>,<span class="fl">.1</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/grDevices/rgb.html" class="external-link">rgb</a></span><span class="op">(</span><span class="fl">.1</span>,<span class="fl">.1</span>,<span class="fl">.1</span>,<span class="fl">.2</span><span class="op">)</span><span class="op">)</span>, </span>
 <span>    ybottom<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0.5</span><span class="op">)</span>, ytop <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.5</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span></span>
 <span>  <span class="fu"><a href="../reference/plotfobj.html">plotfobj</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>

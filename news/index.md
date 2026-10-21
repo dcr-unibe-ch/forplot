@@ -1,5 +1,9 @@
 # Changelog
 
+## forplot 3.3.1
+
+rename header_bg to header_stripes
+
 ## forplot 3.3.0
 
 allow layout input as single string of characters function header_bg to
