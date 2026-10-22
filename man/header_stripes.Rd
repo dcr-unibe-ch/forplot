@@ -7,7 +7,7 @@
 header_stripes(fobj, item = NULL, ...)
 }
 \arguments{
-\item{fobj}{a forest plot object of class 'fobj'}
+\item{fobj}{a forest plot object of class 'fobj' or 'cfobj'}
 
 \item{item}{if only the header above an item should be modified,
 either a number with the position in layout or the name of the column in fobj$dat.

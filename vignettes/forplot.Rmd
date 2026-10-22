@@ -710,10 +710,12 @@ cfobj$fobjs[[6]]<-gridlines(cfobj$fobjs[[6]])
 cfobj<-cfobj |>
 	header(hlayout = c(1,2,2,3,3,4,4,4),  headernr = 1,
 		labels = c("","Arm A","Arm B",""),
-		y = 0.8) |>
+		y = 0.75) |>
 	header(hlayout = c(1,2,3,4,5,6,6,7), headernr = 2,
 		labels = c("","N","Mean (sd)","N","Mean (sd)","Mean difference (95% CI)",
-      "P-value"), y = 0.3) 
+      "P-value"), y = 0.25) |>
+  header_stripes(col= rgb(1,0,0,.1)) |>
+  header_gridlines()
 	
 #adapt height of header and footer
 cfobj$setup$lheights[1]<-0.15

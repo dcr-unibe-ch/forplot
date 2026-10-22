@@ -7,7 +7,7 @@
 header(fobj, hlayout = NULL, headernr = NULL, ...)
 }
 \arguments{
-\item{fobj}{a forest plot object of class 'fobj'}
+\item{fobj}{a forest plot object of class 'fobj' or 'cfobj'}
 
 \item{hlayout}{layout of header columns. Numeric vector with the same length as the labels.}
 

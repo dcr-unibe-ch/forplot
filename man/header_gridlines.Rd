@@ -7,7 +7,7 @@
 header_gridlines(fobj, ...)
 }
 \arguments{
-\item{fobj}{a forest plot object of class 'fobj'}
+\item{fobj}{a forest plot object of class 'fobj' or 'cfobj'}
 
 \item{...}{options to be passed to Passed to \code{\link[graphics]{abline}}.}
 }

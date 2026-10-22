@@ -1,3 +1,7 @@
+forplot 3.4.1
+------------------
+adapt header_stripes for cfobj
+
 forplot 3.4.0
 ------------------
 add item option to stripes and header_stripes

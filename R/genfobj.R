@@ -1032,7 +1032,7 @@ d_lines<-function(fobj, item = NULL, linenr = NULL, ...) {
 #'
 #'	Passed to \code{\link[graphics]{text}}.
 #'
-#' @param fobj a forest plot object of class 'fobj'
+#' @param fobj a forest plot object of class 'fobj' or 'cfobj'
 #' @param hlayout layout of header columns. Numeric vector with the same length as the labels.
 #' @param headernr header row to be modified.
 #'	If NULL (the default), all header rows are affected
@@ -1116,7 +1116,7 @@ header<-function(fobj, hlayout = NULL, headernr = NULL, ...)	{
 #'	With no argument, the default col = rgb(.1,.1,.1,.1) is used.
 #'	If there are several headers, the 'stripes' argument is added to the first one but applies to all.
 #'
-#' @param fobj a forest plot object of class 'fobj'
+#' @param fobj a forest plot object of class 'fobj' or 'cfobj'
 #' @param item if only the header above an item should be modified, 
 #'	either a number with the position in layout or the name of the column in fobj$dat.
 #' 	If NULL (the default), the whole header is affected.
@@ -1147,6 +1147,14 @@ header_stripes<-function(fobj, item = NULL, ...)	{
 		stop("fobj has to be of class fobj, sfobj or cfobj - use genfobj to define it")
 	}
 	
+	if ("cfobj" %in% class(fobj)) {
+		if (!is.null(item)) {
+			if (!is.numeric(item)) {
+				stop("For a cfobj, the item has to be given by a number.")
+			}
+		}
+	}
+	
 	if (!is.null(item)) {
 		if (!is.numeric(item)) {
 			vnames<-unlist(lapply(fobj$items,function(x) x$vname))
@@ -1158,7 +1166,11 @@ header_stripes<-function(fobj, item = NULL, ...)	{
 			itemnr<-item
 		}
 	} else {
-		itemnr<-1:length(fobj$setup$layout)
+		if (!is.null(fobj$setup$layout)) {
+			itemnr<-1:length(fobj$setup$layout)
+		} else {
+			itemnr<-1:ncol(fobj$setup$lmatrix)
+		}			
 	}
 	
 	input<-list(...)
@@ -1193,7 +1205,7 @@ header_stripes<-function(fobj, item = NULL, ...)	{
 #'
 #'	Passed to \code{\link[graphics]{abline}}.
 #'
-#' @param fobj a forest plot object of class 'fobj'
+#' @param fobj a forest plot object of class 'fobj' or 'cfobj'
 #' @param ... options to be passed to Passed to \code{\link[graphics]{abline}}.
 #'
 #' @returns a forest plot object of class 'fobj'
@@ -1211,8 +1223,8 @@ header_stripes<-function(fobj, item = NULL, ...)	{
 #' plotfobj(fobj)
 header_gridlines<-function(fobj, ...)	{
 
-	if (!("fobj" %in% class(fobj) )) {
-		stop("fobj has to be of class fobj - use genfobj to define it")
+	if (!("fobj" %in% class(fobj) | "sfobj" %in% class(fobj) | "cfobj" %in% class(fobj))) {
+		stop("fobj has to be of class fobj, sfobj or cfobj - use genfobj to define it")
 	}
 	
 	input<-list(...)

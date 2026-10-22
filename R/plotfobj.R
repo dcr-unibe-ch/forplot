@@ -104,7 +104,8 @@ plotfobj<- function(fobj) {
 			plotfobj1(fobj = fobji)
 
 			if (is.null(fobji$header)) {
-				plot(0,type = "n", axes=FALSE, xlab="", ylab="")
+				plot(x=0, type="n", xlim=c(0,1), ylim=c(0,1),
+					ylab="", xlab="", axes=FALSE, xaxs="i", yaxs="i")
 			}
 
 		}
@@ -141,7 +142,8 @@ plotfobj<- function(fobj) {
 			hobj<-list(header=fobj$header,setup=list(lwidths=fobj$setup$lwidths))
 			plotfobj1(fobj = hobj, additems=FALSE, addfoot=FALSE)
 		} else {
-			plot(0,type="n",axes=FALSE,ylim=c(0,1),xlim=c(0,1),xlab="",ylab="")
+			plot(x=0, type="n", xlim=c(0,1), ylim=c(0,1),
+				ylab="", xlab="", axes=FALSE, xaxs="i", yaxs="i")
 		}
 
 		#individual fobjs
