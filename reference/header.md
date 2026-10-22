@@ -12,7 +12,7 @@ header(fobj, hlayout = NULL, headernr = NULL, ...)
 
 - fobj:
 
-  a forest plot object of class 'fobj'
+  a forest plot object of class 'fobj' or 'cfobj'
 
 - hlayout:
 

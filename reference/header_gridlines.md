@@ -12,7 +12,7 @@ header_gridlines(fobj, ...)
 
 - fobj:
 
-  a forest plot object of class 'fobj'
+  a forest plot object of class 'fobj' or 'cfobj'
 
 - ...:
 

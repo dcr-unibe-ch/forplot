@@ -16,7 +16,7 @@ header_stripes(fobj, item = NULL, ...)
 
 - fobj:
 
-  a forest plot object of class 'fobj'
+  a forest plot object of class 'fobj' or 'cfobj'
 
 - item:
 
