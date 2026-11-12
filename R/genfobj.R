@@ -1072,38 +1072,38 @@ header<-function(fobj, hlayout = NULL, headernr = NULL, ...)	{
 
 	input<-list(...)
 
-	if (length(fobj$header)==0) {
+	if (length(fobj$header$main)==0) {
 
 		if (is.null(fobj$dat)) {
 			h<-paste0("header",1:length(fobj$setup$lwidth))
-			fobj$header<-list(list(hlayout = 1:length(fobj$setup$lwidth),
+			fobj$header$main<-list(list(hlayout = 1:length(fobj$setup$lwidth),
 				text = list(x = NULL, y = 0.5, labels = h, adj = c(0.5,0.5))))
 		} else {
 			h<-headernames(dat = fobj$dat, layout = fobj$setup$layout)
-			fobj$header<-list(list(hlayout = 1:length(fobj$setup$layout),
+			fobj$header$main<-list(list(hlayout = 1:length(fobj$setup$layout),
 				text = list(x = NULL, y = 0.5, labels = h, adj = c(0.5,0.5))))
 		}
 	}
 
 
 	if (is.null(headernr)) {
-		headernr<-length(fobj$header)
+		headernr<-length(fobj$header$main)
 	}
 
 
 	for (htn in headernr) {
 
-		if (length(fobj$header)<headernr) {
-			for (i in (length(fobj$header)+1):headernr) {
-				fobj$header<-append(fobj$header,list(fobj$header[[i-1]]))
+		if (length(fobj$header$main)<headernr) {
+			for (i in (length(fobj$header$main)+1):headernr) {
+				fobj$header$main<-append(fobj$header$main,list(fobj$header$main[[i-1]]))
 			}
 		}
 
 		if (!is.null(hlayout)) {
-			fobj$header[[htn]]$hlayout<-hlayout
+			fobj$header$main[[htn]]$hlayout<-hlayout
 		}
 
-		fobj$header[[htn]]$text<-modifyList(fobj$header[[htn]]$text, input)
+		fobj$header$main[[htn]]$text<-modifyList(fobj$header$main[[htn]]$text, input)
 	}
 
 	return(fobj)
@@ -1114,7 +1114,6 @@ header<-function(fobj, hlayout = NULL, headernr = NULL, ...)	{
 #'	Passed to \code{\link[graphics]{rect}}.
 #'  If the xright, xleft, ytop and ybottom are not given, the whole plotting region is used.
 #'	With no argument, the default col = rgb(.1,.1,.1,.1) is used.
-#'	If there are several headers, the 'stripes' argument is added to the first one but applies to all.
 #'
 #' @param fobj a forest plot object of class 'fobj' or 'cfobj'
 #' @param item if only the header above an item should be modified, 
@@ -1175,37 +1174,46 @@ header_stripes<-function(fobj, item = NULL, ...)	{
 	
 	input<-list(...)
 
-	if (length(fobj$header)==0) {
+	#if no header
+	if (is.null(fobj$header$main)) {
 
 		if (is.null(fobj$dat)) {
 			h<-paste0("header",1:length(fobj$setup$lwidth))
-			fobj$header<-list(list(hlayout = 1:length(fobj$setup$lwidth),
+			fobj$header$main<-list(list(hlayout = 1:length(fobj$setup$lwidth),
 				text = list(x = NULL, y = 0.5, labels = h, adj = c(0.5,0.5))))
 		} else {
 			h<-headernames(dat = fobj$dat, layout = fobj$setup$layout)
-			fobj$header<-list(list(hlayout = 1:length(fobj$setup$layout),
+			fobj$header$main<-list(list(hlayout = 1:length(fobj$setup$layout),
 				text = list(x = NULL, y = 0.5, labels = h, adj = c(0.5,0.5))))
 		}
 	}
 	
-	if (is.null(fobj$header[[1]]$stripes)) {
-		fobj$header[[1]]$stripes<-list(items = itemnr, 
-			rect = list(xleft = NA, ybottom = NA, xright = NA, ytop = NA,
-			col = rgb(.1,.1,.1,.1), border = NA))
-	} else {
-		fobj$header[[1]]$stripes$items<-itemnr
+	#if no stripes element
+	if (is.null(fobj$header$stripes)) {
+		fobj$header$stripes<-vector(length=ncol(fobj$setup$lmatrix),mode="list")
 	}
 	
-	fobj$header[[1]]$stripes$rect<-modifyList(fobj$header[[1]]$stripes$rect, input)
-
+	#for each item
+	for (itn in itemnr) {
+		fobj$header$stripes[[itn]]<-list(xleft = NA, ybottom = NA, xright = NA, ytop = NA,
+			col = rgb(.1,.1,.1,.1), border = NA)
+	
+		fobj$header$stripes[[itn]]<-modifyList(fobj$header$stripes[[itn]], input)
+	}
+	
 	return(fobj)
 }
 
-#' Add and customize horizontal lines in the header of a forest plot object (fobj)
+#' Add and customize horizontal and vertical lines in the header of a forest plot object (fobj)
 #'
 #'	Passed to \code{\link[graphics]{abline}}.
+#'  With no argument, horizontal lines are added at the top and bottom (h = c(0,1)).
+#'	Note that the x-and y-scale of each item is c(0,1). 
 #'
 #' @param fobj a forest plot object of class 'fobj' or 'cfobj'
+#' @param item if only the header above an item should be modified, 
+#'	either a number with the position in layout or the name of the column in fobj$dat.
+#' 	If NULL (the default), the whole header is affected.
 #' @param ... options to be passed to Passed to \code{\link[graphics]{abline}}.
 #'
 #' @returns a forest plot object of class 'fobj'
@@ -1221,33 +1229,76 @@ header_stripes<-function(fobj, item = NULL, ...)	{
 #'	lwidths = c(0.8,0.4,0.6,0.4,0.6,1,1,0.5))
 #' fobj<-header_gridlines(fobj = fobj)
 #' plotfobj(fobj)
-header_gridlines<-function(fobj, ...)	{
+header_gridlines<-function(fobj, item = NULL, ...)	{
 
 	if (!("fobj" %in% class(fobj) | "sfobj" %in% class(fobj) | "cfobj" %in% class(fobj))) {
 		stop("fobj has to be of class fobj, sfobj or cfobj - use genfobj to define it")
 	}
 	
+	if ("cfobj" %in% class(fobj)) {
+		if (!is.null(item)) {
+			if (!is.numeric(item)) {
+				stop("For a cfobj, the item has to be given by a number.")
+			}
+		}
+	}
+	
+	if (!is.null(item)) {
+		if (!is.numeric(item)) {
+			vnames<-unlist(lapply(fobj$items,function(x) x$vname))
+			if (!all(item %in% vnames)) {
+				stop("Item have to be numeric or match a columns name from 'dat'")
+			}
+			itemnr<-match(item,unlist(lapply(fobj$items,function(x) x$vname)))
+		} else {
+			itemnr<-item
+		}
+	} else {
+		if (!is.null(fobj$setup$layout)) {
+			itemnr<-1:length(fobj$setup$layout)
+		} else {
+			itemnr<-1:ncol(fobj$setup$lmatrix)
+		}			
+	}
+	
+	
 	input<-list(...)
 	
-	if (length(fobj$header)==0) {
+	#if no header
+	if (is.null(fobj$header$main)) {
 
 		if (is.null(fobj$dat)) {
 			h<-paste0("header",1:length(fobj$setup$lwidth))
-			fobj$header<-list(list(hlayout = 1:length(fobj$setup$lwidth),
+			fobj$header$main<-list(list(hlayout = 1:length(fobj$setup$lwidth),
 				text = list(x = NULL, y = 0.5, labels = h, adj = c(0.5,0.5))))
 		} else {
 			h<-headernames(dat = fobj$dat, layout = fobj$setup$layout)
-			fobj$header<-list(list(hlayout = 1:length(fobj$setup$layout),
+			fobj$header$main<-list(list(hlayout = 1:length(fobj$setup$layout),
 				text = list(x = NULL, y = 0.5, labels = h, adj = c(0.5,0.5))))
 		}
 	}
 	
-	if (is.null(fobj$header[[1]]$gridlines)) {
-		fobj$header[[1]]$gridlines<-list(h = c(0, 1), xpd = TRUE)
+	#if no gridline element
+	if (is.null(fobj$header$gridlines)) {
+		fobj$header$gridlines<-vector(length=ncol(fobj$setup$lmatrix),mode="list")
 	}
-
-	fobj$header[[1]]$gridlines<-modifyList(fobj$header[[1]]$gridlines, input)
-
+	
+	#for each item
+	for (itn in itemnr) {
+		
+		if (is.null(fobj$header$gridlines[[itn]])) {
+			fobj$header$gridlines[[itn]]<-list()
+		}
+		
+		fobj$header$gridlines[[itn]]<-modifyList(fobj$header$gridlines[[itn]], input)
+	
+		if (!any(c("v","h") %in% names(fobj$header$gridlines[[itn]]))) {
+			fobj$header$gridlines[[itn]]<-
+				modifyList(fobj$header$gridlines[[itn]], list(h=c(0,1)))
+		}
+	
+	}
+	
 	return(fobj)
 }
 
@@ -1260,11 +1311,17 @@ header_gridlines<-function(fobj, ...)	{
 # grid options
 #----------------
 
-#' Add and customize horizontal lines in a forest plot object (fobj)
+#' Add and customize horizontal or vertical lines in a forest plot object (fobj).
 #'
-#'	Passed to \code{\link[graphics]{abline}}.
+#' Passed to \code{\link[graphics]{abline}}.
+#' With no argument, horizontal lines are added at the top and bottom.
+#' Note that the x-scale of all times is set to c(0,1). I.e. v=c(0,1) will generate 
+#'	gridlines at the border between items.
 #'
 #' @param fobj a forest plot object of class 'fobj'
+#' @param item item to be modified, either a number with the position in layout 
+#'	or the name of the column in fobj$dat.
+#' 	If NULL (the default), all items are affected.
 #' @param ... options to be passed to Passed to \code{\link[graphics]{abline}}.
 #'
 #' @returns a forest plot object of class 'fobj'
@@ -1280,19 +1337,46 @@ header_gridlines<-function(fobj, ...)	{
 #'	lwidths = c(0.8,0.4,0.6,0.4,0.6,1,1,0.5))
 #' fobj<-gridlines(fobj = fobj)
 #' plotfobj(fobj)
-gridlines<-function(fobj, ...)	{
+gridlines<-function(fobj, item = NULL, ...)	{
 
 	if (!("fobj" %in% class(fobj) )) {
 		stop("fobj has to be of class fobj - use genfobj to define it")
 	}
-
+	
+	if (!is.null(item)) {
+		if (!is.numeric(item)) {
+			vnames<-unlist(lapply(fobj$items,function(x) x$vname))
+			if (!all(item %in% vnames)) {
+				stop("Item have to be numeric or match a columns name from 'dat'")
+			}
+			itemnr<-match(item,unlist(lapply(fobj$items,function(x) x$vname)))
+		} else {
+			itemnr<-item
+		}
+	} else {
+		itemnr<-1:length(fobj$setup$layout)
+	}
+	
 	input<-list(...)
 
-	if (is.null(fobj$gridlines)) {
-		fobj$gridlines<-list(h = c(fobj$setup$ylim[2], fobj$setup$ylim[1]), xpd = TRUE)
+	#if not set up
+	if (is.null(fobj$gridlines)) {		
+		fobj$gridlines<-vector(length=length(fobj$setup$layout),mode="list")
 	}
-
-	fobj$gridlines<-modifyList(fobj$gridlines, input)
+	
+	for (itn in itemnr) {
+	
+		if (is.null(fobj$gridlines[[itn]])) {
+			fobj$gridlines[[itn]]<-list()
+		}
+		
+		fobj$gridlines[[itn]]<-modifyList(fobj$gridlines[[itn]], input)
+		
+		if (!any(c("v","h") %in% names(fobj$gridlines[[itn]]))) {
+			fobj$gridlines[[itn]]<-modifyList(fobj$gridlines[[itn]],
+				list(h = c(fobj$setup$ylim[2], fobj$setup$ylim[1])))
+		}		
+	}	
 
 	return(fobj)
 }
@@ -1348,27 +1432,32 @@ stripes<-function(fobj, item = NULL, ...)	{
 		itemnr<-1:length(fobj$setup$layout)
 	}
 	
-
 	input<-list(...)
+	
+	#defaults
+	lb<-c(fobj$setup$ylim[1],
+		fobj$setup$ylim[1] + sort(fobj$setup$y.at)[-length(fobj$setup$y.at)])
+	ub<-c(fobj$setup$ylim[1] + sort(fobj$setup$y.at))
+	ys<-cbind(lb,ub)[seq(1,length(lb),by=2),]
 
-	if (is.null(fobj$stripes)) {
-		lb<-c(fobj$setup$ylim[1],
-			fobj$setup$ylim[1] + sort(fobj$setup$y.at)[-length(fobj$setup$y.at)])
-		ub<-c(fobj$setup$ylim[1] + sort(fobj$setup$y.at))
-		ys<-cbind(lb,ub)[seq(1,length(lb),by=2),]
-
-		if (!is.matrix(ys)) {
-			ys<-t(matrix(ys))
-		}
-
-		fobj$stripes<-list(items = itemnr, 
-			rect = list(xleft = NA, ybottom = ys[,1], xright = NA, ytop = ys[,2],
-				col = rgb(.1,.1,.1,.1), border = NA))
-	} else {
-		fobj$stripes$items<-itemnr
+	if (!is.matrix(ys)) {
+		ys<-t(matrix(ys))
 	}
+	
+	#if not set up
+	if (is.null(fobj$stripes)) {		
+		fobj$stripes<-vector(length=length(fobj$setup$layout),mode="list")
+	}
+			
+	for (itn in itemnr) {
+	
+		if (is.null(fobj$stripes[[itn]])) {	
+			fobj$stripes[[itn]]<-list(xleft = NA, ybottom = ys[,1], xright = NA, ytop = ys[,2],
+				col = rgb(.1,.1,.1,.1), border = NA)
+		}		
 
-	fobj$stripes$rect<-modifyList(fobj$stripes$rect, input)
+		fobj$stripes[[itn]]<-modifyList(fobj$stripes[[itn]], input)
+	}
 
 	return(fobj)
 }

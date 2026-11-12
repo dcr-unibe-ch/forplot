@@ -2,12 +2,16 @@
 % Please edit documentation in R/genfobj.R
 \name{gridlines}
 \alias{gridlines}
-\title{Add and customize horizontal lines in a forest plot object (fobj)}
+\title{Add and customize horizontal or vertical lines in a forest plot object (fobj).}
 \usage{
-gridlines(fobj, ...)
+gridlines(fobj, item = NULL, ...)
 }
 \arguments{
 \item{fobj}{a forest plot object of class 'fobj'}
+
+\item{item}{item to be modified, either a number with the position in layout
+or the name of the column in fobj$dat.
+If NULL (the default), all items are affected.}
 
 \item{...}{options to be passed to Passed to \code{\link[graphics]{abline}}.}
 }
@@ -16,6 +20,9 @@ a forest plot object of class 'fobj'
 }
 \description{
 Passed to \code{\link[graphics]{abline}}.
+With no argument, horizontal lines are added at the top and bottom.
+Note that the x-scale of all times is set to c(0,1). I.e. v=c(0,1) will generate
+gridlines at the border between items.
 }
 \examples{
 
