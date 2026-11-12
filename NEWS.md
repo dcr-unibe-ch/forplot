@@ -1,3 +1,8 @@
+forplot 3.5.0
+------------------
+re-organize item options for gridlines and stripes
+add item option for header_gridlines
+
 forplot 3.4.1
 ------------------
 adapt header_stripes for cfobj

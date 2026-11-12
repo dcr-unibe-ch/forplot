@@ -2,12 +2,16 @@
 % Please edit documentation in R/genfobj.R
 \name{header_gridlines}
 \alias{header_gridlines}
-\title{Add and customize horizontal lines in the header of a forest plot object (fobj)}
+\title{Add and customize horizontal and vertical lines in the header of a forest plot object (fobj)}
 \usage{
-header_gridlines(fobj, ...)
+header_gridlines(fobj, item = NULL, ...)
 }
 \arguments{
 \item{fobj}{a forest plot object of class 'fobj' or 'cfobj'}
+
+\item{item}{if only the header above an item should be modified,
+either a number with the position in layout or the name of the column in fobj$dat.
+If NULL (the default), the whole header is affected.}
 
 \item{...}{options to be passed to Passed to \code{\link[graphics]{abline}}.}
 }
@@ -16,6 +20,8 @@ a forest plot object of class 'fobj'
 }
 \description{
 Passed to \code{\link[graphics]{abline}}.
+With no argument, horizontal lines are added at the top and bottom (h = c(0,1)).
+Note that the x-and y-scale of each item is c(0,1).
 }
 \examples{
 
