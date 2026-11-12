@@ -1,11 +1,14 @@
-# Add and customize horizontal lines in a forest plot object (fobj)
+# Add and customize horizontal or vertical lines in a forest plot object (fobj).
 
-Passed to [`abline`](https://rdrr.io/r/graphics/abline.html).
+Passed to [`abline`](https://rdrr.io/r/graphics/abline.html). With no
+argument, horizontal lines are added at the top and bottom. Note that
+the x-scale of all times is set to c(0,1). I.e. v=c(0,1) will generate
+gridlines at the border between items.
 
 ## Usage
 
 ``` r
-gridlines(fobj, ...)
+gridlines(fobj, item = NULL, ...)
 ```
 
 ## Arguments
@@ -13,6 +16,12 @@ gridlines(fobj, ...)
 - fobj:
 
   a forest plot object of class 'fobj'
+
+- item:
+
+  item to be modified, either a number with the position in layout or
+  the name of the column in fobj\$dat. If NULL (the default), all items
+  are affected.
 
 - ...:
 
